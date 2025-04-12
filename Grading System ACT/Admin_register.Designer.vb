@@ -47,10 +47,11 @@ Partial Class Admin_register
         backtoclass2.FlatStyle = FlatStyle.Flat
         backtoclass2.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         backtoclass2.ForeColor = SystemColors.ControlLightLight
-        backtoclass2.Location = New Point(147, 445)
+        backtoclass2.Location = New Point(168, 593)
+        backtoclass2.Margin = New Padding(3, 4, 3, 4)
         backtoclass2.Name = "backtoclass2"
         backtoclass2.RightToLeft = RightToLeft.No
-        backtoclass2.Size = New Size(180, 35)
+        backtoclass2.Size = New Size(206, 47)
         backtoclass2.TabIndex = 29
         backtoclass2.Text = "Back"
         backtoclass2.UseVisualStyleBackColor = False
@@ -63,10 +64,11 @@ Partial Class Admin_register
         regnowadmin.FlatStyle = FlatStyle.Flat
         regnowadmin.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         regnowadmin.ForeColor = SystemColors.ControlLightLight
-        regnowadmin.Location = New Point(147, 391)
+        regnowadmin.Location = New Point(168, 521)
+        regnowadmin.Margin = New Padding(3, 4, 3, 4)
         regnowadmin.Name = "regnowadmin"
         regnowadmin.RightToLeft = RightToLeft.No
-        regnowadmin.Size = New Size(180, 35)
+        regnowadmin.Size = New Size(206, 47)
         regnowadmin.TabIndex = 28
         regnowadmin.Text = "Register Now"
         regnowadmin.UseVisualStyleBackColor = False
@@ -74,115 +76,121 @@ Partial Class Admin_register
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(44, 312)
+        Label7.Location = New Point(50, 416)
         Label7.Name = "Label7"
-        Label7.Size = New Size(73, 15)
+        Label7.Size = New Size(92, 20)
         Label7.TabIndex = 27
         Label7.Text = "Department:"
         ' 
         ' addepartment
         ' 
         addepartment.FormattingEnabled = True
-        addepartment.Location = New Point(123, 309)
+        addepartment.Location = New Point(141, 412)
+        addepartment.Margin = New Padding(3, 4, 3, 4)
         addepartment.Name = "addepartment"
-        addepartment.Size = New Size(121, 23)
+        addepartment.Size = New Size(138, 28)
         addepartment.TabIndex = 26
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(64, 213)
+        Label5.Location = New Point(73, 284)
         Label5.Name = "Label5"
-        Label5.Size = New Size(53, 15)
+        Label5.Size = New Size(64, 20)
         Label5.TabIndex = 23
         Label5.Text = "Position:"
         ' 
         ' adid
         ' 
-        adid.Location = New Point(123, 210)
+        adid.Location = New Point(141, 280)
+        adid.Margin = New Padding(3, 4, 3, 4)
         adid.Name = "adid"
-        adid.Size = New Size(240, 23)
+        adid.Size = New Size(274, 27)
         adid.TabIndex = 22
         ' 
         ' adgender
         ' 
-        adgender.Location = New Point(280, 157)
+        adgender.Location = New Point(320, 209)
+        adgender.Margin = New Padding(3, 4, 3, 4)
         adgender.Name = "adgender"
-        adgender.Size = New Size(83, 23)
+        adgender.Size = New Size(94, 27)
         adgender.TabIndex = 21
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(226, 160)
+        Label4.Location = New Point(258, 213)
         Label4.Name = "Label4"
-        Label4.Size = New Size(48, 15)
+        Label4.Size = New Size(60, 20)
         Label4.TabIndex = 20
         Label4.Text = "Gender:"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(86, 160)
+        Label3.Location = New Point(98, 213)
         Label3.Name = "Label3"
-        Label3.Size = New Size(31, 15)
+        Label3.Size = New Size(39, 20)
         Label3.TabIndex = 19
         Label3.Text = "Age:"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(58, 110)
+        Label2.Location = New Point(66, 147)
         Label2.Name = "Label2"
-        Label2.Size = New Size(59, 15)
+        Label2.Size = New Size(72, 20)
         Label2.TabIndex = 18
         Label2.Text = "Fullname:"
         ' 
         ' adage
         ' 
-        adage.Location = New Point(123, 157)
+        adage.Location = New Point(141, 209)
+        adage.Margin = New Padding(3, 4, 3, 4)
         adage.Name = "adage"
-        adage.Size = New Size(87, 23)
+        adage.Size = New Size(99, 27)
         adage.TabIndex = 17
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(147, 32)
+        Label1.Location = New Point(168, 43)
         Label1.Name = "Label1"
-        Label1.Size = New Size(164, 30)
+        Label1.Size = New Size(215, 37)
         Label1.TabIndex = 16
         Label1.Text = "Admin Register"
         ' 
         ' adname
         ' 
-        adname.Location = New Point(123, 107)
+        adname.Location = New Point(141, 143)
+        adname.Margin = New Padding(3, 4, 3, 4)
         adname.Name = "adname"
-        adname.Size = New Size(240, 23)
+        adname.Size = New Size(274, 27)
         adname.TabIndex = 15
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(34, 258)
+        Label8.Location = New Point(39, 344)
         Label8.Name = "Label8"
-        Label8.Size = New Size(83, 15)
+        Label8.Size = New Size(106, 20)
         Label8.TabIndex = 31
         Label8.Text = "Verification ID:"
         ' 
         ' adveri
         ' 
-        adveri.Location = New Point(123, 255)
+        adveri.Location = New Point(141, 340)
+        adveri.Margin = New Padding(3, 4, 3, 4)
         adveri.Name = "adveri"
-        adveri.Size = New Size(240, 23)
+        adveri.Size = New Size(274, 27)
         adveri.TabIndex = 30
         ' 
         ' Admin_register
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(439, 525)
+        ClientSize = New Size(502, 700)
         Controls.Add(Label8)
         Controls.Add(adveri)
         Controls.Add(backtoclass2)
@@ -199,6 +207,7 @@ Partial Class Admin_register
         Controls.Add(Label1)
         Controls.Add(adname)
         FormBorderStyle = FormBorderStyle.None
+        Margin = New Padding(3, 4, 3, 4)
         Name = "Admin_register"
         Text = "Admin_register"
         ResumeLayout(False)

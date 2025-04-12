@@ -41,108 +41,114 @@ Partial Class Student_register
         ' 
         ' studname
         ' 
-        studname.Location = New Point(112, 108)
+        studname.Location = New Point(128, 144)
+        studname.Margin = New Padding(3, 4, 3, 4)
         studname.Name = "studname"
-        studname.Size = New Size(240, 23)
+        studname.Size = New Size(274, 27)
         studname.TabIndex = 0
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(136, 33)
+        Label1.Location = New Point(155, 44)
         Label1.Name = "Label1"
-        Label1.Size = New Size(175, 30)
+        Label1.Size = New Size(230, 37)
         Label1.TabIndex = 1
         Label1.Text = "Student Register"
         ' 
         ' studage
         ' 
-        studage.Location = New Point(112, 158)
+        studage.Location = New Point(128, 211)
+        studage.Margin = New Padding(3, 4, 3, 4)
         studage.Name = "studage"
-        studage.Size = New Size(87, 23)
+        studage.Size = New Size(99, 27)
         studage.TabIndex = 2
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(47, 111)
+        Label2.Location = New Point(54, 148)
         Label2.Name = "Label2"
-        Label2.Size = New Size(59, 15)
+        Label2.Size = New Size(72, 20)
         Label2.TabIndex = 3
         Label2.Text = "Fullname:"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(75, 161)
+        Label3.Location = New Point(86, 215)
         Label3.Name = "Label3"
-        Label3.Size = New Size(31, 15)
+        Label3.Size = New Size(39, 20)
         Label3.TabIndex = 4
         Label3.Text = "Age:"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(215, 161)
+        Label4.Location = New Point(246, 215)
         Label4.Name = "Label4"
-        Label4.Size = New Size(48, 15)
+        Label4.Size = New Size(60, 20)
         Label4.TabIndex = 5
         Label4.Text = "Gender:"
         ' 
         ' studgender
         ' 
-        studgender.Location = New Point(269, 158)
+        studgender.Location = New Point(307, 211)
+        studgender.Margin = New Padding(3, 4, 3, 4)
         studgender.Name = "studgender"
-        studgender.Size = New Size(83, 23)
+        studgender.Size = New Size(94, 27)
         studgender.TabIndex = 6
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(41, 207)
+        Label5.Location = New Point(47, 276)
         Label5.Name = "Label5"
-        Label5.Size = New Size(65, 15)
+        Label5.Size = New Size(82, 20)
         Label5.TabIndex = 8
         Label5.Text = "Student ID:"
         ' 
         ' studid
         ' 
-        studid.Location = New Point(112, 204)
+        studid.Location = New Point(128, 272)
+        studid.Margin = New Padding(3, 4, 3, 4)
         studid.Name = "studid"
-        studid.Size = New Size(240, 23)
+        studid.Size = New Size(274, 27)
         studid.TabIndex = 7
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(57, 259)
+        Label6.Location = New Point(65, 345)
         Label6.Name = "Label6"
-        Label6.Size = New Size(49, 15)
+        Label6.Size = New Size(61, 20)
         Label6.TabIndex = 10
         Label6.Text = "Section:"
         ' 
         ' studsection
         ' 
-        studsection.Location = New Point(112, 256)
+        studsection.Location = New Point(128, 341)
+        studsection.Margin = New Padding(3, 4, 3, 4)
         studsection.Name = "studsection"
-        studsection.Size = New Size(240, 23)
+        studsection.Size = New Size(274, 27)
         studsection.TabIndex = 9
         ' 
         ' studdepartment
         ' 
         studdepartment.FormattingEnabled = True
-        studdepartment.Location = New Point(112, 316)
+        studdepartment.Location = New Point(128, 421)
+        studdepartment.Margin = New Padding(3, 4, 3, 4)
         studdepartment.Name = "studdepartment"
-        studdepartment.Size = New Size(121, 23)
+        studdepartment.Size = New Size(138, 28)
         studdepartment.TabIndex = 11
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(33, 319)
+        Label7.Location = New Point(38, 425)
         Label7.Name = "Label7"
-        Label7.Size = New Size(73, 15)
+        Label7.Size = New Size(92, 20)
         Label7.TabIndex = 12
         Label7.Text = "Department:"
         ' 
@@ -154,10 +160,11 @@ Partial Class Student_register
         regnowstudent.FlatStyle = FlatStyle.Flat
         regnowstudent.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         regnowstudent.ForeColor = SystemColors.ControlLightLight
-        regnowstudent.Location = New Point(136, 392)
+        regnowstudent.Location = New Point(155, 523)
+        regnowstudent.Margin = New Padding(3, 4, 3, 4)
         regnowstudent.Name = "regnowstudent"
         regnowstudent.RightToLeft = RightToLeft.No
-        regnowstudent.Size = New Size(180, 35)
+        regnowstudent.Size = New Size(206, 47)
         regnowstudent.TabIndex = 13
         regnowstudent.Text = "Register Now"
         regnowstudent.UseVisualStyleBackColor = False
@@ -170,19 +177,20 @@ Partial Class Student_register
         backtoclass.FlatStyle = FlatStyle.Flat
         backtoclass.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         backtoclass.ForeColor = SystemColors.ControlLightLight
-        backtoclass.Location = New Point(136, 446)
+        backtoclass.Location = New Point(155, 595)
+        backtoclass.Margin = New Padding(3, 4, 3, 4)
         backtoclass.Name = "backtoclass"
         backtoclass.RightToLeft = RightToLeft.No
-        backtoclass.Size = New Size(180, 35)
+        backtoclass.Size = New Size(206, 47)
         backtoclass.TabIndex = 14
         backtoclass.Text = "Back"
         backtoclass.UseVisualStyleBackColor = False
         ' 
         ' Student_register
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(439, 525)
+        ClientSize = New Size(502, 700)
         Controls.Add(backtoclass)
         Controls.Add(regnowstudent)
         Controls.Add(Label7)
@@ -199,6 +207,7 @@ Partial Class Student_register
         Controls.Add(Label1)
         Controls.Add(studname)
         FormBorderStyle = FormBorderStyle.None
+        Margin = New Padding(3, 4, 3, 4)
         Name = "Student_register"
         Text = "Student_register"
         ResumeLayout(False)
