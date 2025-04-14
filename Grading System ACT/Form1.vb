@@ -26,27 +26,31 @@ Public Class Form1
             cmd.Parameters.AddWithValue("@Password", passwordinput.Text.Trim())
 
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
-
             If reader.Read() Then
                 Dim userLevel As String = reader("user_level").ToString()
 
                 MessageBox.Show("Login successful as " & userLevel, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                ' Go to the appropriate page based on user level
                 Select Case userLevel
                     Case "Admin"
                         Dim adminForm As New AdminPagevb()
                         adminForm.Show()
+
                     Case "Student"
                         Dim studentForm As New StudentPage()
                         studentForm.Show()
+
                     Case "Teacher"
-                        Dim teacherForm As New TeacherPage()
+                        Dim teacherName As String = reader("fullname").ToString()
+                        Dim teacherDept As String = reader("department").ToString()
+
+                        Dim teacherForm As New TeacherPage(teacherName, teacherDept)
                         teacherForm.Show()
                 End Select
 
                 Me.Hide()
-                attemptCounter = 0 ' reset attempts on success
+                attemptCounter = 0
+
             Else
                 attemptCounter += 1
                 MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)

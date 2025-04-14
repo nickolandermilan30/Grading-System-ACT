@@ -23,26 +23,28 @@ Partial Class TeacherPage
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TeacherPage))
-        DataGridView1 = New DataGridView()
+        grid = New DataGridView()
         PictureBox1 = New PictureBox()
         addsubject = New Button()
         addstudent = New Button()
         closebtn = New Button()
         Label1 = New Label()
-        name = New Label()
-        Label2 = New Label()
+        nameteachpage = New Label()
+        departmentteachpage = New Label()
         Label3 = New Label()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        semesterteachpage = New ComboBox()
+        CType(grid, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' DataGridView1
+        ' grid
         ' 
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(176, 58)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.Size = New Size(559, 380)
-        DataGridView1.TabIndex = 0
+        grid.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        grid.Location = New Point(176, 58)
+        grid.Name = "grid"
+        grid.Size = New Size(559, 380)
+        grid.TabIndex = 0
         ' 
         ' PictureBox1
         ' 
@@ -62,7 +64,7 @@ Partial Class TeacherPage
         addsubject.FlatStyle = FlatStyle.Flat
         addsubject.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         addsubject.ForeColor = SystemColors.ControlLightLight
-        addsubject.Location = New Point(12, 235)
+        addsubject.Location = New Point(12, 212)
         addsubject.Name = "addsubject"
         addsubject.RightToLeft = RightToLeft.No
         addsubject.Size = New Size(146, 43)
@@ -78,7 +80,7 @@ Partial Class TeacherPage
         addstudent.FlatStyle = FlatStyle.Flat
         addstudent.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         addstudent.ForeColor = SystemColors.ControlLightLight
-        addstudent.Location = New Point(12, 300)
+        addstudent.Location = New Point(12, 277)
         addstudent.Name = "addstudent"
         addstudent.RightToLeft = RightToLeft.No
         addstudent.Size = New Size(146, 43)
@@ -88,6 +90,7 @@ Partial Class TeacherPage
         ' 
         ' closebtn
         ' 
+        closebtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         closebtn.BackColor = Color.Red
         closebtn.FlatAppearance.BorderColor = Color.White
         closebtn.FlatAppearance.BorderSize = 0
@@ -99,7 +102,7 @@ Partial Class TeacherPage
         closebtn.RightToLeft = RightToLeft.No
         closebtn.Size = New Size(146, 40)
         closebtn.TabIndex = 12
-        closebtn.Text = "Close"
+        closebtn.Text = "Log out"
         closebtn.UseVisualStyleBackColor = False
         ' 
         ' Label1
@@ -112,65 +115,75 @@ Partial Class TeacherPage
         Label1.TabIndex = 13
         Label1.Text = "Name:"
         ' 
-        ' name
+        ' nameteachpage
         ' 
-        name.AutoSize = True
-        name.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        name.Location = New Point(238, 22)
-        name.Name = "name"
-        name.Size = New Size(31, 17)
-        name.TabIndex = 14
-        name.Text = "N/A"
+        nameteachpage.AutoSize = True
+        nameteachpage.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nameteachpage.Location = New Point(238, 22)
+        nameteachpage.Name = "nameteachpage"
+        nameteachpage.Size = New Size(31, 17)
+        nameteachpage.TabIndex = 14
+        nameteachpage.Text = "N/A"
         ' 
-        ' Label2
+        ' departmentteachpage
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(653, 23)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(31, 17)
-        Label2.TabIndex = 16
-        Label2.Text = "N/A"
+        departmentteachpage.AutoSize = True
+        departmentteachpage.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        departmentteachpage.Location = New Point(612, 23)
+        departmentteachpage.Name = "departmentteachpage"
+        departmentteachpage.Size = New Size(31, 17)
+        departmentteachpage.TabIndex = 16
+        departmentteachpage.Text = "N/A"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(549, 21)
+        Label3.Location = New Point(508, 21)
         Label3.Name = "Label3"
         Label3.Size = New Size(98, 20)
         Label3.TabIndex = 15
         Label3.Text = "Department:"
+        ' 
+        ' semesterteachpage
+        ' 
+        semesterteachpage.FormattingEnabled = True
+        semesterteachpage.Location = New Point(12, 165)
+        semesterteachpage.Name = "semesterteachpage"
+        semesterteachpage.Size = New Size(146, 23)
+        semesterteachpage.TabIndex = 17
         ' 
         ' TeacherPage
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(747, 450)
-        Controls.Add(Label2)
+        Controls.Add(semesterteachpage)
+        Controls.Add(departmentteachpage)
         Controls.Add(Label3)
-        Controls.Add(name)
+        Controls.Add(nameteachpage)
         Controls.Add(Label1)
         Controls.Add(closebtn)
         Controls.Add(addstudent)
         Controls.Add(addsubject)
         Controls.Add(PictureBox1)
-        Controls.Add(DataGridView1)
+        Controls.Add(grid)
         Name = "TeacherPage"
         Text = "TeacherPage"
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(grid, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents grid As DataGridView
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents addsubject As Button
     Friend WithEvents addstudent As Button
     Friend WithEvents closebtn As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents name As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents nameteachpage As Label
+    Friend WithEvents departmentteachpage As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents semesterteachpage As ComboBox
 End Class

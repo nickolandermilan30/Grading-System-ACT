@@ -1,5 +1,4 @@
-﻿
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Module DBConnection
     Public conn As New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
