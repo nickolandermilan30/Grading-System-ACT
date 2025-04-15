@@ -42,12 +42,13 @@ Partial Class Grading
         Label10 = New Label()
         subjectgrading = New Label()
         closebtn = New Button()
-        Button1 = New Button()
+        applycolumn = New Button()
         Label4 = New Label()
         totalgrade = New Label()
-        Label11 = New Label()
+        standinggrade = New Label()
         Label12 = New Label()
         namegrading = New Label()
+        semester = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -213,25 +214,25 @@ Partial Class Grading
         closebtn.RightToLeft = RightToLeft.No
         closebtn.Size = New Size(146, 40)
         closebtn.TabIndex = 32
-        closebtn.Text = "Log out"
+        closebtn.Text = "Back"
         closebtn.UseVisualStyleBackColor = False
         ' 
-        ' Button1
+        ' applycolumn
         ' 
-        Button1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        Button1.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(0))
-        Button1.FlatAppearance.BorderColor = Color.White
-        Button1.FlatAppearance.BorderSize = 0
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button1.ForeColor = SystemColors.ControlLightLight
-        Button1.Location = New Point(69, 470)
-        Button1.Name = "Button1"
-        Button1.RightToLeft = RightToLeft.No
-        Button1.Size = New Size(146, 40)
-        Button1.TabIndex = 33
-        Button1.Text = "Apply"
-        Button1.UseVisualStyleBackColor = False
+        applycolumn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        applycolumn.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(0))
+        applycolumn.FlatAppearance.BorderColor = Color.White
+        applycolumn.FlatAppearance.BorderSize = 0
+        applycolumn.FlatStyle = FlatStyle.Flat
+        applycolumn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        applycolumn.ForeColor = SystemColors.ControlLightLight
+        applycolumn.Location = New Point(69, 470)
+        applycolumn.Name = "applycolumn"
+        applycolumn.RightToLeft = RightToLeft.No
+        applycolumn.Size = New Size(146, 40)
+        applycolumn.TabIndex = 33
+        applycolumn.Text = "Apply"
+        applycolumn.UseVisualStyleBackColor = False
         ' 
         ' Label4
         ' 
@@ -253,15 +254,15 @@ Partial Class Grading
         totalgrade.TabIndex = 35
         totalgrade.Text = "N/A"
         ' 
-        ' Label11
+        ' standinggrade
         ' 
-        Label11.AutoSize = True
-        Label11.Font = New Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label11.Location = New Point(303, 173)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(61, 32)
-        Label11.TabIndex = 37
-        Label11.Text = "N/A"
+        standinggrade.AutoSize = True
+        standinggrade.Font = New Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        standinggrade.Location = New Point(303, 173)
+        standinggrade.Name = "standinggrade"
+        standinggrade.Size = New Size(61, 32)
+        standinggrade.TabIndex = 37
+        standinggrade.Text = "N/A"
         ' 
         ' Label12
         ' 
@@ -283,17 +284,28 @@ Partial Class Grading
         namegrading.TabIndex = 39
         namegrading.Text = "N/A"
         ' 
+        ' semester
+        ' 
+        semester.AutoSize = True
+        semester.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        semester.Location = New Point(347, 24)
+        semester.Name = "semester"
+        semester.Size = New Size(102, 30)
+        semester.TabIndex = 40
+        semester.Text = "Semester"
+        ' 
         ' Grading
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(461, 537)
+        Controls.Add(semester)
         Controls.Add(namegrading)
         Controls.Add(Label12)
-        Controls.Add(Label11)
+        Controls.Add(standinggrade)
         Controls.Add(totalgrade)
         Controls.Add(Label4)
-        Controls.Add(Button1)
+        Controls.Add(applycolumn)
         Controls.Add(closebtn)
         Controls.Add(subjectgrading)
         Controls.Add(exam)
@@ -339,10 +351,11 @@ Partial Class Grading
     Friend WithEvents Label10 As Label
     Friend WithEvents subjectgrading As Label
     Friend WithEvents closebtn As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents applycolumn As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents totalgrade As Label
-    Friend WithEvents Label11 As Label
+    Friend WithEvents standinggrade As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents namegrading As Label
+    Friend WithEvents semester As Label
 End Class

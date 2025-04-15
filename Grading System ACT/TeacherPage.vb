@@ -26,6 +26,53 @@ Public Class TeacherPage
         LoadStudentData()
     End Sub
 
+    Public Sub RefreshStudentGrades()
+        ' This will reload the grid with updated standing grades
+        Dim currentSemester As String = semesterteachpage.SelectedItem.ToString()
+        GenerateSemesterColumns(currentSemester)
+        LoadStudentData()
+        LoadGradesIntoGrid(currentSemester)
+    End Sub
+
+    Private Sub LoadGradesIntoGrid(semester As String)
+        Try
+            OpenConnection()
+
+            ' For each row (student), retrieve and populate standing grades for each subject and semester
+            For Each row As DataGridViewRow In grid.Rows
+                If row.IsNewRow Then Continue For
+
+                Dim studentName As String = row.Cells("name").Value.ToString()
+
+                ' Query to fetch grades for the specific student and semester from the 'grades' table
+                Dim query As String = "SELECT subject_name, standing_grade FROM grades WHERE student_name = @studentName AND semester_name = @semester"
+                Dim cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@studentName", studentName)
+                cmd.Parameters.AddWithValue("@semester", semester)
+
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    While reader.Read()
+                        Dim subject As String = reader("subject_name").ToString()
+                        Dim standing As String = reader("standing_grade").ToString()
+
+                        ' Create column name based on subject and semester
+                        Dim colKey As String = subject & "_" & semester.Replace("-", "")
+                        If grid.Columns.Contains(colKey) Then
+                            row.Cells(colKey).Value = standing
+                        End If
+                    End While
+                End Using
+            Next
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading grades: " & ex.Message)
+        Finally
+            CloseConnection()
+        End Try
+    End Sub
+
+
+
     Private Sub LoadStudentData()
         ' Clear any existing rows
         grid.Rows.Clear()
@@ -41,25 +88,27 @@ Public Class TeacherPage
             ' Read student data
             Using reader As MySqlDataReader = cmd.ExecuteReader()
                 While reader.Read()
-                    ' Add each student as a row in the DataGridView
                     Dim row As String() = {
                     reader("fullname").ToString(),
                     reader("gender").ToString(),
                     reader("student_id").ToString()
                 }
-
-                    ' Add the row for the student
                     grid.Rows.Add(row)
+                    grid.AllowUserToAddRows = False
                 End While
             End Using
 
         Catch ex As Exception
             MessageBox.Show("Error loading student data: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            ' Close the connection
             CloseConnection()
         End Try
+
+        ' ✅ Load grades after students are added
+        LoadGradesIntoGrid(semesterteachpage.SelectedItem.ToString())
     End Sub
+
+
 
 
     Private Sub addsubject_Click(sender As Object, e As EventArgs) Handles addsubject.Click
@@ -71,11 +120,11 @@ Public Class TeacherPage
     End Sub
 
 
-    Private Sub semesterteachpage_SelectedIndexChanged(sender As Object, e As EventArgs) Handles semesterteachpage.SelectedIndexChanged
-        ' Get the selected semester and generate the columns accordingly
+    Private Sub semesterteachpage_SelectedIndexChanged(sender As Object, e As EventArgs) Handles semesterteachpage.SelectedIndexChanged  ' Get the selected semester and generate the columns accordingly
         Dim selectedSemester As String = semesterteachpage.SelectedItem.ToString()
         GenerateSemesterColumns(selectedSemester)
         LoadStudentData()
+        RefreshStudentGrades()
     End Sub
 
     Private Sub GenerateSemesterColumns(semester As String)
@@ -126,28 +175,34 @@ Public Class TeacherPage
 
 
 
-    Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
-        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            Dim clickedColumnName As String = grid.Columns(e.ColumnIndex).Name
+Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
+    If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+        Dim clickedColumnName As String = grid.Columns(e.ColumnIndex).Name
 
-            ' Skip if it's not a subject column
-            If clickedColumnName = "name" OrElse clickedColumnName = "gender" OrElse clickedColumnName = "studentId" Then
-                Return
-            End If
+        ' Skip if it's not a subject column
+        If clickedColumnName = "name" OrElse clickedColumnName = "gender" OrElse clickedColumnName = "studentId" Then
+            Return
+        End If
 
-            ' Get student name
-            Dim studentName As String = grid.Rows(e.RowIndex).Cells("name").Value.ToString()
+        ' Get student name
+        Dim studentName As String = grid.Rows(e.RowIndex).Cells("name").Value.ToString()
 
-            ' Extract subject name (removing "_Prelim", "_Midterm", etc.)
-            Dim subjectRaw As String = clickedColumnName
-            Dim subjectName As String = subjectRaw.Split("_"c)(0)
+        ' Extract subject name (removing "_Prelim", "_Midterm", etc.)
+        Dim subjectRaw As String = clickedColumnName
+        Dim subjectName As String = subjectRaw.Split("_"c)(0)
 
             ' Open Grading form and pass data
             Dim gradingForm As New Grading()
-            gradingForm.SetStudentAndSubject(studentName, subjectName)
+            Dim selectedSemester As String = semesterteachpage.SelectedItem.ToString()
+            gradingForm.SetStudentAndSubject(studentName, subjectName, selectedSemester)
+            gradingForm.SetTeacherPageRef(Me) ' Pass current form
             gradingForm.Show()
+            Me.Hide()
+
         End If
-    End Sub
+End Sub
+
+
 
 
 
