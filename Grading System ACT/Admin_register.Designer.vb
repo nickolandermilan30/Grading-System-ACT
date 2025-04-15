@@ -45,6 +45,7 @@ Partial Class Admin_register
         ' 
         ' backtoclass2
         ' 
+        backtoclass2.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         backtoclass2.BackColor = Color.Red
         backtoclass2.FlatAppearance.BorderColor = Color.White
         backtoclass2.FlatAppearance.BorderSize = 0
@@ -61,6 +62,7 @@ Partial Class Admin_register
         ' 
         ' regnowadmin
         ' 
+        regnowadmin.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         regnowadmin.BackColor = SystemColors.ActiveCaptionText
         regnowadmin.FlatAppearance.BorderColor = Color.White
         regnowadmin.FlatAppearance.BorderSize = 0
@@ -86,6 +88,7 @@ Partial Class Admin_register
         ' 
         ' addepartment
         ' 
+        addepartment.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         addepartment.FormattingEnabled = True
         addepartment.Location = New Point(121, 345)
         addepartment.Name = "addepartment"
@@ -103,6 +106,7 @@ Partial Class Admin_register
         ' 
         ' adid
         ' 
+        adid.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         adid.Location = New Point(121, 228)
         adid.Name = "adid"
         adid.Size = New Size(240, 23)
@@ -151,6 +155,7 @@ Partial Class Admin_register
         ' 
         ' Label1
         ' 
+        Label1.Anchor = AnchorStyles.Top
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(147, 32)
@@ -161,6 +166,7 @@ Partial Class Admin_register
         ' 
         ' adname
         ' 
+        adname.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         adname.Location = New Point(121, 136)
         adname.Name = "adname"
         adname.Size = New Size(240, 23)
@@ -177,6 +183,7 @@ Partial Class Admin_register
         ' 
         ' adveri
         ' 
+        adveri.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         adveri.Location = New Point(121, 267)
         adveri.Name = "adveri"
         adveri.Size = New Size(240, 23)
@@ -193,6 +200,7 @@ Partial Class Admin_register
         ' 
         ' ademail
         ' 
+        ademail.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         ademail.Location = New Point(121, 97)
         ademail.Name = "ademail"
         ademail.Size = New Size(240, 23)
@@ -209,6 +217,7 @@ Partial Class Admin_register
         ' 
         ' adpassword
         ' 
+        adpassword.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         adpassword.Location = New Point(121, 305)
         adpassword.Name = "adpassword"
         adpassword.Size = New Size(240, 23)
@@ -238,7 +247,7 @@ Partial Class Admin_register
         Controls.Add(adage)
         Controls.Add(Label1)
         Controls.Add(adname)
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "Admin_register"
         Text = "Admin_register"
         ResumeLayout(False)

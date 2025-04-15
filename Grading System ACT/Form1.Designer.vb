@@ -39,6 +39,7 @@ Partial Class Form1
         ' 
         ' emailinput
         ' 
+        emailinput.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         emailinput.Location = New Point(52, 153)
         emailinput.Name = "emailinput"
         emailinput.Size = New Size(346, 23)
@@ -46,6 +47,7 @@ Partial Class Form1
         ' 
         ' passwordinput
         ' 
+        passwordinput.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         passwordinput.Location = New Point(52, 223)
         passwordinput.Name = "passwordinput"
         passwordinput.Size = New Size(346, 23)
@@ -71,6 +73,7 @@ Partial Class Form1
         ' 
         ' loginbtn
         ' 
+        loginbtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         loginbtn.BackColor = SystemColors.ActiveCaptionText
         loginbtn.FlatAppearance.BorderColor = Color.White
         loginbtn.FlatAppearance.BorderSize = 0
@@ -87,6 +90,7 @@ Partial Class Form1
         ' 
         ' registerbtn
         ' 
+        registerbtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         registerbtn.BackColor = SystemColors.ActiveCaptionText
         registerbtn.FlatAppearance.BorderColor = Color.White
         registerbtn.FlatAppearance.BorderSize = 0
@@ -103,6 +107,7 @@ Partial Class Form1
         ' 
         ' forgotbtn
         ' 
+        forgotbtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         forgotbtn.BackColor = SystemColors.ActiveCaptionText
         forgotbtn.FlatAppearance.BorderColor = Color.White
         forgotbtn.FlatAppearance.BorderSize = 0
@@ -119,6 +124,7 @@ Partial Class Form1
         ' 
         ' seepass
         ' 
+        seepass.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         seepass.AutoSize = True
         seepass.Location = New Point(301, 264)
         seepass.Name = "seepass"
@@ -129,6 +135,7 @@ Partial Class Form1
         ' 
         ' PictureBox1
         ' 
+        PictureBox1.Anchor = AnchorStyles.Top
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
         PictureBox1.Location = New Point(175, 12)
         PictureBox1.Name = "PictureBox1"
@@ -139,6 +146,7 @@ Partial Class Form1
         ' 
         ' closebtn
         ' 
+        closebtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         closebtn.BackColor = Color.Red
         closebtn.FlatAppearance.BorderColor = Color.White
         closebtn.FlatAppearance.BorderSize = 0
@@ -178,7 +186,7 @@ Partial Class Form1
         Controls.Add(Email)
         Controls.Add(passwordinput)
         Controls.Add(emailinput)
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "Form1"
         Text = "Log In"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()

@@ -50,6 +50,7 @@ Partial Class Resgister_Type
         ' 
         ' adminbtn
         ' 
+        adminbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         adminbtn.Image = CType(resources.GetObject("adminbtn.Image"), Image)
         adminbtn.Location = New Point(276, 89)
         adminbtn.Name = "adminbtn"
@@ -60,6 +61,7 @@ Partial Class Resgister_Type
         ' 
         ' teacherbtn
         ' 
+        teacherbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         teacherbtn.Image = CType(resources.GetObject("teacherbtn.Image"), Image)
         teacherbtn.Location = New Point(495, 89)
         teacherbtn.Name = "teacherbtn"
@@ -80,6 +82,7 @@ Partial Class Resgister_Type
         ' 
         ' Admin
         ' 
+        Admin.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Admin.AutoSize = True
         Admin.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Admin.Location = New Point(327, 306)
@@ -90,6 +93,7 @@ Partial Class Resgister_Type
         ' 
         ' Label1
         ' 
+        Label1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(554, 306)
@@ -116,6 +120,7 @@ Partial Class Resgister_Type
         ' 
         ' adbtn
         ' 
+        adbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         adbtn.BackColor = SystemColors.ActiveCaptionText
         adbtn.FlatAppearance.BorderColor = Color.White
         adbtn.FlatAppearance.BorderSize = 0
@@ -132,6 +137,7 @@ Partial Class Resgister_Type
         ' 
         ' teachbtn
         ' 
+        teachbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         teachbtn.BackColor = SystemColors.ActiveCaptionText
         teachbtn.FlatAppearance.BorderColor = Color.White
         teachbtn.FlatAppearance.BorderSize = 0
@@ -148,6 +154,7 @@ Partial Class Resgister_Type
         ' 
         ' backtologin
         ' 
+        backtologin.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         backtologin.BackColor = Color.Red
         backtologin.FlatAppearance.BorderColor = Color.White
         backtologin.FlatAppearance.BorderSize = 0
@@ -177,7 +184,7 @@ Partial Class Resgister_Type
         Controls.Add(teacherbtn)
         Controls.Add(adminbtn)
         Controls.Add(studentbtn)
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "Resgister_Type"
         Text = "Resgister_Type"
         CType(studentbtn, ComponentModel.ISupportInitialize).EndInit()

@@ -115,8 +115,7 @@ Public Class TeacherPage
         Dim addSubjectForm As New Add_subject()
         addSubjectForm.TeacherNameFromMain = Me.teacherName
         addSubjectForm.TeacherDeptFromMain = Me.teacherDept
-        addSubjectForm.Show()
-        Me.Hide()
+        addSubjectForm.ShowDialog()
     End Sub
 
 
@@ -175,32 +174,32 @@ Public Class TeacherPage
 
 
 
-Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
-    If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-        Dim clickedColumnName As String = grid.Columns(e.ColumnIndex).Name
+    Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim clickedColumnName As String = grid.Columns(e.ColumnIndex).Name
 
-        ' Skip if it's not a subject column
-        If clickedColumnName = "name" OrElse clickedColumnName = "gender" OrElse clickedColumnName = "studentId" Then
-            Return
-        End If
+            ' Skip if it's not a subject column
+            If clickedColumnName = "name" OrElse clickedColumnName = "gender" OrElse clickedColumnName = "studentId" Then
+                Return
+            End If
 
-        ' Get student name
-        Dim studentName As String = grid.Rows(e.RowIndex).Cells("name").Value.ToString()
+            ' Get student name
+            Dim studentName As String = grid.Rows(e.RowIndex).Cells("name").Value.ToString()
 
-        ' Extract subject name (removing "_Prelim", "_Midterm", etc.)
-        Dim subjectRaw As String = clickedColumnName
-        Dim subjectName As String = subjectRaw.Split("_"c)(0)
+            ' Extract subject name (removing "_Prelim", "_Midterm", etc.)
+            Dim subjectRaw As String = clickedColumnName
+            Dim subjectName As String = subjectRaw.Split("_"c)(0)
 
             ' Open Grading form and pass data
             Dim gradingForm As New Grading()
             Dim selectedSemester As String = semesterteachpage.SelectedItem.ToString()
             gradingForm.SetStudentAndSubject(studentName, subjectName, selectedSemester)
             gradingForm.SetTeacherPageRef(Me) ' Pass current form
-            gradingForm.Show()
-            Me.Hide()
+            gradingForm.ShowDialog()
+
 
         End If
-End Sub
+    End Sub
 
 
 
@@ -208,8 +207,13 @@ End Sub
 
     Private Sub addstudent_Click(sender As Object, e As EventArgs) Handles addstudent.Click
         Dim addStudentForm As New Add_Student()
-        addStudentForm.Show()
-        Me.Hide() ' Optional: hide the current TeacherPage form if needed
+        addStudentForm.ShowDialog()
+    End Sub
+
+    Private Sub closebtn_Click(sender As Object, e As EventArgs) Handles closebtn.Click
+        Dim mainForm As New Form1()
+        mainForm.Show()
+        Me.Close()
     End Sub
 
 End Class

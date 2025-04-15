@@ -45,6 +45,7 @@ Partial Class Teacher_register
         ' 
         ' backtoclass3
         ' 
+        backtoclass3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         backtoclass3.BackColor = Color.Red
         backtoclass3.FlatAppearance.BorderColor = Color.White
         backtoclass3.FlatAppearance.BorderSize = 0
@@ -61,6 +62,7 @@ Partial Class Teacher_register
         ' 
         ' regnowteacher
         ' 
+        regnowteacher.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         regnowteacher.BackColor = SystemColors.ActiveCaptionText
         regnowteacher.FlatAppearance.BorderColor = Color.White
         regnowteacher.FlatAppearance.BorderSize = 0
@@ -86,6 +88,7 @@ Partial Class Teacher_register
         ' 
         ' teachdepartment
         ' 
+        teachdepartment.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         teachdepartment.FormattingEnabled = True
         teachdepartment.Location = New Point(124, 351)
         teachdepartment.Name = "teachdepartment"
@@ -103,6 +106,7 @@ Partial Class Teacher_register
         ' 
         ' teachmajor
         ' 
+        teachmajor.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         teachmajor.Location = New Point(124, 307)
         teachmajor.Name = "teachmajor"
         teachmajor.Size = New Size(240, 23)
@@ -119,6 +123,7 @@ Partial Class Teacher_register
         ' 
         ' teachid
         ' 
+        teachid.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         teachid.Location = New Point(124, 229)
         teachid.Name = "teachid"
         teachid.Size = New Size(240, 23)
@@ -167,6 +172,7 @@ Partial Class Teacher_register
         ' 
         ' Label1
         ' 
+        Label1.Anchor = AnchorStyles.Top
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(148, 40)
@@ -177,6 +183,7 @@ Partial Class Teacher_register
         ' 
         ' teachname
         ' 
+        teachname.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         teachname.Location = New Point(124, 99)
         teachname.Name = "teachname"
         teachname.Size = New Size(240, 23)
@@ -193,6 +200,7 @@ Partial Class Teacher_register
         ' 
         ' emailteach
         ' 
+        emailteach.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         emailteach.Location = New Point(124, 139)
         emailteach.Name = "emailteach"
         emailteach.Size = New Size(240, 23)
@@ -209,6 +217,7 @@ Partial Class Teacher_register
         ' 
         ' teachpassword
         ' 
+        teachpassword.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         teachpassword.Location = New Point(124, 269)
         teachpassword.Name = "teachpassword"
         teachpassword.Size = New Size(240, 23)
@@ -239,7 +248,7 @@ Partial Class Teacher_register
         Controls.Add(Label1)
         Controls.Add(teachname)
         ForeColor = SystemColors.ActiveCaptionText
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "Teacher_register"
         Text = "Teacher_register"
         ResumeLayout(False)

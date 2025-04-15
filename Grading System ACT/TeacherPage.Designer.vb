@@ -170,6 +170,7 @@ Partial Class TeacherPage
         Controls.Add(grid)
         Name = "TeacherPage"
         Text = "TeacherPage"
+        WindowState = FormWindowState.Maximized
         CType(grid, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

@@ -45,6 +45,7 @@ Partial Class Student_register
         ' 
         ' studname
         ' 
+        studname.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         studname.Location = New Point(112, 108)
         studname.Name = "studname"
         studname.Size = New Size(240, 23)
@@ -52,6 +53,7 @@ Partial Class Student_register
         ' 
         ' Label1
         ' 
+        Label1.Anchor = AnchorStyles.Top
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(136, 33)
@@ -112,6 +114,7 @@ Partial Class Student_register
         ' 
         ' studid
         ' 
+        studid.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         studid.Location = New Point(112, 234)
         studid.Name = "studid"
         studid.Size = New Size(240, 23)
@@ -128,6 +131,7 @@ Partial Class Student_register
         ' 
         ' studsection
         ' 
+        studsection.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         studsection.Location = New Point(112, 272)
         studsection.Name = "studsection"
         studsection.Size = New Size(240, 23)
@@ -135,6 +139,7 @@ Partial Class Student_register
         ' 
         ' studdepartment
         ' 
+        studdepartment.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         studdepartment.FormattingEnabled = True
         studdepartment.Location = New Point(112, 354)
         studdepartment.Name = "studdepartment"
@@ -152,6 +157,7 @@ Partial Class Student_register
         ' 
         ' regnowstudent
         ' 
+        regnowstudent.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         regnowstudent.BackColor = SystemColors.ActiveCaptionText
         regnowstudent.FlatAppearance.BorderColor = Color.White
         regnowstudent.FlatAppearance.BorderSize = 0
@@ -168,6 +174,7 @@ Partial Class Student_register
         ' 
         ' backtoclass
         ' 
+        backtoclass.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         backtoclass.BackColor = Color.Red
         backtoclass.FlatAppearance.BorderColor = Color.White
         backtoclass.FlatAppearance.BorderSize = 0
@@ -193,6 +200,7 @@ Partial Class Student_register
         ' 
         ' emailstud
         ' 
+        emailstud.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         emailstud.Location = New Point(114, 149)
         emailstud.Name = "emailstud"
         emailstud.Size = New Size(240, 23)
@@ -209,6 +217,7 @@ Partial Class Student_register
         ' 
         ' passstud
         ' 
+        passstud.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         passstud.Location = New Point(112, 311)
         passstud.Name = "passstud"
         passstud.Size = New Size(240, 23)
@@ -238,7 +247,7 @@ Partial Class Student_register
         Controls.Add(studage)
         Controls.Add(Label1)
         Controls.Add(studname)
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "Student_register"
         Text = "Student_register"
         ResumeLayout(False)
