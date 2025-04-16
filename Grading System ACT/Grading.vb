@@ -128,7 +128,8 @@ Public Class Grading
             Dim total As Double = ComputeTotalGrade()
             Dim standing As String = GetStandingGrade(total)
 
-            Dim query As String = "INSERT INTO grades (
+            ' Query for inserting into the grades table
+            Dim query1 As String = "INSERT INTO grades (
             student_name, subject_name, quiz, class_participation, exercises,
             activity, assignment, project, project_evaluation, exam,
             total_grade, standing_grade, semester_name
@@ -138,24 +139,84 @@ Public Class Grading
             @total_grade, @standing_grade, @semester_name
         )"
 
-            Dim cmd As New MySqlCommand(query, conn)
-            cmd.Parameters.AddWithValue("@student_name", studentName)
-            cmd.Parameters.AddWithValue("@subject_name", subjectName)
-            cmd.Parameters.AddWithValue("@quiz", GetSafeDouble(quiz.Text))
-            cmd.Parameters.AddWithValue("@class_participation", GetSafeDouble(classparticipation.Text))
-            cmd.Parameters.AddWithValue("@exercises", GetSafeDouble(exercises.Text))
-            cmd.Parameters.AddWithValue("@activity", GetSafeDouble(activity.Text))
-            cmd.Parameters.AddWithValue("@assignment", GetSafeDouble(assigment.Text))
-            cmd.Parameters.AddWithValue("@project", GetSafeDouble(project.Text))
-            cmd.Parameters.AddWithValue("@project_evaluation", GetSafeDouble(projectevalution.Text))
-            cmd.Parameters.AddWithValue("@exam", GetSafeDouble(exam.Text))
-            cmd.Parameters.AddWithValue("@total_grade", total)
-            cmd.Parameters.AddWithValue("@standing_grade", standing)
-            cmd.Parameters.AddWithValue("@semester_name", semesterName)
+            ' Query for inserting into the grading_for_student_page table
+            Dim query2 As String = "INSERT INTO grading_for_student_page (
+            student_name, subject_name, quiz, class_participation, exercises,
+            activity, assignment, project, project_evaluation, exam,
+            total_grade, standing_grade, semester_name
+        ) VALUES (
+            @student_name, @subject_name, @quiz, @class_participation, @exercises,
+            @activity, @assignment, @project, @project_evaluation, @exam,
+            @total_grade, @standing_grade, @semester_name
+        )"
 
-            cmd.ExecuteNonQuery()
+            ' Query for inserting into the grading_for_admin_page table
+            Dim query3 As String = "INSERT INTO grading_for_admin_page (
+    student_name, subject_name, quiz, class_participation, exercises,
+    activity, assignment, project, project_evaluation, exam,
+    total_grade, standing_grade, semester_name
+) VALUES (
+    @student_name, @subject_name, @quiz, @class_participation, @exercises,
+    @activity, @assignment, @project, @project_evaluation, @exam,
+    @total_grade, @standing_grade, @semester_name
+)"
 
-            MessageBox.Show("Grades saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Prepare the command for the third query (grading_for_admin_page table)
+            Dim cmd3 As New MySqlCommand(query3, conn)
+            cmd3.Parameters.AddWithValue("@student_name", studentName)
+            cmd3.Parameters.AddWithValue("@subject_name", subjectName)
+            cmd3.Parameters.AddWithValue("@quiz", GetSafeDouble(quiz.Text))
+            cmd3.Parameters.AddWithValue("@class_participation", GetSafeDouble(classparticipation.Text))
+            cmd3.Parameters.AddWithValue("@exercises", GetSafeDouble(exercises.Text))
+            cmd3.Parameters.AddWithValue("@activity", GetSafeDouble(activity.Text))
+            cmd3.Parameters.AddWithValue("@assignment", GetSafeDouble(assigment.Text))
+            cmd3.Parameters.AddWithValue("@project", GetSafeDouble(project.Text))
+            cmd3.Parameters.AddWithValue("@project_evaluation", GetSafeDouble(projectevalution.Text))
+            cmd3.Parameters.AddWithValue("@exam", GetSafeDouble(exam.Text))
+            cmd3.Parameters.AddWithValue("@total_grade", total)
+            cmd3.Parameters.AddWithValue("@standing_grade", standing)
+            cmd3.Parameters.AddWithValue("@semester_name", semesterName)
+
+            ' Execute the third query
+            cmd3.ExecuteNonQuery()
+
+            ' Prepare the command for the first query (grades table)
+            Dim cmd1 As New MySqlCommand(query1, conn)
+            cmd1.Parameters.AddWithValue("@student_name", studentName)
+            cmd1.Parameters.AddWithValue("@subject_name", subjectName)
+            cmd1.Parameters.AddWithValue("@quiz", GetSafeDouble(quiz.Text))
+            cmd1.Parameters.AddWithValue("@class_participation", GetSafeDouble(classparticipation.Text))
+            cmd1.Parameters.AddWithValue("@exercises", GetSafeDouble(exercises.Text))
+            cmd1.Parameters.AddWithValue("@activity", GetSafeDouble(activity.Text))
+            cmd1.Parameters.AddWithValue("@assignment", GetSafeDouble(assigment.Text))
+            cmd1.Parameters.AddWithValue("@project", GetSafeDouble(project.Text))
+            cmd1.Parameters.AddWithValue("@project_evaluation", GetSafeDouble(projectevalution.Text))
+            cmd1.Parameters.AddWithValue("@exam", GetSafeDouble(exam.Text))
+            cmd1.Parameters.AddWithValue("@total_grade", total)
+            cmd1.Parameters.AddWithValue("@standing_grade", standing)
+            cmd1.Parameters.AddWithValue("@semester_name", semesterName)
+
+            ' Prepare the command for the second query (grading_for_student_page table)
+            Dim cmd2 As New MySqlCommand(query2, conn)
+            cmd2.Parameters.AddWithValue("@student_name", studentName)
+            cmd2.Parameters.AddWithValue("@subject_name", subjectName)
+            cmd2.Parameters.AddWithValue("@quiz", GetSafeDouble(quiz.Text))
+            cmd2.Parameters.AddWithValue("@class_participation", GetSafeDouble(classparticipation.Text))
+            cmd2.Parameters.AddWithValue("@exercises", GetSafeDouble(exercises.Text))
+            cmd2.Parameters.AddWithValue("@activity", GetSafeDouble(activity.Text))
+            cmd2.Parameters.AddWithValue("@assignment", GetSafeDouble(assigment.Text))
+            cmd2.Parameters.AddWithValue("@project", GetSafeDouble(project.Text))
+            cmd2.Parameters.AddWithValue("@project_evaluation", GetSafeDouble(projectevalution.Text))
+            cmd2.Parameters.AddWithValue("@exam", GetSafeDouble(exam.Text))
+            cmd2.Parameters.AddWithValue("@total_grade", total)
+            cmd2.Parameters.AddWithValue("@standing_grade", standing)
+            cmd2.Parameters.AddWithValue("@semester_name", semesterName)
+
+            ' Execute both queries
+            cmd1.ExecuteNonQuery()
+            cmd2.ExecuteNonQuery()
+
+            MessageBox.Show("Grades saved successfully to both tables!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             ' Return to TeacherPage and refresh
             Me.Close()
@@ -170,6 +231,7 @@ Public Class Grading
             CloseConnection()
         End Try
     End Sub
+
 
 
 

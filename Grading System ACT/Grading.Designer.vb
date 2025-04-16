@@ -288,7 +288,7 @@ Partial Class Grading
         ' 
         semester.AutoSize = True
         semester.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        semester.Location = New Point(347, 24)
+        semester.Location = New Point(236, 24)
         semester.Name = "semester"
         semester.Size = New Size(102, 30)
         semester.TabIndex = 40

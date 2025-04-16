@@ -37,8 +37,12 @@ Public Class Form1
                         adminForm.Show()
 
                     Case "Student"
-                        Dim studentForm As New StudentPage()
+                        Dim studentName As String = reader("fullname").ToString()
+                        Dim studentDept As String = reader("department").ToString()
+
+                        Dim studentForm As New StudentPage(studentName, studentDept)
                         studentForm.Show()
+
 
                     Case "Teacher"
                         Dim teacherName As String = reader("fullname").ToString()
