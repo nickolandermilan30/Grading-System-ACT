@@ -33,6 +33,7 @@ Partial Class TeacherPage
         departmentteachpage = New Label()
         Label3 = New Label()
         semesterteachpage = New ComboBox()
+        refresh = New Button()
         CType(grid, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -153,11 +154,29 @@ Partial Class TeacherPage
         semesterteachpage.Size = New Size(146, 23)
         semesterteachpage.TabIndex = 17
         ' 
+        ' refresh
+        ' 
+        refresh.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        refresh.BackColor = Color.Orange
+        refresh.FlatAppearance.BorderColor = Color.White
+        refresh.FlatAppearance.BorderSize = 0
+        refresh.FlatStyle = FlatStyle.Flat
+        refresh.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        refresh.ForeColor = SystemColors.ControlLightLight
+        refresh.Location = New Point(12, 341)
+        refresh.Name = "refresh"
+        refresh.RightToLeft = RightToLeft.No
+        refresh.Size = New Size(146, 40)
+        refresh.TabIndex = 18
+        refresh.Text = "Refresh"
+        refresh.UseVisualStyleBackColor = False
+        ' 
         ' TeacherPage
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(747, 450)
+        Controls.Add(refresh)
         Controls.Add(semesterteachpage)
         Controls.Add(departmentteachpage)
         Controls.Add(Label3)
@@ -187,4 +206,5 @@ Partial Class TeacherPage
     Friend WithEvents departmentteachpage As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents semesterteachpage As ComboBox
+    Friend WithEvents refresh As Button
 End Class

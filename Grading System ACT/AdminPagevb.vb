@@ -3,11 +3,146 @@ Imports MySql.Data.MySqlClient
 
 Public Class AdminPagevb
     Private conn As MySqlConnection
+    Private adminName As String
+    Private adminDept As String
 
+    Public Sub New(ByVal name As String, ByVal dept As String)
+        InitializeComponent()
+        adminName = name
+        adminDept = dept
+    End Sub
     Private Sub AdminPagevb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Assign values to labels
+        nameadmin.Text = adminName
+        departmentadminname.Text = adminDept
+
+        ' Load other data
+        LoadTeachers()
         LoadPivotedGrades()
         LoadDetailedGrades() ' this one for allgradespoints
+        LoadMaleStudents()
+        LoadFemaleStudents()
+        LoadSubjectsToComboBox()
     End Sub
+
+    Private Sub LoadSubjectsToComboBox()
+        Try
+            conn = New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
+            conn.Open()
+
+            Dim query As String = "SELECT subject_name FROM subjects"
+            Dim cmd As New MySqlCommand(query, conn)
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+            subjectlistadmin.Items.Clear()
+
+            While reader.Read()
+                subjectlistadmin.Items.Add(reader("subject_name").ToString())
+            End While
+
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error loading subjects: " & ex.Message)
+        Finally
+            If conn IsNot Nothing Then conn.Close()
+        End Try
+    End Sub
+
+
+    Private Sub LoadFemaleStudents()
+        Try
+            conn = New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
+            conn.Open()
+
+            Dim query As String = "SELECT fullname, identifier, age FROM users WHERE gender = 'F' AND user_level = 'Student' ORDER BY fullname"
+            Dim cmd As New MySqlCommand(query, conn)
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+            femaleliststudent.Items.Clear()
+            femaleliststudent.View = View.Details
+            femaleliststudent.OwnerDraw = True
+
+            If femaleliststudent.Columns.Count = 0 Then
+                femaleliststudent.Columns.Add("Full Name", 150)
+                femaleliststudent.Columns.Add("Student ID", 150)
+                femaleliststudent.Columns.Add("Age", 150)
+            End If
+
+            Dim femaleStudentCount As Integer = 0
+
+            While reader.Read()
+                Dim item As New ListViewItem(reader("fullname").ToString())
+                item.SubItems.Add(reader("identifier").ToString())
+                item.SubItems.Add(reader("age").ToString())
+                femaleliststudent.Items.Add(item)
+                femaleStudentCount += 1
+            End While
+
+            reader.Close()
+
+            ' ✅ Update female count label
+            femalecount.Text = femaleStudentCount.ToString()
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading female students: " & ex.Message)
+        Finally
+            If conn IsNot Nothing Then conn.Close()
+        End Try
+    End Sub
+
+
+
+    Private Sub LoadMaleStudents()
+        Try
+            conn = New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
+            conn.Open()
+
+            Dim query As String = "SELECT fullname, identifier, age FROM users WHERE gender = 'M' AND user_level = 'Student' ORDER BY fullname"
+            Dim cmd As New MySqlCommand(query, conn)
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+            malestudentlist.Items.Clear()
+            malestudentlist.View = View.Details
+
+            ' Enable owner draw for custom header coloring
+            malestudentlist.OwnerDraw = True
+
+            ' Only add columns if they don’t already exist
+            If malestudentlist.Columns.Count = 0 Then
+                malestudentlist.Columns.Add("Full Name", 150)
+                malestudentlist.Columns.Add("Student ID", 150)
+                malestudentlist.Columns.Add("Age", 150)
+            End If
+
+            ' Track the number of students
+            Dim maleStudentCount As Integer = 0
+
+            While reader.Read()
+                Dim item As New ListViewItem(reader("fullname").ToString())
+                item.SubItems.Add(reader("identifier").ToString())
+                item.SubItems.Add(reader("age").ToString()) ' Add age as a third column
+                malestudentlist.Items.Add(item)
+
+                ' Increment the count for each male student
+                maleStudentCount += 1
+            End While
+
+            reader.Close()
+
+            ' Update the malecount label with the number of male students
+            malecount.Text = maleStudentCount.ToString()
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading male students: " & ex.Message)
+        Finally
+            If conn IsNot Nothing Then conn.Close()
+        End Try
+    End Sub
+
+
+
+
+
 
     Private Sub LoadDetailedGrades(Optional semesterFilter As String = "")
         Try
@@ -240,7 +375,32 @@ Public Class AdminPagevb
         End Try
     End Sub
 
+    Private Sub LoadTeachers()
+        Try
+            ' Open MySQL connection
+            conn = New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
+            conn.Open()
 
+            ' Query to get all teachers
+            Dim query As String = "SELECT fullname FROM users WHERE user_level = 'Teacher' ORDER BY fullname"
+            Dim cmd As New MySqlCommand(query, conn)
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+            ' Clear current items in the ComboBox
+            teacherlist.Items.Clear()
+
+            ' Populate ComboBox with teacher names
+            While reader.Read()
+                teacherlist.Items.Add(reader("fullname").ToString())
+            End While
+
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error loading teachers: " & ex.Message)
+        Finally
+            If conn IsNot Nothing Then conn.Close()
+        End Try
+    End Sub
 
     Private Sub prelim_Click(sender As Object, e As EventArgs) Handles prelim.Click
         LoadDetailedGrades("Prelim")
@@ -262,9 +422,105 @@ Public Class AdminPagevb
         LoadPivotedGrades("Finals")
     End Sub
 
-    Private Sub teacherlist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles teacherlist.SelectedIndexChanged
+    Private Sub malestudentlist_DrawColumnHeader(sender As Object, e As DrawListViewColumnHeaderEventArgs) Handles malestudentlist.DrawColumnHeader
+        ' Soft blue background with some transparency
+        Using headerBrush As New SolidBrush(Color.FromArgb(100, 0, 120, 215))
+            e.Graphics.FillRectangle(headerBrush, e.Bounds)
+        End Using
 
+        ' Black text
+        TextRenderer.DrawText(e.Graphics, e.Header.Text, e.Font, e.Bounds, Color.Black, TextFormatFlags.Left Or TextFormatFlags.VerticalCenter)
+    End Sub
+
+    Private Sub malestudentlist_DrawItem(sender As Object, e As DrawListViewItemEventArgs) Handles malestudentlist.DrawItem
+        e.DrawDefault = True
+    End Sub
+
+    Private Sub malestudentlist_DrawSubItem(sender As Object, e As DrawListViewSubItemEventArgs) Handles malestudentlist.DrawSubItem
+        e.DrawDefault = True
+    End Sub
+
+    Private Sub malecount_Click(sender As Object, e As EventArgs) Handles malecount.Click
 
     End Sub
+
+    Private Sub femaleliststudent_DrawColumnHeader(sender As Object, e As DrawListViewColumnHeaderEventArgs) Handles femaleliststudent.DrawColumnHeader
+        Using headerBrush As New SolidBrush(Color.FromArgb(100, 255, 105, 180)) ' Soft pink
+            e.Graphics.FillRectangle(headerBrush, e.Bounds)
+        End Using
+
+        TextRenderer.DrawText(e.Graphics, e.Header.Text, e.Font, e.Bounds, Color.Black, TextFormatFlags.Left Or TextFormatFlags.VerticalCenter)
+    End Sub
+
+
+    Private Sub femaleliststudent_DrawItem(sender As Object, e As DrawListViewItemEventArgs) Handles femaleliststudent.DrawItem
+        e.DrawDefault = True
+    End Sub
+
+    Private Sub femaleliststudent_DrawSubItem(sender As Object, e As DrawListViewSubItemEventArgs) Handles femaleliststudent.DrawSubItem
+        e.DrawDefault = True
+    End Sub
+
+    Private Sub femalecount_Click(sender As Object, e As EventArgs) Handles femalecount.Click
+    End Sub
+
+    Private Sub subjectlistadmin_SelectedIndexChanged(sender As Object, e As EventArgs) Handles subjectlistadmin.SelectedIndexChanged
+        ' You can do something here if needed
+        ' For example, show a MessageBox:
+        ' MessageBox.Show("You selected: " & subjectlistadmin.SelectedItem.ToString())
+    End Sub
+
+
+    Private Sub deletesubject_Click(sender As Object, e As EventArgs) Handles deletesubject.Click
+        ' Check if a subject is selected
+        If subjectlistadmin.SelectedItem Is Nothing Then
+            MessageBox.Show("Please select a subject to delete.")
+            Exit Sub
+        End If
+
+        ' Get the selected subject name
+        Dim selectedSubject As String = subjectlistadmin.SelectedItem.ToString()
+
+        ' Ask for confirmation
+        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to delete the subject '{selectedSubject}'?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If result = DialogResult.No Then Exit Sub
+
+        Try
+            conn = New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
+            conn.Open()
+
+            ' Delete subject from the subjects table
+            Dim query As String = "DELETE FROM subjects WHERE subject_name = @subjectName"
+            Dim cmd As New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@subjectName", selectedSubject)
+            Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+            If rowsAffected > 0 Then
+                MessageBox.Show("Subject deleted successfully.")
+            Else
+                MessageBox.Show("Subject not found or already deleted.")
+            End If
+
+            ' Reload the updated subject list
+            LoadSubjectsToComboBox()
+
+        Catch ex As Exception
+            MessageBox.Show("Error deleting subject: " & ex.Message)
+        Finally
+            If conn IsNot Nothing Then conn.Close()
+        End Try
+    End Sub
+
+    Private Sub accounts_Click(sender As Object, e As EventArgs) Handles accounts.Click
+        Dim accForm As New Accounts
+        accForm.Show()
+    End Sub
+
+    Private Sub logoutadmin_Click(sender As Object, e As EventArgs) Handles logoutadmin.Click
+        Dim mainForm As New Form1()
+        mainForm.Show()
+        Me.Close()
+    End Sub
+
 
 End Class

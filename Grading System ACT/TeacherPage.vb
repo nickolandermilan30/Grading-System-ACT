@@ -115,7 +115,7 @@ Public Class TeacherPage
         Dim addSubjectForm As New Add_subject()
         addSubjectForm.TeacherNameFromMain = Me.teacherName
         addSubjectForm.TeacherDeptFromMain = Me.teacherDept
-        addSubjectForm.ShowDialog()
+        addSubjectForm.Show()
     End Sub
 
 
@@ -207,13 +207,17 @@ Public Class TeacherPage
 
     Private Sub addstudent_Click(sender As Object, e As EventArgs) Handles addstudent.Click
         Dim addStudentForm As New Add_Student()
-        addStudentForm.ShowDialog()
+        addStudentForm.Show()
     End Sub
 
     Private Sub closebtn_Click(sender As Object, e As EventArgs) Handles closebtn.Click
         Dim mainForm As New Form1()
         mainForm.Show()
         Me.Close()
+    End Sub
+
+    Private Sub refresh_Click(sender As Object, e As EventArgs) Handles refresh.Click
+        RefreshStudentGrades()
     End Sub
 
 End Class

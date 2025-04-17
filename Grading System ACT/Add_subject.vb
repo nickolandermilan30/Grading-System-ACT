@@ -53,15 +53,6 @@ Public Class Add_subject
     End Sub
 
     Private Sub backtomainsub_Click(sender As Object, e As EventArgs) Handles backtomainsub.Click
-        ' Create a new instance of TeacherPage with the teacher's name and department
-        Dim teacherName As String = "Teacher Name" ' Replace with the actual teacher name if available
-        Dim teacherDept As String = "Teacher Dept" ' Replace with the actual department if available
-
-        ' Show the TeacherPage and close Add_subject form
-        Dim teacherPageForm As New TeacherPage(teacherName, teacherDept)
-        teacherPageForm.Show()
-
-        ' Close the current Add_subject form
         Me.Close()
     End Sub
 End Class

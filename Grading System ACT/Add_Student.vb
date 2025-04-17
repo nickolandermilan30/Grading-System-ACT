@@ -46,6 +46,8 @@ Public Class Add_Student
             Return
         End If
 
+        Dim addedCount As Integer = 0 ' ✅ Track how many students were added
+
         Try
             OpenConnection()
 
@@ -57,17 +59,34 @@ Public Class Add_Student
                     Dim gender As String = parts(1).Trim()
                     Dim studentId As String = parts(2).Trim()
 
-                    Dim query As String = "INSERT INTO selected_students (fullname, gender, student_id) VALUES (@fullname, @gender, @student_id)"
-                    Dim cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@fullname", fullname)
-                    cmd.Parameters.AddWithValue("@gender", gender)
-                    cmd.Parameters.AddWithValue("@student_id", studentId)
+                    ' 🛑 Check if student is active
+                    Dim checkQuery As String = "SELECT active FROM users WHERE identifier = @id"
+                    Using checkCmd As New MySqlCommand(checkQuery, conn)
+                        checkCmd.Parameters.AddWithValue("@id", studentId)
+                        Dim result = checkCmd.ExecuteScalar()
 
-                    cmd.ExecuteNonQuery()
+                        If result IsNot Nothing AndAlso Convert.ToInt32(result) = 0 Then
+                            MessageBox.Show($"{fullname} is currently banned and cannot be added.", "Student Banned", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Continue For
+                        End If
+                    End Using
+
+                    ' ✅ Insert student if active
+                    Dim query As String = "INSERT INTO selected_students (fullname, gender, student_id) VALUES (@fullname, @gender, @student_id)"
+                    Using cmd As New MySqlCommand(query, conn)
+                        cmd.Parameters.AddWithValue("@fullname", fullname)
+                        cmd.Parameters.AddWithValue("@gender", gender)
+                        cmd.Parameters.AddWithValue("@student_id", studentId)
+                        cmd.ExecuteNonQuery()
+                        addedCount += 1 ' ✅ Count only successful additions
+                    End Using
                 End If
             Next
 
-            MessageBox.Show("Selected students saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' ✅ Only show success message if someone was actually added
+            If addedCount > 0 Then
+                MessageBox.Show("Selected students saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
 
         Catch ex As Exception
             MessageBox.Show("Error saving students: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -76,9 +95,9 @@ Public Class Add_Student
         End Try
     End Sub
 
+
+
     Private Sub backtomainsub2_Click(sender As Object, e As EventArgs) Handles backtomainsub2.Click
-        Dim teacherPage As New TeacherPage(TeacherName, TeacherDept)
-        teacherPage.Show()
         Me.Close()
     End Sub
 

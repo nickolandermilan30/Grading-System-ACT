@@ -38,8 +38,8 @@ Partial Class AdminPagevb
         femaleliststudent = New ListView()
         malestudentlist = New ListView()
         Label5 = New Label()
-        adminname = New Label()
-        Label6 = New Label()
+        nameadmin = New Label()
+        departmentadminname = New Label()
         Label7 = New Label()
         accounts = New Button()
         allgradespoints = New DataGridView()
@@ -171,7 +171,8 @@ Partial Class AdminPagevb
         malecount.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         malecount.AutoSize = True
         malecount.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        malecount.Location = New Point(1009, 25)
+        malecount.ForeColor = Color.FromArgb(CByte(0), CByte(192), CByte(0))
+        malecount.Location = New Point(1191, 25)
         malecount.Name = "malecount"
         malecount.Size = New Size(39, 20)
         malecount.TabIndex = 28
@@ -182,7 +183,8 @@ Partial Class AdminPagevb
         femalecount.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         femalecount.AutoSize = True
         femalecount.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        femalecount.Location = New Point(1009, 279)
+        femalecount.ForeColor = Color.FromArgb(CByte(0), CByte(192), CByte(0))
+        femalecount.Location = New Point(1191, 279)
         femalecount.Name = "femalecount"
         femalecount.Size = New Size(39, 20)
         femalecount.TabIndex = 29
@@ -216,25 +218,25 @@ Partial Class AdminPagevb
         Label5.TabIndex = 33
         Label5.Text = "Name:"
         ' 
-        ' adminname
+        ' nameadmin
         ' 
-        adminname.AutoSize = True
-        adminname.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        adminname.Location = New Point(272, 28)
-        adminname.Name = "adminname"
-        adminname.Size = New Size(31, 17)
-        adminname.TabIndex = 34
-        adminname.Text = "N/A"
+        nameadmin.AutoSize = True
+        nameadmin.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nameadmin.Location = New Point(272, 28)
+        nameadmin.Name = "nameadmin"
+        nameadmin.Size = New Size(31, 17)
+        nameadmin.TabIndex = 34
+        nameadmin.Text = "N/A"
         ' 
-        ' Label6
+        ' departmentadminname
         ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label6.Location = New Point(679, 28)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(31, 17)
-        Label6.TabIndex = 36
-        Label6.Text = "N/A"
+        departmentadminname.AutoSize = True
+        departmentadminname.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        departmentadminname.Location = New Point(679, 28)
+        departmentadminname.Name = "departmentadminname"
+        departmentadminname.Size = New Size(31, 17)
+        departmentadminname.TabIndex = 36
+        departmentadminname.Text = "N/A"
         ' 
         ' Label7
         ' 
@@ -347,9 +349,9 @@ Partial Class AdminPagevb
         Controls.Add(prelim)
         Controls.Add(allgradespoints)
         Controls.Add(accounts)
-        Controls.Add(Label6)
+        Controls.Add(departmentadminname)
         Controls.Add(Label7)
-        Controls.Add(adminname)
+        Controls.Add(nameadmin)
         Controls.Add(Label5)
         Controls.Add(malestudentlist)
         Controls.Add(femaleliststudent)
@@ -390,8 +392,8 @@ Partial Class AdminPagevb
     Friend WithEvents femaleliststudent As ListView
     Friend WithEvents malestudentlist As ListView
     Friend WithEvents Label5 As Label
-    Friend WithEvents adminname As Label
-    Friend WithEvents Label6 As Label
+    Friend WithEvents nameadmin As Label
+    Friend WithEvents departmentadminname As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents accounts As Button
     Friend WithEvents allgradespoints As DataGridView

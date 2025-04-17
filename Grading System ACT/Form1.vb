@@ -27,27 +27,33 @@ Public Class Form1
 
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
             If reader.Read() Then
+                ' Check if the account is active
+                Dim isActive As Boolean = Convert.ToBoolean(reader("active"))
+                If Not isActive Then
+                    MessageBox.Show("Your account has been deactivated. Please contact the administrator.", "Account Deactivated", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return
+                End If
+
                 Dim userLevel As String = reader("user_level").ToString()
 
                 MessageBox.Show("Login successful as " & userLevel, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Select Case userLevel
                     Case "Admin"
-                        Dim adminForm As New AdminPagevb()
+                        Dim adminName As String = reader("fullname").ToString()
+                        Dim adminDept As String = reader("department").ToString()
+                        Dim adminForm As New AdminPagevb(adminName, adminDept)
                         adminForm.Show()
 
                     Case "Student"
                         Dim studentName As String = reader("fullname").ToString()
                         Dim studentDept As String = reader("department").ToString()
-
                         Dim studentForm As New StudentPage(studentName, studentDept)
                         studentForm.Show()
-
 
                     Case "Teacher"
                         Dim teacherName As String = reader("fullname").ToString()
                         Dim teacherDept As String = reader("department").ToString()
-
                         Dim teacherForm As New TeacherPage(teacherName, teacherDept)
                         teacherForm.Show()
                 End Select
@@ -76,6 +82,7 @@ Public Class Form1
             CloseConnection()
         End Try
     End Sub
+
 
     Private Sub StartCooldown()
         cooldownSeconds = 5
