@@ -35,16 +35,10 @@ Public Class Student_register
             cmd.ExecuteNonQuery()
             MessageBox.Show("Student registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Clear form fields
-            studname.Clear()
-            studage.Clear()
-            studgender.Clear()
-            studid.Clear()
-            studsection.Clear()
-            studdepartment.SelectedIndex = -1
-            passstud.Clear()
-            emailstud.Clear()
-            regnowstudent.Enabled = False
+            ' Redirect to login page (Form1)
+            Dim loginForm As New Form1()
+            loginForm.Show()
+            Me.Close()
 
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -52,6 +46,7 @@ Public Class Student_register
             CloseConnection()
         End Try
     End Sub
+
 
     Private Sub studid_TextChanged(sender As Object, e As EventArgs) Handles studid.TextChanged
         Dim studentID As String = studid.Text.Trim()

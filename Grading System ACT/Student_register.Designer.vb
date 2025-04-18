@@ -41,6 +41,7 @@ Partial Class Student_register
         emailstud = New TextBox()
         Label8 = New Label()
         passstud = New TextBox()
+        Label9 = New Label()
         SuspendLayout()
         ' 
         ' studname
@@ -223,11 +224,22 @@ Partial Class Student_register
         passstud.Size = New Size(240, 23)
         passstud.TabIndex = 17
         ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label9.Location = New Point(277, 214)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(67, 13)
+        Label9.TabIndex = 19
+        Label9.Text = "M or F Only"
+        ' 
         ' Student_register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(439, 525)
+        Controls.Add(Label9)
         Controls.Add(Label8)
         Controls.Add(passstud)
         Controls.Add(Email)
@@ -273,4 +285,5 @@ Partial Class Student_register
     Friend WithEvents emailstud As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents passstud As TextBox
+    Friend WithEvents Label9 As Label
 End Class

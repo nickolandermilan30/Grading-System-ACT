@@ -41,6 +41,7 @@ Partial Class Teacher_register
         emailteach = New TextBox()
         Label8 = New Label()
         teachpassword = New TextBox()
+        Label9 = New Label()
         SuspendLayout()
         ' 
         ' backtoclass3
@@ -223,11 +224,22 @@ Partial Class Teacher_register
         teachpassword.Size = New Size(240, 23)
         teachpassword.TabIndex = 32
         ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label9.Location = New Point(289, 209)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(67, 13)
+        Label9.TabIndex = 34
+        Label9.Text = "M or F Only"
+        ' 
         ' Teacher_register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(439, 525)
+        Controls.Add(Label9)
         Controls.Add(Label8)
         Controls.Add(teachpassword)
         Controls.Add(teachemail)
@@ -274,4 +286,5 @@ Partial Class Teacher_register
     Friend WithEvents emailteach As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents teachpassword As TextBox
+    Friend WithEvents Label9 As Label
 End Class

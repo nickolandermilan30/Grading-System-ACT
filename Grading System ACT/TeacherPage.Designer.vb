@@ -34,6 +34,7 @@ Partial Class TeacherPage
         Label3 = New Label()
         semesterteachpage = New ComboBox()
         refresh = New Button()
+        msgbtn = New Button()
         CType(grid, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -44,7 +45,7 @@ Partial Class TeacherPage
         grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         grid.Location = New Point(176, 58)
         grid.Name = "grid"
-        grid.Size = New Size(559, 380)
+        grid.Size = New Size(604, 480)
         grid.TabIndex = 0
         ' 
         ' PictureBox1
@@ -98,7 +99,7 @@ Partial Class TeacherPage
         closebtn.FlatStyle = FlatStyle.Flat
         closebtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         closebtn.ForeColor = SystemColors.ControlLightLight
-        closebtn.Location = New Point(12, 398)
+        closebtn.Location = New Point(12, 498)
         closebtn.Name = "closebtn"
         closebtn.RightToLeft = RightToLeft.No
         closebtn.Size = New Size(146, 40)
@@ -163,7 +164,7 @@ Partial Class TeacherPage
         refresh.FlatStyle = FlatStyle.Flat
         refresh.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         refresh.ForeColor = SystemColors.ControlLightLight
-        refresh.Location = New Point(12, 341)
+        refresh.Location = New Point(12, 441)
         refresh.Name = "refresh"
         refresh.RightToLeft = RightToLeft.No
         refresh.Size = New Size(146, 40)
@@ -171,11 +172,28 @@ Partial Class TeacherPage
         refresh.Text = "Refresh"
         refresh.UseVisualStyleBackColor = False
         ' 
+        ' msgbtn
+        ' 
+        msgbtn.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(0))
+        msgbtn.FlatAppearance.BorderColor = Color.White
+        msgbtn.FlatAppearance.BorderSize = 0
+        msgbtn.FlatStyle = FlatStyle.Flat
+        msgbtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        msgbtn.ForeColor = SystemColors.ControlLightLight
+        msgbtn.Location = New Point(12, 339)
+        msgbtn.Name = "msgbtn"
+        msgbtn.RightToLeft = RightToLeft.No
+        msgbtn.Size = New Size(146, 43)
+        msgbtn.TabIndex = 19
+        msgbtn.Text = "Message"
+        msgbtn.UseVisualStyleBackColor = False
+        ' 
         ' TeacherPage
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(747, 450)
+        ClientSize = New Size(792, 550)
+        Controls.Add(msgbtn)
         Controls.Add(refresh)
         Controls.Add(semesterteachpage)
         Controls.Add(departmentteachpage)
@@ -207,4 +225,5 @@ Partial Class TeacherPage
     Friend WithEvents Label3 As Label
     Friend WithEvents semesterteachpage As ComboBox
     Friend WithEvents refresh As Button
+    Friend WithEvents msgbtn As Button
 End Class

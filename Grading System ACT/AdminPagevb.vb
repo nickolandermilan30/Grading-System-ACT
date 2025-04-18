@@ -386,10 +386,10 @@ Public Class AdminPagevb
             Dim cmd As New MySqlCommand(query, conn)
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
-            ' Clear current items in the ComboBox
+            ' Clear current items in the ComboBox or ListBox
             teacherlist.Items.Clear()
 
-            ' Populate ComboBox with teacher names
+            ' Populate with teacher names
             While reader.Read()
                 teacherlist.Items.Add(reader("fullname").ToString())
             End While
@@ -401,6 +401,7 @@ Public Class AdminPagevb
             If conn IsNot Nothing Then conn.Close()
         End Try
     End Sub
+
 
     Private Sub prelim_Click(sender As Object, e As EventArgs) Handles prelim.Click
         LoadDetailedGrades("Prelim")
@@ -520,6 +521,11 @@ Public Class AdminPagevb
         Dim mainForm As New Form1()
         mainForm.Show()
         Me.Close()
+    End Sub
+
+    Private Sub messageteacher_Click(sender As Object, e As EventArgs) Handles messageteacher.Click
+        Dim msgForm As New Message(adminName)
+        msgForm.Show()
     End Sub
 
 

@@ -220,4 +220,10 @@ Public Class TeacherPage
         RefreshStudentGrades()
     End Sub
 
+    Private Sub msgbtn_Click(sender As Object, e As EventArgs) Handles msgbtn.Click
+        Dim messageForm As New Teacher_Message(Me.teacherName, Me.teacherDept)
+        messageForm.Show()
+    End Sub
+
+
 End Class

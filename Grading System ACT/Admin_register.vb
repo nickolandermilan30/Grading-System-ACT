@@ -20,7 +20,7 @@ Public Class Admin_register
             OpenConnection()
 
             Dim cmd As New MySqlCommand("INSERT INTO users (fullname, age, gender, identifier, position, department, user_level, password, email) 
-                                         VALUES (@fullname, @age, @gender, @identifier, @position, @department, 'Admin', @password, @email)", conn)
+                                     VALUES (@fullname, @age, @gender, @identifier, @position, @department, 'Admin', @password, @email)", conn)
 
             cmd.Parameters.AddWithValue("@fullname", adname.Text.Trim())
             cmd.Parameters.AddWithValue("@age", CInt(adage.Text))
@@ -34,15 +34,10 @@ Public Class Admin_register
             cmd.ExecuteNonQuery()
             MessageBox.Show("Admin registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Clear fields
-            adname.Clear()
-            adgender.Clear()
-            adid.Clear()
-            adage.Clear()
-            adveri.Clear()
-            adpassword.Clear()
-            ademail.Clear()
-            addepartment.SelectedIndex = -1
+            ' Redirect to login form
+            Dim loginForm As New Form1()
+            loginForm.Show()
+            Me.Close()
 
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -50,6 +45,7 @@ Public Class Admin_register
             CloseConnection()
         End Try
     End Sub
+
 
     Private Sub ademail_TextChanged(sender As Object, e As EventArgs) Handles ademail.TextChanged
         Try

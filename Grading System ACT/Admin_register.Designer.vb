@@ -41,6 +41,7 @@ Partial Class Admin_register
         ademail = New TextBox()
         Label9 = New Label()
         adpassword = New TextBox()
+        Label10 = New Label()
         SuspendLayout()
         ' 
         ' backtoclass2
@@ -223,11 +224,22 @@ Partial Class Admin_register
         adpassword.Size = New Size(240, 23)
         adpassword.TabIndex = 34
         ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label10.Location = New Point(286, 212)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(67, 13)
+        Label10.TabIndex = 36
+        Label10.Text = "M or F Only"
+        ' 
         ' Admin_register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(439, 525)
+        Controls.Add(Label10)
         Controls.Add(Label9)
         Controls.Add(adpassword)
         Controls.Add(Label6)
@@ -273,4 +285,5 @@ Partial Class Admin_register
     Friend WithEvents ademail As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents adpassword As TextBox
+    Friend WithEvents Label10 As Label
 End Class

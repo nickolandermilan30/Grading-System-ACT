@@ -21,7 +21,7 @@ Public Class Teacher_register
             OpenConnection()
 
             Dim cmd As New MySqlCommand("INSERT INTO users (fullname, age, gender, identifier, major_subject, department, user_level, password, email)
-                                         VALUES (@fullname, @age, @gender, @identifier, @major_subject, @department, 'Teacher', @password, @email)", conn)
+                                     VALUES (@fullname, @age, @gender, @identifier, @major_subject, @department, 'Teacher', @password, @email)", conn)
 
             cmd.Parameters.AddWithValue("@fullname", teachname.Text.Trim())
             cmd.Parameters.AddWithValue("@age", CInt(teachage.Text))
@@ -35,15 +35,10 @@ Public Class Teacher_register
             cmd.ExecuteNonQuery()
             MessageBox.Show("Teacher registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Clear fields
-            teachname.Clear()
-            teachage.Clear()
-            teachgender.Clear()
-            teachid.Clear()
-            teachmajor.Clear()
-            teachpassword.Clear()
-            emailteach.Clear()
-            teachdepartment.SelectedIndex = -1
+            ' Redirect to login page (Form1)
+            Dim loginForm As New Form1()
+            loginForm.Show()
+            Me.Close()
 
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -51,6 +46,7 @@ Public Class Teacher_register
             CloseConnection()
         End Try
     End Sub
+
 
     Private Sub emailteach_TextChanged(sender As Object, e As EventArgs) Handles emailteach.TextChanged
         Try

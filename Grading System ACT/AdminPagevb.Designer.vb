@@ -47,6 +47,7 @@ Partial Class AdminPagevb
         midterm = New Button()
         semifinals = New Button()
         finals = New Button()
+        messageteacher = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(allgradelist, ComponentModel.ISupportInitialize).BeginInit()
         CType(allgradespoints, ComponentModel.ISupportInitialize).BeginInit()
@@ -153,7 +154,7 @@ Partial Class AdminPagevb
         teacherlist.FormattingEnabled = True
         teacherlist.Location = New Point(211, 96)
         teacherlist.Name = "teacherlist"
-        teacherlist.Size = New Size(648, 184)
+        teacherlist.Size = New Size(635, 112)
         teacherlist.TabIndex = 26
         ' 
         ' Label4
@@ -338,11 +339,29 @@ Partial Class AdminPagevb
         finals.Text = "Finals"
         finals.UseVisualStyleBackColor = False
         ' 
+        ' messageteacher
+        ' 
+        messageteacher.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        messageteacher.BackColor = SystemColors.ActiveCaptionText
+        messageteacher.FlatAppearance.BorderColor = Color.White
+        messageteacher.FlatAppearance.BorderSize = 0
+        messageteacher.FlatStyle = FlatStyle.Flat
+        messageteacher.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        messageteacher.ForeColor = SystemColors.ControlLightLight
+        messageteacher.Location = New Point(211, 222)
+        messageteacher.Name = "messageteacher"
+        messageteacher.RightToLeft = RightToLeft.No
+        messageteacher.Size = New Size(635, 58)
+        messageteacher.TabIndex = 43
+        messageteacher.Text = "Message Teacher"
+        messageteacher.UseVisualStyleBackColor = False
+        ' 
         ' AdminPagevb
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1242, 838)
+        Controls.Add(messageteacher)
         Controls.Add(finals)
         Controls.Add(semifinals)
         Controls.Add(midterm)
@@ -401,4 +420,5 @@ Partial Class AdminPagevb
     Friend WithEvents midterm As Button
     Friend WithEvents semifinals As Button
     Friend WithEvents finals As Button
+    Friend WithEvents messageteacher As Button
 End Class

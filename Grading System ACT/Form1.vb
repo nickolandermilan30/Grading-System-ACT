@@ -10,7 +10,9 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         passwordinput.UseSystemPasswordChar = True
         cooldownTimer.Interval = 1000 ' 1 second interval
+        Me.AcceptButton = loginbtn ' Pressing Enter will trigger the Login button
     End Sub
+
 
     Private Sub Loginbtn_Click(sender As Object, e As EventArgs) Handles loginbtn.Click
         If String.IsNullOrWhiteSpace(emailinput.Text) OrElse String.IsNullOrWhiteSpace(passwordinput.Text) Then
