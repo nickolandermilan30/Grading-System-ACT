@@ -30,6 +30,7 @@ Partial Class Teacher_Message
         Label4 = New Label()
         Label5 = New Label()
         messagesee = New TextBox()
+        donecopy = New Button()
         CType(studentlist, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -112,11 +113,29 @@ Partial Class Teacher_Message
         messagesee.Size = New Size(1105, 194)
         messagesee.TabIndex = 56
         ' 
+        ' donecopy
+        ' 
+        donecopy.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        donecopy.BackColor = Color.Green
+        donecopy.FlatAppearance.BorderColor = Color.White
+        donecopy.FlatAppearance.BorderSize = 0
+        donecopy.FlatStyle = FlatStyle.Flat
+        donecopy.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        donecopy.ForeColor = SystemColors.ControlLightLight
+        donecopy.Location = New Point(963, 39)
+        donecopy.Name = "donecopy"
+        donecopy.RightToLeft = RightToLeft.No
+        donecopy.Size = New Size(164, 40)
+        donecopy.TabIndex = 57
+        donecopy.Text = "Done"
+        donecopy.UseVisualStyleBackColor = False
+        ' 
         ' Teacher_Message
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1139, 754)
+        Controls.Add(donecopy)
         Controls.Add(messagesee)
         Controls.Add(Label5)
         Controls.Add(Label4)
@@ -140,4 +159,5 @@ Partial Class Teacher_Message
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents messagesee As TextBox
+    Friend WithEvents donecopy As Button
 End Class

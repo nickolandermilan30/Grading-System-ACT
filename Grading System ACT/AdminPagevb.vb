@@ -528,5 +528,9 @@ Public Class AdminPagevb
         msgForm.Show()
     End Sub
 
+    Private Sub teachergradeddone_Click(sender As Object, e As EventArgs) Handles teachergradeddone.Click
+        Dim gradedForm As New Graded_Finish()
+        gradedForm.Show()
+    End Sub
 
 End Class

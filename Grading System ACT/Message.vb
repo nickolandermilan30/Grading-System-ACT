@@ -14,7 +14,17 @@ Public Class Message
         adminname.Text = adminOrTeacherName
         LoadTeacherNames()
         LoadStudentList()
+        LoadSemesterOptions()
     End Sub
+
+    Private Sub LoadSemesterOptions()
+        semestermsg.Items.Clear()
+        semestermsg.Items.Add("Prelim")
+        semestermsg.Items.Add("Midterm")
+        semestermsg.Items.Add("Semi-Finals")
+        semestermsg.Items.Add("Finals")
+    End Sub
+
 
 
     Private Sub LoadTeacherNames()
@@ -75,11 +85,12 @@ Public Class Message
     End Sub
 
     Private Sub sendmessage_Click(sender As Object, e As EventArgs) Handles sendmessage.Click
-        If teachernamemessage.SelectedItem Is Nothing Then
+        If teachernamemessage.SelectedItem Is Nothing OrElse semestermsg.SelectedItem Is Nothing Then
             Return
         End If
 
         Dim teacherName As String = teachernamemessage.SelectedItem.ToString()
+        Dim semester As String = semestermsg.SelectedItem.ToString()
         Dim quiz As String = quizmessage.Text
         Dim exercises As String = exercisesmessage.Text
         Dim assignment As String = assigmentmessage.Text
@@ -100,12 +111,13 @@ Public Class Message
                     studentsSelected = True
                     Dim studentName As String = row.Cells("fullname").Value.ToString()
 
-                    Dim query As String = "INSERT INTO message_teacher (teacher_name, student_name, quiz, exercises, assignment, project_evaluation, class_participation, activity, project, exam, message) " &
-                                          "VALUES (@teacher, @student, @quiz, @exercises, @assignment, @projEval, @classPart, @activity, @project, @exam, @message)"
+                    Dim query As String = "INSERT INTO message_teacher (teacher_name, student_name, semester, quiz, exercises, assignment, project_evaluation, class_participation, activity, project, exam, message) " &
+                                      "VALUES (@teacher, @student, @semester, @quiz, @exercises, @assignment, @projEval, @classPart, @activity, @project, @exam, @message)"
 
                     Using cmd As New MySqlCommand(query, conn)
                         cmd.Parameters.AddWithValue("@teacher", teacherName)
                         cmd.Parameters.AddWithValue("@student", studentName)
+                        cmd.Parameters.AddWithValue("@semester", semester)
                         cmd.Parameters.AddWithValue("@quiz", quiz)
                         cmd.Parameters.AddWithValue("@exercises", exercises)
                         cmd.Parameters.AddWithValue("@assignment", assignment)
@@ -122,15 +134,14 @@ Public Class Message
 
             If studentsSelected Then
             Else
-
             End If
 
         Catch ex As Exception
-
         Finally
             conn.Close()
         End Try
     End Sub
+
 
     ' Optional: Other TextChanged events can be removed or left empty
     Private Sub quizmessage_TextChanged(sender As Object, e As EventArgs) Handles quizmessage.TextChanged
@@ -161,6 +172,10 @@ Public Class Message
     End Sub
 
     Private Sub adminname_Click(sender As Object, e As EventArgs) Handles adminname.Click
+
+    End Sub
+
+    Private Sub semestermsg_SelectedIndexChanged(sender As Object, e As EventArgs) Handles semestermsg.SelectedIndexChanged
 
     End Sub
 End Class

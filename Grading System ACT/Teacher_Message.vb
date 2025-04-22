@@ -18,7 +18,7 @@ Public Class Teacher_Message
 
     Private Sub LoadStudentNames()
         Dim conn As New MySqlConnection("server=localhost;user id=root;password=;database=gradingsystem")
-        Dim query As String = "SELECT student_name, quiz, exercises, assignment, project_evaluation, class_participation, activity, project, exam, message, teacher_name FROM message_teacher WHERE teacher_name = @teacherName"
+        Dim query As String = "SELECT student_name, semester, quiz, exercises, assignment, project_evaluation, class_participation, activity, project, exam, message, teacher_name FROM message_teacher WHERE teacher_name = @teacherName"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -29,6 +29,7 @@ Public Class Teacher_Message
             studentlist.DataSource = table
 
             studentlist.Columns("student_name").HeaderText = "Student Name"
+            studentlist.Columns("semester").HeaderText = "Semester"
             studentlist.Columns("quiz").HeaderText = "Quiz"
             studentlist.Columns("exercises").HeaderText = "Exercises"
             studentlist.Columns("assignment").HeaderText = "Assignment"
@@ -38,13 +39,12 @@ Public Class Teacher_Message
             studentlist.Columns("project").HeaderText = "Project"
             studentlist.Columns("exam").HeaderText = "Exam"
             studentlist.Columns("message").HeaderText = "Message"
-            studentlist.Columns("teacher_name").HeaderText = "Teacher Name" ' Added teacher_name column header
+            studentlist.Columns("teacher_name").HeaderText = "Teacher Name"
 
-            ' Set column width for the new "teacher_name" column if necessary
-            studentlist.Columns("teacher_name").Width = 150 ' Adjust width as necessary
-
-            ' Set wider column width for message
-            studentlist.Columns("message").Width = 300 ' You can change 300 to any value you like
+            ' Optional: Set column widths
+            studentlist.Columns("message").Width = 300
+            studentlist.Columns("semester").Width = 100
+            studentlist.Columns("teacher_name").Width = 150
 
         Catch ex As Exception
             MessageBox.Show("Error loading student data: " & ex.Message)
@@ -83,4 +83,40 @@ Public Class Teacher_Message
     Private Sub messagesee_TextChanged(sender As Object, e As EventArgs) Handles messagesee.TextChanged
 
     End Sub
+
+    Private Sub donecopy_Click(sender As Object, e As EventArgs) Handles donecopy.Click
+        Dim conn As New MySqlConnection("server=localhost;user id=root;password=;database=gradingsystem")
+
+        Try
+            conn.Open()
+
+            ' Step 1: Insert data from message_teacher to done_copy_teacher
+            Dim insertQuery As String = "INSERT INTO done_copy_teacher (student_name, semester, quiz, exercises, assignment, project_evaluation, class_participation, activity, project, exam, message, teacher_name) " &
+                                        "SELECT student_name, semester, quiz, exercises, assignment, project_evaluation, class_participation, activity, project, exam, message, teacher_name " &
+                                        "FROM message_teacher WHERE teacher_name = @teacherName"
+
+            Using insertCmd As New MySqlCommand(insertQuery, conn)
+                insertCmd.Parameters.AddWithValue("@teacherName", teacherName)
+                insertCmd.ExecuteNonQuery()
+            End Using
+
+            ' Step 2: Delete the copied data from message_teacher
+            Dim deleteQuery As String = "DELETE FROM message_teacher WHERE teacher_name = @teacherName"
+            Using deleteCmd As New MySqlCommand(deleteQuery, conn)
+                deleteCmd.Parameters.AddWithValue("@teacherName", teacherName)
+                deleteCmd.ExecuteNonQuery()
+            End Using
+
+            MessageBox.Show("Messages successfully moved to done_copy_teacher.")
+
+            ' Optional: Refresh grid after done copy
+            LoadStudentNames()
+
+        Catch ex As Exception
+            MessageBox.Show("Error during done copy: " & ex.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
 End Class

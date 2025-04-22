@@ -189,6 +189,7 @@ Partial Class Form1
         FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "Form1"
         Text = "Log In"
+        WindowState = FormWindowState.Maximized
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()

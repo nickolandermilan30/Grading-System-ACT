@@ -45,6 +45,8 @@ Partial Class Message
         teachernamemessage = New ComboBox()
         Label4 = New Label()
         adminname = New Label()
+        semestermsg = New ComboBox()
+        Label7 = New Label()
         CType(studentlistmessage, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -190,9 +192,9 @@ Partial Class Message
         ' 
         studentlistmessage.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         studentlistmessage.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        studentlistmessage.Location = New Point(36, 310)
+        studentlistmessage.Location = New Point(36, 349)
         studentlistmessage.Name = "studentlistmessage"
-        studentlistmessage.Size = New Size(465, 150)
+        studentlistmessage.Size = New Size(465, 111)
         studentlistmessage.TabIndex = 49
         ' 
         ' messagebox
@@ -250,11 +252,32 @@ Partial Class Message
         adminname.TabIndex = 54
         adminname.Text = "N/A"
         ' 
+        ' semestermsg
+        ' 
+        semestermsg.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        semestermsg.FormattingEnabled = True
+        semestermsg.Location = New Point(141, 308)
+        semestermsg.Name = "semestermsg"
+        semestermsg.Size = New Size(332, 23)
+        semestermsg.TabIndex = 55
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.Location = New Point(50, 310)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(85, 21)
+        Label7.TabIndex = 56
+        Label7.Text = "Semester:"
+        ' 
         ' Message
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(537, 697)
+        Controls.Add(Label7)
+        Controls.Add(semestermsg)
         Controls.Add(adminname)
         Controls.Add(Label4)
         Controls.Add(teachernamemessage)
@@ -308,4 +331,6 @@ Partial Class Message
     Friend WithEvents teachernamemessage As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents adminname As Label
+    Friend WithEvents semestermsg As ComboBox
+    Friend WithEvents Label7 As Label
 End Class
