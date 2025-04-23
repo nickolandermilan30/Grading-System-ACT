@@ -6,6 +6,7 @@ Public Class Add_Student
 
     Private Sub Add_Student_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadStudentList()
+
     End Sub
 
     Private Sub LoadStudentList()
@@ -13,16 +14,18 @@ Public Class Add_Student
 
         Try
             OpenConnection()
-            Dim query As String = "SELECT fullname, gender, identifier FROM users WHERE user_level = 'Student'"
+            Dim query As String = "SELECT fullname, gender, identifier, department, year FROM users WHERE user_level = 'Student'"
             Dim cmd As New MySqlCommand(query, conn)
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
             While reader.Read()
-                Dim name As String = reader("fullname").ToString()
-                Dim gender As String = reader("gender").ToString()
-                Dim studentId As String = reader("identifier").ToString()
+                Dim name As String = reader("fullname").ToString().PadRight(25)
+                Dim gender As String = reader("gender").ToString().PadRight(10)
+                Dim studentId As String = reader("identifier").ToString().PadRight(15)
+                Dim department As String = reader("department").ToString().PadRight(15)
+                Dim year As String = reader("year").ToString().PadRight(6)
 
-                Dim display As String = $"{name} - {gender} - {studentId}"
+                Dim display As String = $"{name} {gender} {studentId} {department} {year}"
                 studentlist.Items.Add(display)
             End While
 
@@ -33,6 +36,7 @@ Public Class Add_Student
             CloseConnection()
         End Try
     End Sub
+
 
 
     Private Sub studentlist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles studentlist.SelectedIndexChanged
@@ -46,7 +50,7 @@ Public Class Add_Student
             Return
         End If
 
-        Dim addedCount As Integer = 0 ' ✅ Track how many students were added
+        Dim addedCount As Integer = 0
 
         Try
             OpenConnection()
@@ -54,12 +58,14 @@ Public Class Add_Student
             For Each item As String In studentlist.CheckedItems
                 Dim parts() As String = item.Split(" - ")
 
-                If parts.Length = 3 Then
+                If parts.Length = 5 Then
                     Dim fullname As String = parts(0).Trim()
                     Dim gender As String = parts(1).Trim()
                     Dim studentId As String = parts(2).Trim()
+                    Dim department As String = parts(3).Trim()
+                    Dim year As String = parts(4).Trim()
 
-                    ' 🛑 Check if student is active
+                    ' Check if student is active
                     Dim checkQuery As String = "SELECT active FROM users WHERE identifier = @id"
                     Using checkCmd As New MySqlCommand(checkQuery, conn)
                         checkCmd.Parameters.AddWithValue("@id", studentId)
@@ -71,19 +77,20 @@ Public Class Add_Student
                         End If
                     End Using
 
-                    ' ✅ Insert student if active
-                    Dim query As String = "INSERT INTO selected_students (fullname, gender, student_id) VALUES (@fullname, @gender, @student_id)"
+                    ' Insert student if active
+                    Dim query As String = "INSERT INTO selected_students (fullname, gender, student_id, department, year) VALUES (@fullname, @gender, @student_id, @department, @year)"
                     Using cmd As New MySqlCommand(query, conn)
                         cmd.Parameters.AddWithValue("@fullname", fullname)
                         cmd.Parameters.AddWithValue("@gender", gender)
                         cmd.Parameters.AddWithValue("@student_id", studentId)
+                        cmd.Parameters.AddWithValue("@department", department)
+                        cmd.Parameters.AddWithValue("@year", year)
                         cmd.ExecuteNonQuery()
-                        addedCount += 1 ' ✅ Count only successful additions
+                        addedCount += 1
                     End Using
                 End If
             Next
 
-            ' ✅ Only show success message if someone was actually added
             If addedCount > 0 Then
                 MessageBox.Show("Selected students saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
@@ -94,6 +101,7 @@ Public Class Add_Student
             CloseConnection()
         End Try
     End Sub
+
 
 
 

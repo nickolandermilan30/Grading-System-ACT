@@ -47,6 +47,8 @@ Partial Class Message
         adminname = New Label()
         semestermsg = New ComboBox()
         Label7 = New Label()
+        backbtnmessage = New Button()
+        Label11 = New Label()
         CType(studentlistmessage, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -194,16 +196,16 @@ Partial Class Message
         studentlistmessage.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         studentlistmessage.Location = New Point(36, 349)
         studentlistmessage.Name = "studentlistmessage"
-        studentlistmessage.Size = New Size(465, 111)
+        studentlistmessage.Size = New Size(465, 187)
         studentlistmessage.TabIndex = 49
         ' 
         ' messagebox
         ' 
         messagebox.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        messagebox.Location = New Point(36, 466)
+        messagebox.Location = New Point(36, 585)
         messagebox.Multiline = True
         messagebox.Name = "messagebox"
-        messagebox.Size = New Size(465, 135)
+        messagebox.Size = New Size(465, 101)
         messagebox.TabIndex = 50
         ' 
         ' sendmessage
@@ -215,7 +217,7 @@ Partial Class Message
         sendmessage.FlatStyle = FlatStyle.Flat
         sendmessage.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         sendmessage.ForeColor = SystemColors.ControlLightLight
-        sendmessage.Location = New Point(36, 625)
+        sendmessage.Location = New Point(36, 716)
         sendmessage.Name = "sendmessage"
         sendmessage.RightToLeft = RightToLeft.No
         sendmessage.Size = New Size(465, 40)
@@ -271,11 +273,41 @@ Partial Class Message
         Label7.TabIndex = 56
         Label7.Text = "Semester:"
         ' 
+        ' backbtnmessage
+        ' 
+        backbtnmessage.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        backbtnmessage.BackColor = Color.Red
+        backbtnmessage.FlatAppearance.BorderColor = Color.White
+        backbtnmessage.FlatAppearance.BorderSize = 0
+        backbtnmessage.FlatStyle = FlatStyle.Flat
+        backbtnmessage.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        backbtnmessage.ForeColor = SystemColors.ControlLightLight
+        backbtnmessage.Location = New Point(36, 771)
+        backbtnmessage.Name = "backbtnmessage"
+        backbtnmessage.RightToLeft = RightToLeft.No
+        backbtnmessage.Size = New Size(465, 40)
+        backbtnmessage.TabIndex = 57
+        backbtnmessage.Text = "Close"
+        backbtnmessage.UseVisualStyleBackColor = False
+        ' 
+        ' Label11
+        ' 
+        Label11.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Label11.AutoSize = True
+        Label11.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label11.Location = New Point(36, 551)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(241, 21)
+        Label11.TabIndex = 58
+        Label11.Text = "Type the subject and message:"
+        ' 
         ' Message
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(537, 697)
+        ClientSize = New Size(537, 834)
+        Controls.Add(Label11)
+        Controls.Add(backbtnmessage)
         Controls.Add(Label7)
         Controls.Add(semestermsg)
         Controls.Add(adminname)
@@ -333,4 +365,6 @@ Partial Class Message
     Friend WithEvents adminname As Label
     Friend WithEvents semestermsg As ComboBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents backbtnmessage As Button
+    Friend WithEvents Label11 As Label
 End Class

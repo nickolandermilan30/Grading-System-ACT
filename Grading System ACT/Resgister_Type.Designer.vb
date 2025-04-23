@@ -40,41 +40,43 @@ Partial Class Resgister_Type
         ' 
         ' studentbtn
         ' 
+        studentbtn.Anchor = AnchorStyles.Top
         studentbtn.Image = My.Resources.Resources.idea
-        studentbtn.Location = New Point(56, 89)
+        studentbtn.Location = New Point(68, 139)
         studentbtn.Name = "studentbtn"
-        studentbtn.Size = New Size(165, 195)
+        studentbtn.Size = New Size(180, 262)
         studentbtn.SizeMode = PictureBoxSizeMode.Zoom
         studentbtn.TabIndex = 0
         studentbtn.TabStop = False
         ' 
         ' adminbtn
         ' 
-        adminbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        adminbtn.Anchor = AnchorStyles.Top
         adminbtn.Image = CType(resources.GetObject("adminbtn.Image"), Image)
-        adminbtn.Location = New Point(276, 89)
+        adminbtn.Location = New Point(368, 138)
         adminbtn.Name = "adminbtn"
-        adminbtn.Size = New Size(165, 195)
+        adminbtn.Size = New Size(218, 262)
         adminbtn.SizeMode = PictureBoxSizeMode.Zoom
         adminbtn.TabIndex = 1
         adminbtn.TabStop = False
         ' 
         ' teacherbtn
         ' 
-        teacherbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        teacherbtn.Anchor = AnchorStyles.Top
         teacherbtn.Image = CType(resources.GetObject("teacherbtn.Image"), Image)
-        teacherbtn.Location = New Point(495, 89)
+        teacherbtn.Location = New Point(681, 139)
         teacherbtn.Name = "teacherbtn"
-        teacherbtn.Size = New Size(165, 195)
+        teacherbtn.Size = New Size(231, 262)
         teacherbtn.SizeMode = PictureBoxSizeMode.Zoom
         teacherbtn.TabIndex = 2
         teacherbtn.TabStop = False
         ' 
         ' Student
         ' 
+        Student.Anchor = AnchorStyles.Top
         Student.AutoSize = True
         Student.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Student.Location = New Point(111, 306)
+        Student.Location = New Point(129, 423)
         Student.Name = "Student"
         Student.Size = New Size(64, 20)
         Student.TabIndex = 3
@@ -82,10 +84,10 @@ Partial Class Resgister_Type
         ' 
         ' Admin
         ' 
-        Admin.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        Admin.Anchor = AnchorStyles.Top
         Admin.AutoSize = True
         Admin.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Admin.Location = New Point(327, 306)
+        Admin.Location = New Point(437, 422)
         Admin.Name = "Admin"
         Admin.Size = New Size(56, 20)
         Admin.TabIndex = 4
@@ -93,10 +95,10 @@ Partial Class Resgister_Type
         ' 
         ' Label1
         ' 
-        Label1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label1.Anchor = AnchorStyles.Top
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(554, 306)
+        Label1.Location = New Point(740, 423)
         Label1.Name = "Label1"
         Label1.Size = New Size(63, 20)
         Label1.TabIndex = 5
@@ -104,13 +106,14 @@ Partial Class Resgister_Type
         ' 
         ' stubtn
         ' 
+        stubtn.Anchor = AnchorStyles.Top
         stubtn.BackColor = SystemColors.ActiveCaptionText
         stubtn.FlatAppearance.BorderColor = Color.White
         stubtn.FlatAppearance.BorderSize = 0
         stubtn.FlatStyle = FlatStyle.Flat
         stubtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         stubtn.ForeColor = SystemColors.ControlLightLight
-        stubtn.Location = New Point(50, 356)
+        stubtn.Location = New Point(68, 473)
         stubtn.Name = "stubtn"
         stubtn.RightToLeft = RightToLeft.No
         stubtn.Size = New Size(180, 35)
@@ -120,14 +123,14 @@ Partial Class Resgister_Type
         ' 
         ' adbtn
         ' 
-        adbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        adbtn.Anchor = AnchorStyles.Top
         adbtn.BackColor = SystemColors.ActiveCaptionText
         adbtn.FlatAppearance.BorderColor = Color.White
         adbtn.FlatAppearance.BorderSize = 0
         adbtn.FlatStyle = FlatStyle.Flat
         adbtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         adbtn.ForeColor = SystemColors.ControlLightLight
-        adbtn.Location = New Point(272, 356)
+        adbtn.Location = New Point(382, 472)
         adbtn.Name = "adbtn"
         adbtn.RightToLeft = RightToLeft.No
         adbtn.Size = New Size(180, 35)
@@ -137,14 +140,14 @@ Partial Class Resgister_Type
         ' 
         ' teachbtn
         ' 
-        teachbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        teachbtn.Anchor = AnchorStyles.Top
         teachbtn.BackColor = SystemColors.ActiveCaptionText
         teachbtn.FlatAppearance.BorderColor = Color.White
         teachbtn.FlatAppearance.BorderSize = 0
         teachbtn.FlatStyle = FlatStyle.Flat
         teachbtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         teachbtn.ForeColor = SystemColors.ControlLightLight
-        teachbtn.Location = New Point(492, 356)
+        teachbtn.Location = New Point(678, 473)
         teachbtn.Name = "teachbtn"
         teachbtn.RightToLeft = RightToLeft.No
         teachbtn.Size = New Size(180, 35)
@@ -154,14 +157,14 @@ Partial Class Resgister_Type
         ' 
         ' backtologin
         ' 
-        backtologin.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        backtologin.Anchor = AnchorStyles.Top
         backtologin.BackColor = Color.Red
         backtologin.FlatAppearance.BorderColor = Color.White
         backtologin.FlatAppearance.BorderSize = 0
         backtologin.FlatStyle = FlatStyle.Flat
         backtologin.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         backtologin.ForeColor = SystemColors.ControlLightLight
-        backtologin.Location = New Point(272, 423)
+        backtologin.Location = New Point(382, 539)
         backtologin.Name = "backtologin"
         backtologin.RightToLeft = RightToLeft.No
         backtologin.Size = New Size(180, 35)
@@ -173,7 +176,7 @@ Partial Class Resgister_Type
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(708, 479)
+        ClientSize = New Size(971, 675)
         Controls.Add(backtologin)
         Controls.Add(teachbtn)
         Controls.Add(adbtn)
@@ -187,6 +190,7 @@ Partial Class Resgister_Type
         FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "Resgister_Type"
         Text = "Resgister_Type"
+        WindowState = FormWindowState.Maximized
         CType(studentbtn, ComponentModel.ISupportInitialize).EndInit()
         CType(adminbtn, ComponentModel.ISupportInitialize).EndInit()
         CType(teacherbtn, ComponentModel.ISupportInitialize).EndInit()

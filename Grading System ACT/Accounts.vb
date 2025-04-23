@@ -283,4 +283,7 @@ Public Class Accounts
         End Try
     End Sub
 
+    Private Sub backbtntoadmin_Click(sender As Object, e As EventArgs) Handles backbtntoadmin.Click
+        Me.Close()
+    End Sub
 End Class

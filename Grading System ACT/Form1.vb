@@ -36,6 +36,8 @@ Public Class Form1
                     Return
                 End If
 
+
+
                 Dim userLevel As String = reader("user_level").ToString()
 
                 MessageBox.Show("Login successful as " & userLevel, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)

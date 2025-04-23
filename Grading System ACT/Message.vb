@@ -89,19 +89,19 @@ Public Class Message
             Return
         End If
 
-        Dim teacherName As String = teachernamemessage.SelectedItem.ToString()
-        Dim semester As String = semestermsg.SelectedItem.ToString()
-        Dim quiz As String = quizmessage.Text
-        Dim exercises As String = exercisesmessage.Text
-        Dim assignment As String = assigmentmessage.Text
-        Dim projectEvaluation As String = projectevalutionmessage.Text
-        Dim classParticipation As String = classparticipationmessage.Text
-        Dim activity As String = activitymessage.Text
-        Dim project As String = projectmessage.Text
-        Dim exam As String = exammessage.Text
-        Dim messageText As String = messagebox.Text
+        Dim teacherName = teachernamemessage.SelectedItem.ToString
+        Dim semester = semestermsg.SelectedItem.ToString
+        Dim quiz = quizmessage.Text
+        Dim exercises = exercisesmessage.Text
+        Dim assignment = assigmentmessage.Text
+        Dim projectEvaluation = projectevalutionmessage.Text
+        Dim classParticipation = classparticipationmessage.Text
+        Dim activity = activitymessage.Text
+        Dim project = projectmessage.Text
+        Dim exam = exammessage.Text
+        Dim messageText = messagebox.Text
 
-        Dim studentsSelected As Boolean = False
+        Dim studentsSelected = False
 
         Try
             conn.Open()
@@ -109,9 +109,9 @@ Public Class Message
             For Each row As DataGridViewRow In studentlistmessage.Rows
                 If Convert.ToBoolean(row.Cells("SelectStudent").Value) = True Then
                     studentsSelected = True
-                    Dim studentName As String = row.Cells("fullname").Value.ToString()
+                    Dim studentName = row.Cells("fullname").Value.ToString
 
-                    Dim query As String = "INSERT INTO message_teacher (teacher_name, student_name, semester, quiz, exercises, assignment, project_evaluation, class_participation, activity, project, exam, message) " &
+                    Dim query = "INSERT INTO message_teacher (teacher_name, student_name, semester, quiz, exercises, assignment, project_evaluation, class_participation, activity, project, exam, message) " &
                                       "VALUES (@teacher, @student, @semester, @quiz, @exercises, @assignment, @projEval, @classPart, @activity, @project, @exam, @message)"
 
                     Using cmd As New MySqlCommand(query, conn)
@@ -178,4 +178,9 @@ Public Class Message
     Private Sub semestermsg_SelectedIndexChanged(sender As Object, e As EventArgs) Handles semestermsg.SelectedIndexChanged
 
     End Sub
+
+    Private Sub backbtnmessage_Click(sender As Object, e As EventArgs) Handles backbtnmessage.Click
+        Me.Close()
+    End Sub
+
 End Class

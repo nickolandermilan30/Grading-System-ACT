@@ -9,12 +9,10 @@ Public Class AdminPagevb
     Public Sub New(ByVal name As String, ByVal dept As String)
         InitializeComponent()
         adminName = name
-        adminDept = dept
     End Sub
     Private Sub AdminPagevb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Assign values to labels
         nameadmin.Text = adminName
-        departmentadminname.Text = adminDept
 
         ' Load other data
         LoadTeachers()
@@ -54,7 +52,8 @@ Public Class AdminPagevb
             conn = New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
             conn.Open()
 
-            Dim query As String = "SELECT fullname, identifier, age FROM users WHERE gender = 'F' AND user_level = 'Student' ORDER BY fullname"
+            ' 🔄 Updated query to include department
+            Dim query As String = "SELECT fullname, identifier, age, department FROM users WHERE gender = 'F' AND user_level = 'Student' ORDER BY fullname"
             Dim cmd As New MySqlCommand(query, conn)
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
@@ -62,10 +61,12 @@ Public Class AdminPagevb
             femaleliststudent.View = View.Details
             femaleliststudent.OwnerDraw = True
 
+            ' 🧩 Add department column if not yet added
             If femaleliststudent.Columns.Count = 0 Then
                 femaleliststudent.Columns.Add("Full Name", 150)
                 femaleliststudent.Columns.Add("Student ID", 150)
-                femaleliststudent.Columns.Add("Age", 150)
+                femaleliststudent.Columns.Add("Age", 100)
+                femaleliststudent.Columns.Add("Department", 150) ' ✅ Added department column
             End If
 
             Dim femaleStudentCount As Integer = 0
@@ -74,6 +75,7 @@ Public Class AdminPagevb
                 Dim item As New ListViewItem(reader("fullname").ToString())
                 item.SubItems.Add(reader("identifier").ToString())
                 item.SubItems.Add(reader("age").ToString())
+                item.SubItems.Add(reader("department").ToString()) ' ✅ Added department to each row
                 femaleliststudent.Items.Add(item)
                 femaleStudentCount += 1
             End While
@@ -97,7 +99,7 @@ Public Class AdminPagevb
             conn = New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
             conn.Open()
 
-            Dim query As String = "SELECT fullname, identifier, age FROM users WHERE gender = 'M' AND user_level = 'Student' ORDER BY fullname"
+            Dim query As String = "SELECT fullname, identifier, age, department FROM users WHERE gender = 'M' AND user_level = 'Student' ORDER BY fullname"
             Dim cmd As New MySqlCommand(query, conn)
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
@@ -111,7 +113,8 @@ Public Class AdminPagevb
             If malestudentlist.Columns.Count = 0 Then
                 malestudentlist.Columns.Add("Full Name", 150)
                 malestudentlist.Columns.Add("Student ID", 150)
-                malestudentlist.Columns.Add("Age", 150)
+                malestudentlist.Columns.Add("Age", 100)
+                malestudentlist.Columns.Add("Department", 150) ' New column for department
             End If
 
             ' Track the number of students
@@ -120,7 +123,8 @@ Public Class AdminPagevb
             While reader.Read()
                 Dim item As New ListViewItem(reader("fullname").ToString())
                 item.SubItems.Add(reader("identifier").ToString())
-                item.SubItems.Add(reader("age").ToString()) ' Add age as a third column
+                item.SubItems.Add(reader("age").ToString())
+                item.SubItems.Add(reader("department").ToString()) ' Add department to the row
                 malestudentlist.Items.Add(item)
 
                 ' Increment the count for each male student
@@ -138,6 +142,7 @@ Public Class AdminPagevb
             If conn IsNot Nothing Then conn.Close()
         End Try
     End Sub
+
 
 
 
@@ -532,5 +537,6 @@ Public Class AdminPagevb
         Dim gradedForm As New Graded_Finish()
         gradedForm.Show()
     End Sub
+
 
 End Class

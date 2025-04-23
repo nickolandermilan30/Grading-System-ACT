@@ -31,6 +31,7 @@ Partial Class Teacher_Message
         Label5 = New Label()
         messagesee = New TextBox()
         donecopy = New Button()
+        backbtnmessage = New Button()
         CType(studentlist, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -80,7 +81,7 @@ Partial Class Teacher_Message
         studentlist.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         studentlist.Location = New Point(22, 112)
         studentlist.Name = "studentlist"
-        studentlist.Size = New Size(1105, 362)
+        studentlist.Size = New Size(1105, 378)
         studentlist.TabIndex = 21
         ' 
         ' Label4
@@ -88,7 +89,7 @@ Partial Class Teacher_Message
         Label4.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label4.Location = New Point(22, 496)
+        Label4.Location = New Point(22, 517)
         Label4.Name = "Label4"
         Label4.Size = New Size(70, 20)
         Label4.TabIndex = 54
@@ -107,7 +108,7 @@ Partial Class Teacher_Message
         ' messagesee
         ' 
         messagesee.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        messagesee.Location = New Point(22, 529)
+        messagesee.Location = New Point(22, 550)
         messagesee.Multiline = True
         messagesee.Name = "messagesee"
         messagesee.Size = New Size(1105, 194)
@@ -130,11 +131,29 @@ Partial Class Teacher_Message
         donecopy.Text = "Done"
         donecopy.UseVisualStyleBackColor = False
         ' 
+        ' backbtnmessage
+        ' 
+        backbtnmessage.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        backbtnmessage.BackColor = Color.Red
+        backbtnmessage.FlatAppearance.BorderColor = Color.White
+        backbtnmessage.FlatAppearance.BorderSize = 0
+        backbtnmessage.FlatStyle = FlatStyle.Flat
+        backbtnmessage.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        backbtnmessage.ForeColor = SystemColors.ControlLightLight
+        backbtnmessage.Location = New Point(22, 769)
+        backbtnmessage.Name = "backbtnmessage"
+        backbtnmessage.RightToLeft = RightToLeft.No
+        backbtnmessage.Size = New Size(1105, 40)
+        backbtnmessage.TabIndex = 58
+        backbtnmessage.Text = "Close"
+        backbtnmessage.UseVisualStyleBackColor = False
+        ' 
         ' Teacher_Message
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1139, 754)
+        ClientSize = New Size(1139, 830)
+        Controls.Add(backbtnmessage)
         Controls.Add(donecopy)
         Controls.Add(messagesee)
         Controls.Add(Label5)
@@ -160,4 +179,5 @@ Partial Class Teacher_Message
     Friend WithEvents Label5 As Label
     Friend WithEvents messagesee As TextBox
     Friend WithEvents donecopy As Button
+    Friend WithEvents backbtnmessage As Button
 End Class

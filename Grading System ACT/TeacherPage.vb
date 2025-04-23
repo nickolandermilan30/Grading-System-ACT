@@ -38,7 +38,6 @@ Public Class TeacherPage
         Try
             OpenConnection()
 
-            ' For each row (student), retrieve and populate standing grades for each subject and semester
             For Each row As DataGridViewRow In grid.Rows
                 If row.IsNewRow Then Continue For
 
@@ -78,25 +77,53 @@ Public Class TeacherPage
         grid.Rows.Clear()
 
         Try
-            ' Open connection
             OpenConnection()
 
-            ' Fetch student data from the 'selected_students' table
-            Dim query As String = "SELECT fullname, gender, student_id FROM selected_students"
-            Dim cmd As New MySqlCommand(query, conn)
+            ' Get distinct years first for ordering/grouping
+            Dim yearQuery As String = "SELECT DISTINCT u.year FROM selected_students ss INNER JOIN users u ON ss.fullname = u.fullname ORDER BY u.year"
+            Dim yearCmd As New MySqlCommand(yearQuery, conn)
+            Dim years As New List(Of String)
 
-            ' Read student data
-            Using reader As MySqlDataReader = cmd.ExecuteReader()
-                While reader.Read()
-                    Dim row As String() = {
-                    reader("fullname").ToString(),
-                    reader("gender").ToString(),
-                    reader("student_id").ToString()
-                }
-                    grid.Rows.Add(row)
-                    grid.AllowUserToAddRows = False
+            Using yearReader As MySqlDataReader = yearCmd.ExecuteReader()
+                While yearReader.Read()
+                    years.Add(yearReader("year").ToString())
                 End While
             End Using
+
+            ' Loop through each year and load students for that year
+            For Each yr In years
+                ' Add a bold header row to separate years
+                Dim headerRow As New DataGridViewRow()
+                headerRow.CreateCells(grid)
+                headerRow.Cells(0).Value = "Year Level: " & yr
+                headerRow.DefaultCellStyle.Font = New Font(grid.Font, FontStyle.Bold)
+                headerRow.DefaultCellStyle.BackColor = Color.LightGray
+                grid.Rows.Add(headerRow)
+
+                ' Load students for this year
+                Dim studentQuery As String = "SELECT ss.fullname, ss.gender, ss.student_id, u.department, u.year " &
+                                         "FROM selected_students ss " &
+                                         "INNER JOIN users u ON ss.fullname = u.fullname " &
+                                         "WHERE u.year = @year"
+                Dim studentCmd As New MySqlCommand(studentQuery, conn)
+                studentCmd.Parameters.AddWithValue("@year", yr)
+
+                Using reader As MySqlDataReader = studentCmd.ExecuteReader()
+                    While reader.Read()
+                        Dim row As String() = {
+                        reader("fullname").ToString(),
+                        reader("gender").ToString(),
+                        reader("student_id").ToString(),
+                        reader("department").ToString(),
+                        reader("year").ToString()
+                    }
+
+                        grid.Rows.Add(row)
+                    End While
+                End Using
+            Next
+
+            grid.AllowUserToAddRows = False
 
         Catch ex As Exception
             MessageBox.Show("Error loading student data: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -104,7 +131,7 @@ Public Class TeacherPage
             CloseConnection()
         End Try
 
-        ' ✅ Load grades after students are added
+        ' Load grades after adding grouped student data
         LoadGradesIntoGrid(semesterteachpage.SelectedItem.ToString())
     End Sub
 
@@ -135,7 +162,8 @@ Public Class TeacherPage
         grid.Columns.Add("name", "Name")
         grid.Columns.Add("gender", "Gender")
         grid.Columns.Add("studentId", "Student ID")
-
+        grid.Columns.Add("department", "Department")
+        grid.Columns.Add("year", "Year")
         ' Add semester-specific columns for each subject
         Try
             OpenConnection()
@@ -200,10 +228,6 @@ Public Class TeacherPage
 
         End If
     End Sub
-
-
-
-
 
     Private Sub addstudent_Click(sender As Object, e As EventArgs) Handles addstudent.Click
         Dim addStudentForm As New Add_Student()

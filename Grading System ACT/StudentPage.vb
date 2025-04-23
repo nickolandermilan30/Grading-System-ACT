@@ -179,7 +179,6 @@ Public Class StudentPage
 
 
     ' Method to load student grades with only subject, total grade, standing grade, and remarks
-    ' Method to load student grades with only subject, total grade, standing grade, and remarks
     Private Sub LoadStudentPointsGrades()
         Try
             OpenConnection()
@@ -197,8 +196,8 @@ Public Class StudentPage
             gradesofeachstudent.Rows.Clear()
 
             While reader.Read()
-                Dim totalGrade As Integer = reader("total_grade")
-                Dim standingGrade As Double = reader("standing_grade")
+                Dim totalGrade As Double = Convert.ToDouble(reader("total_grade"))
+                Dim standingGrade As Double = Convert.ToDouble(reader("standing_grade"))
                 Dim semester As String = reader("semester_name").ToString()
                 Dim remarks As String
 
@@ -213,13 +212,13 @@ Public Class StudentPage
                     remarks = "Invalid Grade"
                 End If
 
-                ' Add row including semester
                 gradesofeachstudent.Rows.Add(reader("subject_name"),
-                                         totalGrade,
-                                         standingGrade.ToString("F2"),
-                                         remarks,
-                                         semester) ' ✅ added semester
+                                 totalGrade.ToString("F2"),
+                                 standingGrade.ToString("F2"),
+                                 remarks,
+                                 semester)
             End While
+
 
             reader.Close()
         Catch ex As Exception

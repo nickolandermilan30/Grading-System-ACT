@@ -68,4 +68,9 @@ Public Class Graded_Finish
             conn.Close()
         End Try
     End Sub
+
+    Private Sub backtomainsub2_Click(sender As Object, e As EventArgs) Handles backtomainsub2.Click
+        Me.Close()
+
+    End Sub
 End Class

@@ -20,8 +20,9 @@ Public Class Student_register
         Try
             OpenConnection()
 
-            Dim cmd As New MySqlCommand("INSERT INTO users (fullname, age, gender, identifier, section, department, user_level, password, email) 
-                             VALUES (@fullname, @age, @gender, @identifier, @section, @department, 'Student', @password, @email)", conn)
+            Dim cmd As New MySqlCommand("INSERT INTO users (fullname, age, gender, identifier, section, department, year, user_level, password, email) 
+VALUES (@fullname, @age, @gender, @identifier, @section, @department, @year, 'Student', @password, @email)", conn)
+
 
             cmd.Parameters.AddWithValue("@fullname", studname.Text.Trim())
             cmd.Parameters.AddWithValue("@age", CInt(studage.Text))
@@ -29,8 +30,10 @@ Public Class Student_register
             cmd.Parameters.AddWithValue("@identifier", studid.Text.Trim())
             cmd.Parameters.AddWithValue("@section", studsection.Text.Trim())
             cmd.Parameters.AddWithValue("@department", studdepartment.Text.Trim())
+            cmd.Parameters.AddWithValue("@year", year.Text.Trim())
             cmd.Parameters.AddWithValue("@password", passstud.Text.Trim())
             cmd.Parameters.AddWithValue("@email", emailstud.Text.Trim())
+
 
             cmd.ExecuteNonQuery()
             MessageBox.Show("Student registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -89,4 +92,7 @@ Public Class Student_register
         ' Do nothing or handle dynamically if needed
     End Sub
 
+    Private Sub year_TextChanged(sender As Object, e As EventArgs) Handles year.TextChanged
+
+    End Sub
 End Class

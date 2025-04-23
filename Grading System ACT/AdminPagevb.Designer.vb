@@ -39,8 +39,6 @@ Partial Class AdminPagevb
         malestudentlist = New ListView()
         Label5 = New Label()
         nameadmin = New Label()
-        departmentadminname = New Label()
-        Label7 = New Label()
         accounts = New Button()
         allgradespoints = New DataGridView()
         prelim = New Button()
@@ -230,26 +228,6 @@ Partial Class AdminPagevb
         nameadmin.TabIndex = 34
         nameadmin.Text = "N/A"
         ' 
-        ' departmentadminname
-        ' 
-        departmentadminname.AutoSize = True
-        departmentadminname.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        departmentadminname.Location = New Point(679, 28)
-        departmentadminname.Name = "departmentadminname"
-        departmentadminname.Size = New Size(31, 17)
-        departmentadminname.TabIndex = 36
-        departmentadminname.Text = "N/A"
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label7.Location = New Point(575, 24)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(98, 20)
-        Label7.TabIndex = 35
-        Label7.Text = "Department:"
-        ' 
         ' accounts
         ' 
         accounts.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
@@ -387,8 +365,6 @@ Partial Class AdminPagevb
         Controls.Add(prelim)
         Controls.Add(allgradespoints)
         Controls.Add(accounts)
-        Controls.Add(departmentadminname)
-        Controls.Add(Label7)
         Controls.Add(nameadmin)
         Controls.Add(Label5)
         Controls.Add(malestudentlist)
@@ -431,8 +407,6 @@ Partial Class AdminPagevb
     Friend WithEvents malestudentlist As ListView
     Friend WithEvents Label5 As Label
     Friend WithEvents nameadmin As Label
-    Friend WithEvents departmentadminname As Label
-    Friend WithEvents Label7 As Label
     Friend WithEvents accounts As Button
     Friend WithEvents allgradespoints As DataGridView
     Friend WithEvents prelim As Button

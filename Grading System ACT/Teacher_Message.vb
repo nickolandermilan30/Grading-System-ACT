@@ -119,4 +119,7 @@ Public Class Teacher_Message
         End Try
     End Sub
 
+    Private Sub backbtnmessage_Click(sender As Object, e As EventArgs) Handles backbtnmessage.Click
+        Me.Close()
+    End Sub
 End Class

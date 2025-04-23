@@ -39,35 +39,43 @@ Partial Class Form1
         ' 
         ' emailinput
         ' 
-        emailinput.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        emailinput.Location = New Point(52, 153)
+        emailinput.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        emailinput.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        emailinput.Location = New Point(49, 405)
+        emailinput.Multiline = True
         emailinput.Name = "emailinput"
-        emailinput.Size = New Size(346, 23)
+        emailinput.Size = New Size(1162, 49)
         emailinput.TabIndex = 0
         ' 
         ' passwordinput
         ' 
-        passwordinput.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        passwordinput.Location = New Point(52, 223)
+        passwordinput.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        passwordinput.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        passwordinput.Location = New Point(49, 502)
+        passwordinput.Multiline = True
         passwordinput.Name = "passwordinput"
-        passwordinput.Size = New Size(346, 23)
+        passwordinput.Size = New Size(1162, 49)
         passwordinput.TabIndex = 1
         ' 
         ' Email
         ' 
+        Email.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         Email.AutoSize = True
-        Email.Location = New Point(52, 125)
+        Email.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Email.Location = New Point(49, 373)
         Email.Name = "Email"
-        Email.Size = New Size(36, 15)
+        Email.Size = New Size(46, 20)
         Email.TabIndex = 2
         Email.Text = "Email"
         ' 
         ' Label2
         ' 
+        Label2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         Label2.AutoSize = True
-        Label2.Location = New Point(52, 195)
+        Label2.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(49, 474)
         Label2.Name = "Label2"
-        Label2.Size = New Size(57, 15)
+        Label2.Size = New Size(70, 20)
         Label2.TabIndex = 3
         Label2.Text = "Password"
         ' 
@@ -80,10 +88,10 @@ Partial Class Form1
         loginbtn.FlatStyle = FlatStyle.Flat
         loginbtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         loginbtn.ForeColor = SystemColors.ControlLightLight
-        loginbtn.Location = New Point(25, 316)
+        loginbtn.Location = New Point(25, 707)
         loginbtn.Name = "loginbtn"
         loginbtn.RightToLeft = RightToLeft.No
-        loginbtn.Size = New Size(180, 35)
+        loginbtn.Size = New Size(567, 35)
         loginbtn.TabIndex = 4
         loginbtn.Text = "Log In"
         loginbtn.UseVisualStyleBackColor = False
@@ -97,10 +105,10 @@ Partial Class Form1
         registerbtn.FlatStyle = FlatStyle.Flat
         registerbtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         registerbtn.ForeColor = SystemColors.ControlLightLight
-        registerbtn.Location = New Point(234, 316)
+        registerbtn.Location = New Point(663, 707)
         registerbtn.Name = "registerbtn"
         registerbtn.RightToLeft = RightToLeft.No
-        registerbtn.Size = New Size(180, 35)
+        registerbtn.Size = New Size(567, 35)
         registerbtn.TabIndex = 5
         registerbtn.Text = "Register"
         registerbtn.UseVisualStyleBackColor = False
@@ -114,21 +122,22 @@ Partial Class Form1
         forgotbtn.FlatStyle = FlatStyle.Flat
         forgotbtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         forgotbtn.ForeColor = SystemColors.ControlLightLight
-        forgotbtn.Location = New Point(25, 377)
+        forgotbtn.Location = New Point(25, 768)
         forgotbtn.Name = "forgotbtn"
         forgotbtn.RightToLeft = RightToLeft.No
-        forgotbtn.Size = New Size(180, 35)
+        forgotbtn.Size = New Size(567, 35)
         forgotbtn.TabIndex = 6
         forgotbtn.Text = "Forgot Password"
         forgotbtn.UseVisualStyleBackColor = False
         ' 
         ' seepass
         ' 
-        seepass.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        seepass.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         seepass.AutoSize = True
-        seepass.Location = New Point(301, 264)
+        seepass.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        seepass.Location = New Point(1092, 569)
         seepass.Name = "seepass"
-        seepass.Size = New Size(97, 19)
+        seepass.Size = New Size(119, 24)
         seepass.TabIndex = 7
         seepass.Text = "See password"
         seepass.UseVisualStyleBackColor = True
@@ -137,9 +146,9 @@ Partial Class Form1
         ' 
         PictureBox1.Anchor = AnchorStyles.Top
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(175, 12)
+        PictureBox1.Location = New Point(438, 22)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(115, 109)
+        PictureBox1.Size = New Size(374, 345)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 8
         PictureBox1.TabStop = False
@@ -153,20 +162,22 @@ Partial Class Form1
         closebtn.FlatStyle = FlatStyle.Flat
         closebtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         closebtn.ForeColor = SystemColors.ControlLightLight
-        closebtn.Location = New Point(234, 377)
+        closebtn.Location = New Point(663, 768)
         closebtn.Name = "closebtn"
         closebtn.RightToLeft = RightToLeft.No
-        closebtn.Size = New Size(180, 35)
+        closebtn.Size = New Size(567, 35)
         closebtn.TabIndex = 9
         closebtn.Text = "Close"
         closebtn.UseVisualStyleBackColor = False
         ' 
         ' attemp
         ' 
+        attemp.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         attemp.AutoSize = True
-        attemp.Location = New Point(52, 264)
+        attemp.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        attemp.Location = New Point(49, 572)
         attemp.Name = "attemp"
-        attemp.Size = New Size(79, 15)
+        attemp.Size = New Size(113, 21)
         attemp.TabIndex = 10
         attemp.Text = "Attempts: 0/5"
         ' 
@@ -174,7 +185,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(441, 446)
+        ClientSize = New Size(1257, 837)
         Controls.Add(attemp)
         Controls.Add(closebtn)
         Controls.Add(PictureBox1)
