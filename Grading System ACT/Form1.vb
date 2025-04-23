@@ -8,7 +8,6 @@ Public Class Form1
     Private WithEvents cooldownTimer As New Timer()
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        passwordinput.UseSystemPasswordChar = True
         cooldownTimer.Interval = 1000 ' 1 second interval
         Me.AcceptButton = loginbtn ' Pressing Enter will trigger the Login button
     End Sub
@@ -125,11 +124,18 @@ Public Class Form1
     End Sub
 
     Private Sub seepass_CheckedChanged(sender As Object, e As EventArgs) Handles seepass.CheckedChanged
-        passwordinput.UseSystemPasswordChar = Not seepass.Checked
+        If seepass.Checked Then
+            passwordinput.PasswordChar = ControlChars.NullChar ' Shows the actual text
+        Else
+            passwordinput.PasswordChar = "*"c ' Hides the text as *
+        End If
     End Sub
 
     ' Not used anymore since we update label in login logic
     Private Sub attemp_Click(sender As Object, e As EventArgs) Handles attemp.Click
+    End Sub
+
+    Private Sub passwordinput_TextChanged(sender As Object, e As EventArgs) Handles passwordinput.TextChanged
     End Sub
 
 End Class

@@ -6,7 +6,6 @@ Public Class Add_Student
 
     Private Sub Add_Student_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadStudentList()
-
     End Sub
 
     Private Sub LoadStudentList()
@@ -19,13 +18,13 @@ Public Class Add_Student
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
             While reader.Read()
-                Dim name As String = reader("fullname").ToString().PadRight(25)
-                Dim gender As String = reader("gender").ToString().PadRight(10)
-                Dim studentId As String = reader("identifier").ToString().PadRight(15)
-                Dim department As String = reader("department").ToString().PadRight(15)
-                Dim year As String = reader("year").ToString().PadRight(6)
+                Dim name As String = reader("fullname").ToString()
+                Dim gender As String = reader("gender").ToString()
+                Dim studentId As String = reader("identifier").ToString()
+                Dim department As String = reader("department").ToString()
+                Dim year As String = reader("year").ToString()
 
-                Dim display As String = $"{name} {gender} {studentId} {department} {year}"
+                Dim display As String = $"{name} - {gender} - {studentId} - {department} - {year}"
                 studentlist.Items.Add(display)
             End While
 

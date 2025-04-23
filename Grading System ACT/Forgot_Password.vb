@@ -59,15 +59,10 @@ Public Class Forgot_Password
 
     Private Sub seepassforgot_CheckedChanged(sender As Object, e As EventArgs) Handles seepassforgot.CheckedChanged
         If seepassforgot.Checked Then
-            passwordforgot.UseSystemPasswordChar = False ' Show password
+            passwordforgot.PasswordChar = ControlChars.NullChar ' Shows the actual text
         Else
-            passwordforgot.UseSystemPasswordChar = True ' Hide password
+            passwordforgot.PasswordChar = "*"c ' Hides the text as *
         End If
-    End Sub
-
-
-    Private Sub Forgot_Password_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        passwordforgot.UseSystemPasswordChar = True ' Hide by default
     End Sub
 
 End Class

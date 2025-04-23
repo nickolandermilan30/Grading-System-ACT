@@ -36,18 +36,20 @@ Partial Class Forgot_Password
         ' 
         ' PictureBox1
         ' 
+        PictureBox1.Anchor = AnchorStyles.Top
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(166, 34)
+        PictureBox1.Location = New Point(476, 52)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(115, 109)
+        PictureBox1.Size = New Size(250, 228)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 14
         PictureBox1.TabStop = False
         ' 
         ' seepassforgot
         ' 
+        seepassforgot.Anchor = AnchorStyles.Top
         seepassforgot.AutoSize = True
-        seepassforgot.Location = New Point(292, 286)
+        seepassforgot.Location = New Point(790, 530)
         seepassforgot.Name = "seepassforgot"
         seepassforgot.Size = New Size(97, 19)
         seepassforgot.TabIndex = 13
@@ -56,8 +58,9 @@ Partial Class Forgot_Password
         ' 
         ' Label2
         ' 
+        Label2.Anchor = AnchorStyles.Top
         Label2.AutoSize = True
-        Label2.Location = New Point(43, 217)
+        Label2.Location = New Point(342, 434)
         Label2.Name = "Label2"
         Label2.Size = New Size(57, 15)
         Label2.TabIndex = 12
@@ -65,8 +68,9 @@ Partial Class Forgot_Password
         ' 
         ' Email
         ' 
+        Email.Anchor = AnchorStyles.Top
         Email.AutoSize = True
-        Email.Location = New Point(43, 147)
+        Email.Location = New Point(342, 330)
         Email.Name = "Email"
         Email.Size = New Size(36, 15)
         Email.TabIndex = 11
@@ -74,27 +78,35 @@ Partial Class Forgot_Password
         ' 
         ' passwordforgot
         ' 
-        passwordforgot.Location = New Point(43, 245)
+        passwordforgot.Anchor = AnchorStyles.Top
+        passwordforgot.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        passwordforgot.Location = New Point(342, 462)
+        passwordforgot.Multiline = True
         passwordforgot.Name = "passwordforgot"
-        passwordforgot.Size = New Size(346, 23)
+        passwordforgot.PasswordChar = "*"c
+        passwordforgot.Size = New Size(545, 44)
         passwordforgot.TabIndex = 10
         ' 
         ' emailforgot
         ' 
-        emailforgot.Location = New Point(43, 175)
+        emailforgot.Anchor = AnchorStyles.Top
+        emailforgot.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        emailforgot.Location = New Point(342, 358)
+        emailforgot.Multiline = True
         emailforgot.Name = "emailforgot"
-        emailforgot.Size = New Size(346, 23)
+        emailforgot.Size = New Size(545, 44)
         emailforgot.TabIndex = 9
         ' 
         ' changepassword
         ' 
+        changepassword.Anchor = AnchorStyles.Top
         changepassword.BackColor = SystemColors.ActiveCaptionText
         changepassword.FlatAppearance.BorderColor = Color.White
         changepassword.FlatAppearance.BorderSize = 0
         changepassword.FlatStyle = FlatStyle.Flat
         changepassword.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         changepassword.ForeColor = SystemColors.ControlLightLight
-        changepassword.Location = New Point(43, 337)
+        changepassword.Location = New Point(425, 612)
         changepassword.Name = "changepassword"
         changepassword.RightToLeft = RightToLeft.No
         changepassword.Size = New Size(346, 35)
@@ -104,13 +116,14 @@ Partial Class Forgot_Password
         ' 
         ' backtomain
         ' 
+        backtomain.Anchor = AnchorStyles.Top
         backtomain.BackColor = Color.Red
         backtomain.FlatAppearance.BorderColor = Color.White
         backtomain.FlatAppearance.BorderSize = 0
         backtomain.FlatStyle = FlatStyle.Flat
         backtomain.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         backtomain.ForeColor = SystemColors.ControlLightLight
-        backtomain.Location = New Point(43, 387)
+        backtomain.Location = New Point(425, 677)
         backtomain.Name = "backtomain"
         backtomain.RightToLeft = RightToLeft.No
         backtomain.Size = New Size(346, 35)
@@ -122,7 +135,7 @@ Partial Class Forgot_Password
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(441, 446)
+        ClientSize = New Size(1218, 786)
         Controls.Add(backtomain)
         Controls.Add(changepassword)
         Controls.Add(PictureBox1)
@@ -131,9 +144,10 @@ Partial Class Forgot_Password
         Controls.Add(Email)
         Controls.Add(passwordforgot)
         Controls.Add(emailforgot)
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "Forgot_Password"
         Text = "   "
+        WindowState = FormWindowState.Maximized
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()

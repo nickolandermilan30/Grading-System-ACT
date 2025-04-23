@@ -41,20 +41,21 @@ Partial Class Form1
         ' 
         emailinput.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         emailinput.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        emailinput.Location = New Point(49, 405)
+        emailinput.Location = New Point(330, 382)
         emailinput.Multiline = True
         emailinput.Name = "emailinput"
-        emailinput.Size = New Size(1162, 49)
+        emailinput.Size = New Size(545, 44)
         emailinput.TabIndex = 0
         ' 
         ' passwordinput
         ' 
         passwordinput.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         passwordinput.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        passwordinput.Location = New Point(49, 502)
+        passwordinput.Location = New Point(330, 479)
         passwordinput.Multiline = True
         passwordinput.Name = "passwordinput"
-        passwordinput.Size = New Size(1162, 49)
+        passwordinput.PasswordChar = "*"c
+        passwordinput.Size = New Size(545, 44)
         passwordinput.TabIndex = 1
         ' 
         ' Email
@@ -62,7 +63,7 @@ Partial Class Form1
         Email.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         Email.AutoSize = True
         Email.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Email.Location = New Point(49, 373)
+        Email.Location = New Point(330, 350)
         Email.Name = "Email"
         Email.Size = New Size(46, 20)
         Email.TabIndex = 2
@@ -73,7 +74,7 @@ Partial Class Form1
         Label2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(49, 474)
+        Label2.Location = New Point(330, 451)
         Label2.Name = "Label2"
         Label2.Size = New Size(70, 20)
         Label2.TabIndex = 3
@@ -81,7 +82,7 @@ Partial Class Form1
         ' 
         ' loginbtn
         ' 
-        loginbtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        loginbtn.Anchor = AnchorStyles.Bottom
         loginbtn.BackColor = SystemColors.ActiveCaptionText
         loginbtn.FlatAppearance.BorderColor = Color.White
         loginbtn.FlatAppearance.BorderSize = 0
@@ -98,7 +99,7 @@ Partial Class Form1
         ' 
         ' registerbtn
         ' 
-        registerbtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        registerbtn.Anchor = AnchorStyles.Bottom
         registerbtn.BackColor = SystemColors.ActiveCaptionText
         registerbtn.FlatAppearance.BorderColor = Color.White
         registerbtn.FlatAppearance.BorderSize = 0
@@ -115,7 +116,7 @@ Partial Class Form1
         ' 
         ' forgotbtn
         ' 
-        forgotbtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        forgotbtn.Anchor = AnchorStyles.Bottom
         forgotbtn.BackColor = SystemColors.ActiveCaptionText
         forgotbtn.FlatAppearance.BorderColor = Color.White
         forgotbtn.FlatAppearance.BorderSize = 0
@@ -135,7 +136,7 @@ Partial Class Form1
         seepass.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         seepass.AutoSize = True
         seepass.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        seepass.Location = New Point(1092, 569)
+        seepass.Location = New Point(756, 546)
         seepass.Name = "seepass"
         seepass.Size = New Size(119, 24)
         seepass.TabIndex = 7
@@ -146,16 +147,16 @@ Partial Class Form1
         ' 
         PictureBox1.Anchor = AnchorStyles.Top
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(438, 22)
+        PictureBox1.Location = New Point(482, 57)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(374, 345)
+        PictureBox1.Size = New Size(250, 228)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 8
         PictureBox1.TabStop = False
         ' 
         ' closebtn
         ' 
-        closebtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        closebtn.Anchor = AnchorStyles.Bottom
         closebtn.BackColor = Color.Red
         closebtn.FlatAppearance.BorderColor = Color.White
         closebtn.FlatAppearance.BorderSize = 0
@@ -175,7 +176,7 @@ Partial Class Form1
         attemp.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         attemp.AutoSize = True
         attemp.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        attemp.Location = New Point(49, 572)
+        attemp.Location = New Point(330, 549)
         attemp.Name = "attemp"
         attemp.Size = New Size(113, 21)
         attemp.TabIndex = 10
