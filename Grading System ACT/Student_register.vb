@@ -95,4 +95,8 @@ VALUES (@fullname, @age, @gender, @identifier, @section, @department, @year, 'St
     Private Sub year_TextChanged(sender As Object, e As EventArgs) Handles year.TextChanged
 
     End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
 End Class

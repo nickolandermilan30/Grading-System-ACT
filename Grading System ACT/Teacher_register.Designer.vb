@@ -56,7 +56,7 @@ Partial Class Teacher_register
         backtoclass3.FlatStyle = FlatStyle.Flat
         backtoclass3.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         backtoclass3.ForeColor = SystemColors.ControlLightLight
-        backtoclass3.Location = New Point(314, 776)
+        backtoclass3.Location = New Point(316, 650)
         backtoclass3.Name = "backtoclass3"
         backtoclass3.RightToLeft = RightToLeft.No
         backtoclass3.Size = New Size(326, 35)
@@ -73,7 +73,7 @@ Partial Class Teacher_register
         regnowteacher.FlatStyle = FlatStyle.Flat
         regnowteacher.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         regnowteacher.ForeColor = SystemColors.ControlLightLight
-        regnowteacher.Location = New Point(707, 776)
+        regnowteacher.Location = New Point(709, 650)
         regnowteacher.Name = "regnowteacher"
         regnowteacher.RightToLeft = RightToLeft.No
         regnowteacher.Size = New Size(326, 35)
@@ -85,7 +85,7 @@ Partial Class Teacher_register
         ' 
         Label7.Anchor = AnchorStyles.Top
         Label7.AutoSize = True
-        Label7.Location = New Point(393, 681)
+        Label7.Location = New Point(395, 555)
         Label7.Name = "Label7"
         Label7.Size = New Size(73, 15)
         Label7.TabIndex = 27
@@ -95,7 +95,7 @@ Partial Class Teacher_register
         ' 
         teachdepartment.Anchor = AnchorStyles.Top
         teachdepartment.FormattingEnabled = True
-        teachdepartment.Location = New Point(472, 678)
+        teachdepartment.Location = New Point(474, 552)
         teachdepartment.Name = "teachdepartment"
         teachdepartment.Size = New Size(331, 23)
         teachdepartment.TabIndex = 26
@@ -104,7 +104,7 @@ Partial Class Teacher_register
         ' 
         Label6.Anchor = AnchorStyles.Top
         Label6.AutoSize = True
-        Label6.Location = New Point(383, 626)
+        Label6.Location = New Point(385, 500)
         Label6.Name = "Label6"
         Label6.Size = New Size(83, 15)
         Label6.TabIndex = 25
@@ -113,7 +113,7 @@ Partial Class Teacher_register
         ' teachmajor
         ' 
         teachmajor.Anchor = AnchorStyles.Top
-        teachmajor.Location = New Point(472, 623)
+        teachmajor.Location = New Point(474, 497)
         teachmajor.Name = "teachmajor"
         teachmajor.Size = New Size(331, 23)
         teachmajor.TabIndex = 24
@@ -122,7 +122,7 @@ Partial Class Teacher_register
         ' 
         Label5.Anchor = AnchorStyles.Top
         Label5.AutoSize = True
-        Label5.Location = New Point(401, 514)
+        Label5.Location = New Point(403, 388)
         Label5.Name = "Label5"
         Label5.Size = New Size(65, 15)
         Label5.TabIndex = 23
@@ -131,7 +131,7 @@ Partial Class Teacher_register
         ' teachid
         ' 
         teachid.Anchor = AnchorStyles.Top
-        teachid.Location = New Point(472, 511)
+        teachid.Location = New Point(474, 385)
         teachid.Name = "teachid"
         teachid.Size = New Size(331, 23)
         teachid.TabIndex = 22
@@ -139,7 +139,7 @@ Partial Class Teacher_register
         ' teachgender
         ' 
         teachgender.Anchor = AnchorStyles.Top
-        teachgender.Location = New Point(628, 455)
+        teachgender.Location = New Point(630, 329)
         teachgender.Name = "teachgender"
         teachgender.Size = New Size(83, 23)
         teachgender.TabIndex = 21
@@ -148,7 +148,7 @@ Partial Class Teacher_register
         ' 
         Label4.Anchor = AnchorStyles.Top
         Label4.AutoSize = True
-        Label4.Location = New Point(574, 458)
+        Label4.Location = New Point(576, 332)
         Label4.Name = "Label4"
         Label4.Size = New Size(48, 15)
         Label4.TabIndex = 20
@@ -158,7 +158,7 @@ Partial Class Teacher_register
         ' 
         Label3.Anchor = AnchorStyles.Top
         Label3.AutoSize = True
-        Label3.Location = New Point(434, 458)
+        Label3.Location = New Point(436, 332)
         Label3.Name = "Label3"
         Label3.Size = New Size(31, 15)
         Label3.TabIndex = 19
@@ -168,7 +168,7 @@ Partial Class Teacher_register
         ' 
         Label2.Anchor = AnchorStyles.Top
         Label2.AutoSize = True
-        Label2.Location = New Point(407, 358)
+        Label2.Location = New Point(409, 232)
         Label2.Name = "Label2"
         Label2.Size = New Size(59, 15)
         Label2.TabIndex = 18
@@ -177,7 +177,7 @@ Partial Class Teacher_register
         ' teachage
         ' 
         teachage.Anchor = AnchorStyles.Top
-        teachage.Location = New Point(471, 455)
+        teachage.Location = New Point(473, 329)
         teachage.Name = "teachage"
         teachage.Size = New Size(87, 23)
         teachage.TabIndex = 17
@@ -185,7 +185,7 @@ Partial Class Teacher_register
         ' teachname
         ' 
         teachname.Anchor = AnchorStyles.Top
-        teachname.Location = New Point(472, 355)
+        teachname.Location = New Point(474, 229)
         teachname.Name = "teachname"
         teachname.Size = New Size(331, 23)
         teachname.TabIndex = 15
@@ -194,7 +194,7 @@ Partial Class Teacher_register
         ' 
         teachemail.Anchor = AnchorStyles.Top
         teachemail.AutoSize = True
-        teachemail.Location = New Point(407, 408)
+        teachemail.Location = New Point(409, 282)
         teachemail.Name = "teachemail"
         teachemail.Size = New Size(39, 15)
         teachemail.TabIndex = 31
@@ -203,7 +203,7 @@ Partial Class Teacher_register
         ' emailteach
         ' 
         emailteach.Anchor = AnchorStyles.Top
-        emailteach.Location = New Point(472, 405)
+        emailteach.Location = New Point(474, 279)
         emailteach.Name = "emailteach"
         emailteach.Size = New Size(331, 23)
         emailteach.TabIndex = 30
@@ -212,7 +212,7 @@ Partial Class Teacher_register
         ' 
         Label8.Anchor = AnchorStyles.Top
         Label8.AutoSize = True
-        Label8.Location = New Point(401, 569)
+        Label8.Location = New Point(403, 443)
         Label8.Name = "Label8"
         Label8.Size = New Size(60, 15)
         Label8.TabIndex = 33
@@ -221,7 +221,7 @@ Partial Class Teacher_register
         ' teachpassword
         ' 
         teachpassword.Anchor = AnchorStyles.Top
-        teachpassword.Location = New Point(472, 566)
+        teachpassword.Location = New Point(474, 440)
         teachpassword.Name = "teachpassword"
         teachpassword.Size = New Size(331, 23)
         teachpassword.TabIndex = 32
@@ -231,7 +231,7 @@ Partial Class Teacher_register
         Label9.Anchor = AnchorStyles.Top
         Label9.AutoSize = True
         Label9.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label9.Location = New Point(636, 481)
+        Label9.Location = New Point(638, 355)
         Label9.Name = "Label9"
         Label9.Size = New Size(67, 13)
         Label9.TabIndex = 34
@@ -242,7 +242,7 @@ Partial Class Teacher_register
         Label1.Anchor = AnchorStyles.Top
         Label1.AutoSize = True
         Label1.Font = New Font("STZhongsong", 47.9999924F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(339, 238)
+        Label1.Location = New Point(341, 112)
         Label1.Name = "Label1"
         Label1.Size = New Size(563, 72)
         Label1.TabIndex = 35
@@ -252,9 +252,9 @@ Partial Class Teacher_register
         ' 
         PictureBox1.Anchor = AnchorStyles.Top
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(502, 12)
+        PictureBox1.Location = New Point(175, 74)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(230, 206)
+        PictureBox1.Size = New Size(151, 139)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 36
         PictureBox1.TabStop = False
@@ -263,7 +263,7 @@ Partial Class Teacher_register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1243, 844)
+        ClientSize = New Size(1243, 806)
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
         Controls.Add(Label9)
