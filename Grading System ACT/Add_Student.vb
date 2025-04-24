@@ -54,6 +54,7 @@ Public Class Add_Student
         Try
             OpenConnection()
 
+            ' Inside Try block
             For Each item As String In studentlist.CheckedItems
                 Dim parts() As String = item.Split(" - ")
 
@@ -65,8 +66,8 @@ Public Class Add_Student
                     Dim year As String = parts(4).Trim()
 
                     ' Check if student is active
-                    Dim checkQuery As String = "SELECT active FROM users WHERE identifier = @id"
-                    Using checkCmd As New MySqlCommand(checkQuery, conn)
+                    Dim checkActiveQuery As String = "SELECT active FROM users WHERE identifier = @id"
+                    Using checkCmd As New MySqlCommand(checkActiveQuery, conn)
                         checkCmd.Parameters.AddWithValue("@id", studentId)
                         Dim result = checkCmd.ExecuteScalar()
 
@@ -76,7 +77,19 @@ Public Class Add_Student
                         End If
                     End Using
 
-                    ' Insert student if active
+                    ' Check if student is already in selected_students
+                    Dim checkExistQuery As String = "SELECT COUNT(*) FROM selected_students WHERE student_id = @student_id"
+                    Using existCmd As New MySqlCommand(checkExistQuery, conn)
+                        existCmd.Parameters.AddWithValue("@student_id", studentId)
+                        Dim count As Integer = Convert.ToInt32(existCmd.ExecuteScalar())
+
+                        If count > 0 Then
+                            MessageBox.Show($"{fullname} is already added to the list.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Continue For
+                        End If
+                    End Using
+
+                    ' Insert student if not duplicate
                     Dim query As String = "INSERT INTO selected_students (fullname, gender, student_id, department, year) VALUES (@fullname, @gender, @student_id, @department, @year)"
                     Using cmd As New MySqlCommand(query, conn)
                         cmd.Parameters.AddWithValue("@fullname", fullname)
@@ -89,6 +102,7 @@ Public Class Add_Student
                     End Using
                 End If
             Next
+
 
             If addedCount > 0 Then
                 MessageBox.Show("Selected students saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)

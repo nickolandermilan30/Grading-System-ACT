@@ -31,6 +31,7 @@ Partial Class Accounts
         activeaccount = New Button()
         deactivelist = New DataGridView()
         Label1 = New Label()
+        refreshadmin = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(accountlist, ComponentModel.ISupportInitialize).BeginInit()
         CType(deactivelist, ComponentModel.ISupportInitialize).BeginInit()
@@ -143,11 +144,29 @@ Partial Class Accounts
         Label1.TabIndex = 43
         Label1.Text = "Deactive account"
         ' 
+        ' refreshadmin
+        ' 
+        refreshadmin.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        refreshadmin.BackColor = Color.Green
+        refreshadmin.FlatAppearance.BorderColor = Color.White
+        refreshadmin.FlatAppearance.BorderSize = 0
+        refreshadmin.FlatStyle = FlatStyle.Flat
+        refreshadmin.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        refreshadmin.ForeColor = SystemColors.ControlLightLight
+        refreshadmin.Location = New Point(12, 437)
+        refreshadmin.Name = "refreshadmin"
+        refreshadmin.RightToLeft = RightToLeft.No
+        refreshadmin.Size = New Size(164, 40)
+        refreshadmin.TabIndex = 44
+        refreshadmin.Text = "Refresh"
+        refreshadmin.UseVisualStyleBackColor = False
+        ' 
         ' Accounts
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1184, 647)
+        Controls.Add(refreshadmin)
         Controls.Add(Label1)
         Controls.Add(deactivelist)
         Controls.Add(activeaccount)
@@ -173,4 +192,5 @@ Partial Class Accounts
     Friend WithEvents activeaccount As Button
     Friend WithEvents deactivelist As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents refreshadmin As Button
 End Class

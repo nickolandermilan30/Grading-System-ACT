@@ -22,15 +22,40 @@ Public Class Add_subject
         If subjectlist.CheckedItems.Count > 0 Then
             Try
                 OpenConnection()
+                Dim addedCount As Integer = 0
+                Dim skippedCount As Integer = 0
 
                 For Each subject In subjectlist.CheckedItems
-                    Dim query As String = "INSERT INTO subjects (subject_name) VALUES (@SubjectName)"
-                    Dim cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@SubjectName", subject.ToString())
-                    cmd.ExecuteNonQuery()
+                    Dim subjectName As String = subject.ToString().Trim()
+
+                    ' Check if subject already exists in the database
+                    Dim checkQuery As String = "SELECT COUNT(*) FROM subjects WHERE subject_name = @subjectName"
+                    Using checkCmd As New MySqlCommand(checkQuery, conn)
+                        checkCmd.Parameters.AddWithValue("@subjectName", subjectName)
+                        Dim count As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+
+                        If count > 0 Then
+                            skippedCount += 1
+                            Continue For
+                        End If
+                    End Using
+
+                    ' Insert subject if not duplicate
+                    Dim insertQuery As String = "INSERT INTO subjects (subject_name) VALUES (@SubjectName)"
+                    Using insertCmd As New MySqlCommand(insertQuery, conn)
+                        insertCmd.Parameters.AddWithValue("@SubjectName", subjectName)
+                        insertCmd.ExecuteNonQuery()
+                        addedCount += 1
+                    End Using
                 Next
 
-                MessageBox.Show("All selected subjects saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If addedCount > 0 Then
+                    MessageBox.Show($"{addedCount} subject(s) saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
+                If skippedCount > 0 Then
+                    MessageBox.Show($"{skippedCount} duplicate subject(s) were skipped.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
 
             Catch ex As Exception
                 MessageBox.Show("Error saving subjects: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -38,9 +63,8 @@ Public Class Add_subject
                 CloseConnection()
             End Try
 
-            ' Go back to TeacherPage
+            ' Return to TeacherPage
             Dim teacherPageForm As New TeacherPage(TeacherNameFromMain, TeacherDeptFromMain)
-            teacherPageForm.Show()
             Me.Close()
         Else
             MessageBox.Show("Please check at least one subject to save.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)

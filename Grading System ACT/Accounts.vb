@@ -286,4 +286,15 @@ Public Class Accounts
     Private Sub backbtntoadmin_Click(sender As Object, e As EventArgs) Handles backbtntoadmin.Click
         Me.Close()
     End Sub
+
+    Private Sub refreshadmin_Click(sender As Object, e As EventArgs) Handles refreshadmin.Click
+        Try
+            LoadAccounts()
+            LoadDeactivatedAccounts()
+            accountlist.ClearSelection()
+            deactivelist.ClearSelection()
+        Catch ex As Exception
+        End Try
+    End Sub
+
 End Class
