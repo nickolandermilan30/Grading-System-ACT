@@ -6,6 +6,7 @@ Public Class Add_Student
 
     Private Sub Add_Student_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadStudentList()
+        nameteacheraddstudent.Text = $" {TeacherName}"
     End Sub
 
     Private Sub LoadStudentList()
@@ -90,16 +91,19 @@ Public Class Add_Student
                     End Using
 
                     ' Insert student if not duplicate
-                    Dim query As String = "INSERT INTO selected_students (fullname, gender, student_id, department, year) VALUES (@fullname, @gender, @student_id, @department, @year)"
+                    Dim query As String = "INSERT INTO selected_students (fullname, gender, student_id, department, year, teacher_name) VALUES (@fullname, @gender, @student_id, @department, @year, @teacher_name)"
                     Using cmd As New MySqlCommand(query, conn)
                         cmd.Parameters.AddWithValue("@fullname", fullname)
                         cmd.Parameters.AddWithValue("@gender", gender)
                         cmd.Parameters.AddWithValue("@student_id", studentId)
                         cmd.Parameters.AddWithValue("@department", department)
                         cmd.Parameters.AddWithValue("@year", year)
+                        cmd.Parameters.AddWithValue("@teacher_name", TeacherName)
                         cmd.ExecuteNonQuery()
                         addedCount += 1
                     End Using
+
+
                 End If
             Next
 
@@ -122,4 +126,7 @@ Public Class Add_Student
         Me.Close()
     End Sub
 
+    Private Sub nameteacheraddstudent_Click(sender As Object, e As EventArgs) Handles nameteacheraddstudent.Click
+
+    End Sub
 End Class

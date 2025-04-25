@@ -45,7 +45,7 @@ Partial Class TeacherPage
         grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         grid.Location = New Point(176, 58)
         grid.Name = "grid"
-        grid.Size = New Size(604, 480)
+        grid.Size = New Size(1065, 741)
         grid.TabIndex = 0
         ' 
         ' PictureBox1
@@ -99,7 +99,7 @@ Partial Class TeacherPage
         closebtn.FlatStyle = FlatStyle.Flat
         closebtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         closebtn.ForeColor = SystemColors.ControlLightLight
-        closebtn.Location = New Point(12, 498)
+        closebtn.Location = New Point(12, 759)
         closebtn.Name = "closebtn"
         closebtn.RightToLeft = RightToLeft.No
         closebtn.Size = New Size(146, 40)
@@ -164,7 +164,7 @@ Partial Class TeacherPage
         refresh.FlatStyle = FlatStyle.Flat
         refresh.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         refresh.ForeColor = SystemColors.ControlLightLight
-        refresh.Location = New Point(12, 441)
+        refresh.Location = New Point(12, 702)
         refresh.Name = "refresh"
         refresh.RightToLeft = RightToLeft.No
         refresh.Size = New Size(146, 40)
@@ -192,7 +192,7 @@ Partial Class TeacherPage
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(792, 550)
+        ClientSize = New Size(1253, 811)
         Controls.Add(msgbtn)
         Controls.Add(refresh)
         Controls.Add(semesterteachpage)

@@ -4,6 +4,11 @@ Public Class Add_subject
     Public TeacherNameFromMain As String
     Public TeacherDeptFromMain As String
 
+    Private Sub Add_subject_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        nameteacheraddsubject.Text = TeacherNameFromMain
+    End Sub
+
+
     Private Sub inputsubject_TextChanged(sender As Object, e As EventArgs) Handles inputsubject.TextChanged
     End Sub
 
@@ -40,10 +45,11 @@ Public Class Add_subject
                         End If
                     End Using
 
-                    ' Insert subject if not duplicate
-                    Dim insertQuery As String = "INSERT INTO subjects (subject_name) VALUES (@SubjectName)"
+                    ' Insert subject and teacher's name if not duplicate
+                    Dim insertQuery As String = "INSERT INTO subjects (subject_name, teacher_name) VALUES (@SubjectName, @TeacherName)"
                     Using insertCmd As New MySqlCommand(insertQuery, conn)
                         insertCmd.Parameters.AddWithValue("@SubjectName", subjectName)
+                        insertCmd.Parameters.AddWithValue("@TeacherName", TeacherNameFromMain) ' Save teacher's name
                         insertCmd.ExecuteNonQuery()
                         addedCount += 1
                     End Using
@@ -72,11 +78,16 @@ Public Class Add_subject
     End Sub
 
 
+
     Private Sub subjectlist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles subjectlist.SelectedIndexChanged
         Dim selectedSubject As String = subjectlist.SelectedItem.ToString()
     End Sub
 
     Private Sub backtomainsub_Click(sender As Object, e As EventArgs) Handles backtomainsub.Click
         Me.Close()
+    End Sub
+
+    Private Sub nameteacheraddsubject_Click(sender As Object, e As EventArgs) Handles nameteacheraddsubject.Click
+
     End Sub
 End Class

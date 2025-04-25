@@ -30,6 +30,8 @@ Partial Class Add_subject
         inputsubject = New TextBox()
         Label1 = New Label()
         doneaddsubjecttogrid = New Button()
+        nameteacheraddsubject = New Label()
+        Label2 = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -38,9 +40,9 @@ Partial Class Add_subject
         subjectlist.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         subjectlist.BackColor = SystemColors.Window
         subjectlist.FormattingEnabled = True
-        subjectlist.Location = New Point(231, 26)
+        subjectlist.Location = New Point(231, 62)
         subjectlist.Name = "subjectlist"
-        subjectlist.Size = New Size(328, 400)
+        subjectlist.Size = New Size(328, 364)
         subjectlist.TabIndex = 0
         ' 
         ' backtomainsub
@@ -122,11 +124,33 @@ Partial Class Add_subject
         doneaddsubjecttogrid.Text = "Done"
         doneaddsubjecttogrid.UseVisualStyleBackColor = False
         ' 
+        ' nameteacheraddsubject
+        ' 
+        nameteacheraddsubject.AutoSize = True
+        nameteacheraddsubject.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nameteacheraddsubject.Location = New Point(292, 28)
+        nameteacheraddsubject.Name = "nameteacheraddsubject"
+        nameteacheraddsubject.Size = New Size(31, 17)
+        nameteacheraddsubject.TabIndex = 24
+        nameteacheraddsubject.Text = "N/A"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(231, 26)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(55, 20)
+        Label2.TabIndex = 23
+        Label2.Text = "Name:"
+        ' 
         ' Add_subject
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(581, 450)
+        Controls.Add(nameteacheraddsubject)
+        Controls.Add(Label2)
         Controls.Add(doneaddsubjecttogrid)
         Controls.Add(Label1)
         Controls.Add(inputsubject)
@@ -148,4 +172,6 @@ Partial Class Add_subject
     Friend WithEvents inputsubject As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents doneaddsubjecttogrid As Button
+    Friend WithEvents nameteacheraddsubject As Label
+    Friend WithEvents Label2 As Label
 End Class

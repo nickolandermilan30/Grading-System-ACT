@@ -27,6 +27,8 @@ Partial Class Add_Student
         studentlist = New CheckedListBox()
         addstudenttocolumn = New Button()
         backtomainsub2 = New Button()
+        nameteacheraddstudent = New Label()
+        Label1 = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -44,9 +46,9 @@ Partial Class Add_Student
         ' 
         studentlist.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         studentlist.FormattingEnabled = True
-        studentlist.Location = New Point(208, 22)
+        studentlist.Location = New Point(208, 57)
         studentlist.Name = "studentlist"
-        studentlist.Size = New Size(345, 400)
+        studentlist.Size = New Size(345, 364)
         studentlist.TabIndex = 17
         ' 
         ' addstudenttocolumn
@@ -82,11 +84,33 @@ Partial Class Add_Student
         backtomainsub2.Text = "Back"
         backtomainsub2.UseVisualStyleBackColor = False
         ' 
+        ' nameteacheraddstudent
+        ' 
+        nameteacheraddstudent.AutoSize = True
+        nameteacheraddstudent.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nameteacheraddstudent.Location = New Point(271, 24)
+        nameteacheraddstudent.Name = "nameteacheraddstudent"
+        nameteacheraddstudent.Size = New Size(31, 17)
+        nameteacheraddstudent.TabIndex = 22
+        nameteacheraddstudent.Text = "N/A"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(210, 22)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(55, 20)
+        Label1.TabIndex = 21
+        Label1.Text = "Name:"
+        ' 
         ' Add_Student
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(581, 450)
+        Controls.Add(nameteacheraddstudent)
+        Controls.Add(Label1)
         Controls.Add(backtomainsub2)
         Controls.Add(addstudenttocolumn)
         Controls.Add(studentlist)
@@ -95,10 +119,13 @@ Partial Class Add_Student
         Text = "Add_Student"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents studentlist As CheckedListBox
     Friend WithEvents addstudenttocolumn As Button
     Friend WithEvents backtomainsub2 As Button
+    Friend WithEvents nameteacheraddstudent As Label
+    Friend WithEvents Label1 As Label
 End Class

@@ -89,10 +89,10 @@ Partial Class Form1
         loginbtn.FlatStyle = FlatStyle.Flat
         loginbtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         loginbtn.ForeColor = SystemColors.ControlLightLight
-        loginbtn.Location = New Point(25, 707)
+        loginbtn.Location = New Point(165, 707)
         loginbtn.Name = "loginbtn"
         loginbtn.RightToLeft = RightToLeft.No
-        loginbtn.Size = New Size(567, 35)
+        loginbtn.Size = New Size(364, 35)
         loginbtn.TabIndex = 4
         loginbtn.Text = "Log In"
         loginbtn.UseVisualStyleBackColor = False
@@ -109,7 +109,7 @@ Partial Class Form1
         registerbtn.Location = New Point(663, 707)
         registerbtn.Name = "registerbtn"
         registerbtn.RightToLeft = RightToLeft.No
-        registerbtn.Size = New Size(567, 35)
+        registerbtn.Size = New Size(364, 35)
         registerbtn.TabIndex = 5
         registerbtn.Text = "Register"
         registerbtn.UseVisualStyleBackColor = False
@@ -123,10 +123,10 @@ Partial Class Form1
         forgotbtn.FlatStyle = FlatStyle.Flat
         forgotbtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         forgotbtn.ForeColor = SystemColors.ControlLightLight
-        forgotbtn.Location = New Point(25, 768)
+        forgotbtn.Location = New Point(165, 768)
         forgotbtn.Name = "forgotbtn"
         forgotbtn.RightToLeft = RightToLeft.No
-        forgotbtn.Size = New Size(567, 35)
+        forgotbtn.Size = New Size(364, 35)
         forgotbtn.TabIndex = 6
         forgotbtn.Text = "Forgot Password"
         forgotbtn.UseVisualStyleBackColor = False
@@ -147,9 +147,9 @@ Partial Class Form1
         ' 
         PictureBox1.Anchor = AnchorStyles.Top
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(482, 57)
+        PictureBox1.Location = New Point(507, 47)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(250, 228)
+        PictureBox1.Size = New Size(211, 191)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 8
         PictureBox1.TabStop = False
@@ -166,7 +166,7 @@ Partial Class Form1
         closebtn.Location = New Point(663, 768)
         closebtn.Name = "closebtn"
         closebtn.RightToLeft = RightToLeft.No
-        closebtn.Size = New Size(567, 35)
+        closebtn.Size = New Size(364, 35)
         closebtn.TabIndex = 9
         closebtn.Text = "Close"
         closebtn.UseVisualStyleBackColor = False

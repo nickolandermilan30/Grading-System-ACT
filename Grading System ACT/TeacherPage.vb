@@ -102,11 +102,14 @@ Public Class TeacherPage
 
                 ' Load students for this year
                 Dim studentQuery As String = "SELECT ss.fullname, ss.gender, ss.student_id, u.department, u.year " &
-                                         "FROM selected_students ss " &
-                                         "INNER JOIN users u ON ss.fullname = u.fullname " &
-                                         "WHERE u.year = @year"
+                             "FROM selected_students ss " &
+                             "INNER JOIN users u ON ss.fullname = u.fullname " &
+                             "WHERE u.year = @year AND ss.teacher_name = @teacherName"
+
                 Dim studentCmd As New MySqlCommand(studentQuery, conn)
                 studentCmd.Parameters.AddWithValue("@year", yr)
+                studentCmd.Parameters.AddWithValue("@teacherName", Me.teacherName)
+
 
                 Using reader As MySqlDataReader = studentCmd.ExecuteReader()
                     While reader.Read()
@@ -164,13 +167,15 @@ Public Class TeacherPage
         grid.Columns.Add("studentId", "Student ID")
         grid.Columns.Add("department", "Department")
         grid.Columns.Add("year", "Year")
+
         ' Add semester-specific columns for each subject
         Try
             OpenConnection()
 
-            ' Fetch subject names from the 'subjects' table
-            Dim query As String = "SELECT subject_name FROM subjects"
+            ' Fetch subject names for the current teacher from the 'subjects' table
+            Dim query As String = "SELECT subject_name FROM subjects WHERE teacher_name = @teacherName"
             Dim cmd As New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@teacherName", Me.teacherName) ' Filter by teacher's name
 
             ' Read subject names and create semester-specific columns
             Using reader As MySqlDataReader = cmd.ExecuteReader()
@@ -198,6 +203,7 @@ Public Class TeacherPage
             CloseConnection()
         End Try
     End Sub
+
 
 
 
@@ -231,8 +237,10 @@ Public Class TeacherPage
 
     Private Sub addstudent_Click(sender As Object, e As EventArgs) Handles addstudent.Click
         Dim addStudentForm As New Add_Student()
+        addStudentForm.TeacherName = Me.teacherName
         addStudentForm.Show()
     End Sub
+
 
     Private Sub closebtn_Click(sender As Object, e As EventArgs) Handles closebtn.Click
         Dim mainForm As New Form1()
