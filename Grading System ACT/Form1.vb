@@ -3,14 +3,26 @@ Imports System.Windows.Forms
 
 Public Class Form1
 
-    Private attemptCounter As Integer = 0
-    Private cooldownSeconds As Integer = 5
-    Private WithEvents cooldownTimer As New Timer()
+    Private Shared attemptCounter As Integer = 0
+    Private Shared cooldownSeconds As Integer = 0
+    Private Shared WithEvents cooldownTimer As New Timer()
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cooldownTimer.Interval = 1000 ' 1 second interval
-        Me.AcceptButton = loginbtn ' Pressing Enter will trigger the Login button
+
+        ' Eto yung bago: manually subscribe
+        AddHandler cooldownTimer.Tick, AddressOf cooldownTimer_Tick
+
+        If cooldownSeconds > 0 Then
+            passwordinput.Enabled = False
+            loginbtn.Enabled = False
+            cooldownTimer.Start()
+            UpdateCooldownLabel()
+        End If
+
+        Me.AcceptButton = loginbtn
     End Sub
+
 
 
     Private Sub Loginbtn_Click(sender As Object, e As EventArgs) Handles loginbtn.Click
@@ -88,14 +100,21 @@ Public Class Form1
 
 
     Private Sub StartCooldown()
-        cooldownSeconds = 5
+        cooldownSeconds = 60 ' 1 minute
         passwordinput.Enabled = False
         loginbtn.Enabled = False
         cooldownTimer.Start()
-        attemp.Text = $"Cooldown: {cooldownSeconds}s"
+        UpdateCooldownLabel()
     End Sub
 
-    Private Sub cooldownTimer_Tick(sender As Object, e As EventArgs) Handles cooldownTimer.Tick
+    Private Sub UpdateCooldownLabel()
+        Dim minutes As Integer = cooldownSeconds \ 60
+        Dim seconds As Integer = cooldownSeconds Mod 60
+        attemp.Text = $"Cooldown: {minutes}m {seconds}s"
+    End Sub
+
+
+    Private Sub cooldownTimer_Tick(sender As Object, e As EventArgs)
         cooldownSeconds -= 1
         If cooldownSeconds <= 0 Then
             cooldownTimer.Stop()
@@ -103,9 +122,11 @@ Public Class Form1
             loginbtn.Enabled = True
             attemp.Text = $"Attempts: {attemptCounter}/5"
         Else
-            attemp.Text = $"Cooldown: {cooldownSeconds}s"
+            UpdateCooldownLabel()
         End If
     End Sub
+
+
 
     Private Sub Registerbtn_Click(sender As Object, e As EventArgs) Handles registerbtn.Click
         Dim regForm As New Resgister_Type()

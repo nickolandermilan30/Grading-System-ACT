@@ -47,6 +47,7 @@ Partial Class AdminPagevb
         finals = New Button()
         messageteacher = New Button()
         teachergradeddone = New Button()
+        refreshadminpage = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(allgradelist, ComponentModel.ISupportInitialize).BeginInit()
         CType(allgradespoints, ComponentModel.ISupportInitialize).BeginInit()
@@ -352,11 +353,29 @@ Partial Class AdminPagevb
         teachergradeddone.Text = "Teacher Graded Done"
         teachergradeddone.UseVisualStyleBackColor = False
         ' 
+        ' refreshadminpage
+        ' 
+        refreshadminpage.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        refreshadminpage.BackColor = Color.Orange
+        refreshadminpage.FlatAppearance.BorderColor = Color.White
+        refreshadminpage.FlatAppearance.BorderSize = 0
+        refreshadminpage.FlatStyle = FlatStyle.Flat
+        refreshadminpage.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        refreshadminpage.ForeColor = SystemColors.ControlLightLight
+        refreshadminpage.Location = New Point(640, 40)
+        refreshadminpage.Name = "refreshadminpage"
+        refreshadminpage.RightToLeft = RightToLeft.No
+        refreshadminpage.Size = New Size(206, 41)
+        refreshadminpage.TabIndex = 45
+        refreshadminpage.Text = "Refresh"
+        refreshadminpage.UseVisualStyleBackColor = False
+        ' 
         ' AdminPagevb
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1242, 838)
+        Controls.Add(refreshadminpage)
         Controls.Add(teachergradeddone)
         Controls.Add(messageteacher)
         Controls.Add(finals)
@@ -415,4 +434,5 @@ Partial Class AdminPagevb
     Friend WithEvents finals As Button
     Friend WithEvents messageteacher As Button
     Friend WithEvents teachergradeddone As Button
+    Friend WithEvents refreshadminpage As Button
 End Class

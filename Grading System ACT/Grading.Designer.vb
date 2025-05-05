@@ -49,11 +49,13 @@ Partial Class Grading
         Label12 = New Label()
         namegrading = New Label()
         semester = New Label()
+        Label1 = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PictureBox1
         ' 
+        PictureBox1.Anchor = AnchorStyles.Top
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
         PictureBox1.Location = New Point(51, 63)
         PictureBox1.Name = "PictureBox1"
@@ -64,15 +66,17 @@ Partial Class Grading
         ' 
         ' classparticipation
         ' 
-        classparticipation.Location = New Point(349, 254)
+        classparticipation.Anchor = AnchorStyles.Top
+        classparticipation.Location = New Point(164, 257)
         classparticipation.Name = "classparticipation"
         classparticipation.Size = New Size(51, 23)
         classparticipation.TabIndex = 14
         ' 
         ' Label2
         ' 
+        Label2.Anchor = AnchorStyles.Top
         Label2.AutoSize = True
-        Label2.Location = New Point(236, 257)
+        Label2.Location = New Point(51, 260)
         Label2.Name = "Label2"
         Label2.Size = New Size(107, 15)
         Label2.TabIndex = 13
@@ -80,15 +84,17 @@ Partial Class Grading
         ' 
         ' activity
         ' 
-        activity.Location = New Point(303, 300)
+        activity.Anchor = AnchorStyles.Top
+        activity.Location = New Point(118, 300)
         activity.Name = "activity"
         activity.Size = New Size(97, 23)
         activity.TabIndex = 18
         ' 
         ' Label3
         ' 
+        Label3.Anchor = AnchorStyles.Top
         Label3.AutoSize = True
-        Label3.Location = New Point(236, 303)
+        Label3.Location = New Point(51, 303)
         Label3.Name = "Label3"
         Label3.Size = New Size(61, 15)
         Label3.TabIndex = 17
@@ -96,15 +102,17 @@ Partial Class Grading
         ' 
         ' quiz
         ' 
-        quiz.Location = New Point(93, 257)
+        quiz.Anchor = AnchorStyles.Top
+        quiz.Location = New Point(278, 257)
         quiz.Name = "quiz"
         quiz.Size = New Size(122, 23)
         quiz.TabIndex = 16
         ' 
         ' ba
         ' 
+        ba.Anchor = AnchorStyles.Top
         ba.AutoSize = True
-        ba.Location = New Point(51, 260)
+        ba.Location = New Point(236, 260)
         ba.Name = "ba"
         ba.Size = New Size(34, 15)
         ba.TabIndex = 15
@@ -112,15 +120,17 @@ Partial Class Grading
         ' 
         ' project
         ' 
-        project.Location = New Point(294, 347)
+        project.Anchor = AnchorStyles.Top
+        project.Location = New Point(109, 348)
         project.Name = "project"
         project.Size = New Size(106, 23)
         project.TabIndex = 22
         ' 
         ' Label5
         ' 
+        Label5.Anchor = AnchorStyles.Top
         Label5.AutoSize = True
-        Label5.Location = New Point(236, 350)
+        Label5.Location = New Point(51, 351)
         Label5.Name = "Label5"
         Label5.Size = New Size(52, 15)
         Label5.TabIndex = 21
@@ -128,15 +138,17 @@ Partial Class Grading
         ' 
         ' exercises
         ' 
-        exercises.Location = New Point(113, 304)
+        exercises.Anchor = AnchorStyles.Top
+        exercises.Location = New Point(298, 300)
         exercises.Name = "exercises"
         exercises.Size = New Size(102, 23)
         exercises.TabIndex = 20
         ' 
         ' Label6
         ' 
+        Label6.Anchor = AnchorStyles.Top
         Label6.AutoSize = True
-        Label6.Location = New Point(51, 307)
+        Label6.Location = New Point(236, 303)
         Label6.Name = "Label6"
         Label6.Size = New Size(56, 15)
         Label6.TabIndex = 19
@@ -144,15 +156,17 @@ Partial Class Grading
         ' 
         ' assigment
         ' 
-        assigment.Location = New Point(135, 354)
+        assigment.Anchor = AnchorStyles.Top
+        assigment.Location = New Point(320, 348)
         assigment.Name = "assigment"
         assigment.Size = New Size(80, 23)
         assigment.TabIndex = 24
         ' 
         ' Label8
         ' 
+        Label8.Anchor = AnchorStyles.Top
         Label8.AutoSize = True
-        Label8.Location = New Point(51, 357)
+        Label8.Location = New Point(236, 351)
         Label8.Name = "Label8"
         Label8.Size = New Size(78, 15)
         Label8.TabIndex = 23
@@ -160,6 +174,7 @@ Partial Class Grading
         ' 
         ' exam
         ' 
+        exam.Anchor = AnchorStyles.Top
         exam.Location = New Point(278, 400)
         exam.Name = "exam"
         exam.Size = New Size(122, 23)
@@ -167,6 +182,7 @@ Partial Class Grading
         ' 
         ' Label9
         ' 
+        Label9.Anchor = AnchorStyles.Top
         Label9.AutoSize = True
         Label9.Location = New Point(236, 403)
         Label9.Name = "Label9"
@@ -176,6 +192,7 @@ Partial Class Grading
         ' 
         ' projectevalution
         ' 
+        projectevalution.Anchor = AnchorStyles.Top
         projectevalution.Location = New Point(156, 400)
         projectevalution.Name = "projectevalution"
         projectevalution.Size = New Size(59, 23)
@@ -183,6 +200,7 @@ Partial Class Grading
         ' 
         ' Label10
         ' 
+        Label10.Anchor = AnchorStyles.Top
         Label10.AutoSize = True
         Label10.Location = New Point(51, 403)
         Label10.Name = "Label10"
@@ -192,6 +210,7 @@ Partial Class Grading
         ' 
         ' subjectgrading
         ' 
+        subjectgrading.Anchor = AnchorStyles.Top
         subjectgrading.AutoSize = True
         subjectgrading.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         subjectgrading.Location = New Point(237, 75)
@@ -202,7 +221,7 @@ Partial Class Grading
         ' 
         ' closebtn
         ' 
-        closebtn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        closebtn.Anchor = AnchorStyles.Top
         closebtn.BackColor = Color.Red
         closebtn.FlatAppearance.BorderColor = Color.White
         closebtn.FlatAppearance.BorderSize = 0
@@ -219,7 +238,7 @@ Partial Class Grading
         ' 
         ' applycolumn
         ' 
-        applycolumn.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        applycolumn.Anchor = AnchorStyles.Top
         applycolumn.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(0))
         applycolumn.FlatAppearance.BorderColor = Color.White
         applycolumn.FlatAppearance.BorderSize = 0
@@ -236,19 +255,22 @@ Partial Class Grading
         ' 
         ' Label4
         ' 
+        Label4.Anchor = AnchorStyles.Top
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label4.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
         Label4.Location = New Point(237, 129)
         Label4.Name = "Label4"
-        Label4.Size = New Size(60, 25)
+        Label4.Size = New Size(90, 25)
         Label4.TabIndex = 34
-        Label4.Text = "Total:"
+        Label4.Text = "Average:"
         ' 
         ' totalgrade
         ' 
+        totalgrade.Anchor = AnchorStyles.Top
         totalgrade.AutoSize = True
         totalgrade.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        totalgrade.Location = New Point(303, 129)
+        totalgrade.Location = New Point(333, 129)
         totalgrade.Name = "totalgrade"
         totalgrade.Size = New Size(48, 25)
         totalgrade.TabIndex = 35
@@ -256,16 +278,18 @@ Partial Class Grading
         ' 
         ' standinggrade
         ' 
+        standinggrade.Anchor = AnchorStyles.Top
         standinggrade.AutoSize = True
-        standinggrade.Font = New Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        standinggrade.Location = New Point(303, 173)
+        standinggrade.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        standinggrade.Location = New Point(365, 170)
         standinggrade.Name = "standinggrade"
-        standinggrade.Size = New Size(61, 32)
+        standinggrade.Size = New Size(48, 25)
         standinggrade.TabIndex = 37
         standinggrade.Text = "N/A"
         ' 
         ' Label12
         ' 
+        Label12.Anchor = AnchorStyles.Top
         Label12.AutoSize = True
         Label12.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label12.Location = New Point(51, 31)
@@ -276,6 +300,7 @@ Partial Class Grading
         ' 
         ' namegrading
         ' 
+        namegrading.Anchor = AnchorStyles.Top
         namegrading.AutoSize = True
         namegrading.Font = New Font("Segoe Fluent Icons", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         namegrading.Location = New Point(117, 29)
@@ -286,6 +311,7 @@ Partial Class Grading
         ' 
         ' semester
         ' 
+        semester.Anchor = AnchorStyles.Top
         semester.AutoSize = True
         semester.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         semester.Location = New Point(236, 24)
@@ -294,11 +320,24 @@ Partial Class Grading
         semester.TabIndex = 40
         semester.Text = "Semester"
         ' 
+        ' Label1
+        ' 
+        Label1.Anchor = AnchorStyles.Top
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        Label1.Location = New Point(237, 170)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(122, 25)
+        Label1.TabIndex = 41
+        Label1.Text = "Final Rating:"
+        ' 
         ' Grading
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(461, 537)
+        Controls.Add(Label1)
         Controls.Add(semester)
         Controls.Add(namegrading)
         Controls.Add(Label12)
@@ -358,4 +397,5 @@ Partial Class Grading
     Friend WithEvents Label12 As Label
     Friend WithEvents namegrading As Label
     Friend WithEvents semester As Label
+    Friend WithEvents Label1 As Label
 End Class

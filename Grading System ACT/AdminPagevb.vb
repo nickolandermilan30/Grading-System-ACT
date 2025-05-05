@@ -519,7 +519,7 @@ Public Class AdminPagevb
 
     Private Sub accounts_Click(sender As Object, e As EventArgs) Handles accounts.Click
         Dim accForm As New Accounts
-        accForm.Show()
+        accForm.Show
     End Sub
 
     Private Sub logoutadmin_Click(sender As Object, e As EventArgs) Handles logoutadmin.Click
@@ -538,5 +538,17 @@ Public Class AdminPagevb
         gradedForm.Show()
     End Sub
 
+    Private Sub refreshadminpage_Click(sender As Object, e As EventArgs) Handles refreshadminpage.Click
+        RefreshAdmin()
+    End Sub
 
+    Private Sub RefreshAdmin()
+        ' Load other data
+        LoadTeachers()
+        LoadPivotedGrades()
+        LoadDetailedGrades() ' this one for allgradespoints
+        LoadMaleStudents()
+        LoadFemaleStudents()
+        LoadSubjectsToComboBox()
+    End Sub
 End Class

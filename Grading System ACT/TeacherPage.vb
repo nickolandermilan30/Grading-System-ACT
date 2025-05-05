@@ -168,14 +168,15 @@ Public Class TeacherPage
         grid.Columns.Add("department", "Department")
         grid.Columns.Add("year", "Year")
 
-        ' Add semester-specific columns for each subject
+        ' Add semester-specific columns for each subject based on semester field
         Try
             OpenConnection()
 
-            ' Fetch subject names for the current teacher from the 'subjects' table
-            Dim query As String = "SELECT subject_name FROM subjects WHERE teacher_name = @teacherName"
+            ' Fetch subject names for the current teacher from the 'subjects' table and filter by semester
+            Dim query As String = "SELECT subject_name FROM subjects WHERE teacher_name = @teacherName AND semester = @semester"
             Dim cmd As New MySqlCommand(query, conn)
             cmd.Parameters.AddWithValue("@teacherName", Me.teacherName) ' Filter by teacher's name
+            cmd.Parameters.AddWithValue("@semester", semester) ' Filter by selected semester
 
             ' Read subject names and create semester-specific columns
             Using reader As MySqlDataReader = cmd.ExecuteReader()
@@ -203,6 +204,7 @@ Public Class TeacherPage
             CloseConnection()
         End Try
     End Sub
+
 
 
 

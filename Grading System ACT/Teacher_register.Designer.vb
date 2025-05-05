@@ -31,7 +31,6 @@ Partial Class Teacher_register
         teachmajor = New TextBox()
         Label5 = New Label()
         teachid = New TextBox()
-        teachgender = New TextBox()
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
@@ -41,9 +40,9 @@ Partial Class Teacher_register
         emailteach = New TextBox()
         Label8 = New Label()
         teachpassword = New TextBox()
-        Label9 = New Label()
         Label1 = New Label()
         PictureBox1 = New PictureBox()
+        teachgender = New ComboBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -136,14 +135,6 @@ Partial Class Teacher_register
         teachid.Size = New Size(331, 23)
         teachid.TabIndex = 22
         ' 
-        ' teachgender
-        ' 
-        teachgender.Anchor = AnchorStyles.Top
-        teachgender.Location = New Point(630, 329)
-        teachgender.Name = "teachgender"
-        teachgender.Size = New Size(83, 23)
-        teachgender.TabIndex = 21
-        ' 
         ' Label4
         ' 
         Label4.Anchor = AnchorStyles.Top
@@ -226,17 +217,6 @@ Partial Class Teacher_register
         teachpassword.Size = New Size(331, 23)
         teachpassword.TabIndex = 32
         ' 
-        ' Label9
-        ' 
-        Label9.Anchor = AnchorStyles.Top
-        Label9.AutoSize = True
-        Label9.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label9.Location = New Point(638, 355)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(67, 13)
-        Label9.TabIndex = 34
-        Label9.Text = "M or F Only"
-        ' 
         ' Label1
         ' 
         Label1.Anchor = AnchorStyles.Top
@@ -259,14 +239,23 @@ Partial Class Teacher_register
         PictureBox1.TabIndex = 36
         PictureBox1.TabStop = False
         ' 
+        ' teachgender
+        ' 
+        teachgender.Anchor = AnchorStyles.Top
+        teachgender.FormattingEnabled = True
+        teachgender.Location = New Point(639, 329)
+        teachgender.Name = "teachgender"
+        teachgender.Size = New Size(62, 23)
+        teachgender.TabIndex = 37
+        ' 
         ' Teacher_register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1243, 806)
+        Controls.Add(teachgender)
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
-        Controls.Add(Label9)
         Controls.Add(Label8)
         Controls.Add(teachpassword)
         Controls.Add(teachemail)
@@ -279,7 +268,6 @@ Partial Class Teacher_register
         Controls.Add(teachmajor)
         Controls.Add(Label5)
         Controls.Add(teachid)
-        Controls.Add(teachgender)
         Controls.Add(Label4)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -303,7 +291,6 @@ Partial Class Teacher_register
     Friend WithEvents teachmajor As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents teachid As TextBox
-    Friend WithEvents teachgender As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
@@ -313,7 +300,7 @@ Partial Class Teacher_register
     Friend WithEvents emailteach As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents teachpassword As TextBox
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents teachgender As ComboBox
 End Class

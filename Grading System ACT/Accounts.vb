@@ -14,8 +14,9 @@ Public Class Accounts
             conn.Open()
 
             Dim query As String =
-            "SELECT fullname, age, gender, identifier, section, position, " &
-            "major_subject, department, user_level, email FROM users WHERE active = 0"
+"SELECT fullname, age, gender, identifier, section, position, " &
+"major_subject, department, user_level, email, password, student_status FROM users WHERE active = 0"
+
 
             Dim adapter As New MySqlDataAdapter(query, conn)
             Dim table As New DataTable()
@@ -70,8 +71,9 @@ Public Class Accounts
 
             ' Query WITHOUT the id column
             Dim query As String =
-    "SELECT fullname, age, gender, identifier, section, position, " &
-    "major_subject, department, user_level, email FROM users WHERE active = 1"
+"SELECT fullname, age, gender, identifier, section, position, " &
+"major_subject, department, user_level, email, password, student_status FROM users WHERE active = 1"
+
 
 
             Dim adapter As New MySqlDataAdapter(query, conn)

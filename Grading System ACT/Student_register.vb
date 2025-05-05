@@ -4,12 +4,34 @@ Public Class Student_register
 
     Private Sub Student_register_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         studdepartment.Items.Clear()
-        studdepartment.Items.Add("BSBA")
-        studdepartment.Items.Add("BEED")
-        studdepartment.Items.Add("ACT")
-        studdepartment.Items.Add("BSED")
-        regnowstudent.Enabled = False
+        studdepartment.Items.AddRange({"BSBA", "BEED", "ACT", "BSED"})
+
+        year.Items.Clear()
+        year.Items.AddRange({"1st Year", "2nd Year", "3rd Year", "4th Year"})
+
+        studgender.Items.Clear()
+        studgender.Items.AddRange({"M", "F"})
+
+        studentstatus.Items.Clear()
+        studentstatus.Items.AddRange({"Scholar", "Irregular", "Regular", "New Enrolled"})
+
+        ' Set tab order
+        studname.TabIndex = 0
+        year.TabIndex = 1
+        emailstud.TabIndex = 2
+        studage.TabIndex = 3
+        studgender.TabIndex = 4
+        studid.TabIndex = 5
+        studsection.TabIndex = 6
+        passstud.TabIndex = 7
+        studentstatus.TabIndex = 8
+        studdepartment.TabIndex = 9
+        regnowstudent.TabIndex = 10
+
+        regnowstudent.Enabled = True
     End Sub
+
+
 
     Private Sub backtoclass_Click(sender As Object, e As EventArgs) Handles backtoclass.Click
         Resgister_Type.Show()
@@ -17,12 +39,28 @@ Public Class Student_register
     End Sub
 
     Private Sub Regnowstudent_Click(sender As Object, e As EventArgs) Handles regnowstudent.Click
+        ' Check if all required fields are filled
+        If String.IsNullOrWhiteSpace(studname.Text) OrElse
+       String.IsNullOrWhiteSpace(studage.Text) OrElse
+       String.IsNullOrWhiteSpace(studgender.Text) OrElse
+       String.IsNullOrWhiteSpace(studid.Text) OrElse
+       String.IsNullOrWhiteSpace(studsection.Text) OrElse
+       String.IsNullOrWhiteSpace(studdepartment.Text) OrElse
+       String.IsNullOrWhiteSpace(year.Text) OrElse
+       String.IsNullOrWhiteSpace(passstud.Text) OrElse
+       String.IsNullOrWhiteSpace(emailstud.Text) OrElse
+       String.IsNullOrWhiteSpace(studentstatus.Text) Then
+
+            MessageBox.Show("Please complete all fields before registering.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' Continue registration if all fields are filled
         Try
             OpenConnection()
 
-            Dim cmd As New MySqlCommand("INSERT INTO users (fullname, age, gender, identifier, section, department, year, user_level, password, email) 
-VALUES (@fullname, @age, @gender, @identifier, @section, @department, @year, 'Student', @password, @email)", conn)
-
+            Dim cmd As New MySqlCommand("INSERT INTO users (fullname, age, gender, identifier, section, department, year, user_level, password, email, student_status) 
+VALUES (@fullname, @age, @gender, @identifier, @section, @department, @year, 'Student', @password, @email, @student_status)", conn)
 
             cmd.Parameters.AddWithValue("@fullname", studname.Text.Trim())
             cmd.Parameters.AddWithValue("@age", CInt(studage.Text))
@@ -33,12 +71,11 @@ VALUES (@fullname, @age, @gender, @identifier, @section, @department, @year, 'St
             cmd.Parameters.AddWithValue("@year", year.Text.Trim())
             cmd.Parameters.AddWithValue("@password", passstud.Text.Trim())
             cmd.Parameters.AddWithValue("@email", emailstud.Text.Trim())
-
+            cmd.Parameters.AddWithValue("@student_status", studentstatus.Text.Trim())
 
             cmd.ExecuteNonQuery()
             MessageBox.Show("Student registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Redirect to login page (Form1)
             Dim loginForm As New Form1()
             loginForm.Show()
             Me.Close()
@@ -49,6 +86,7 @@ VALUES (@fullname, @age, @gender, @identifier, @section, @department, @year, 'St
             CloseConnection()
         End Try
     End Sub
+
 
 
     Private Sub studid_TextChanged(sender As Object, e As EventArgs) Handles studid.TextChanged
@@ -80,23 +118,39 @@ VALUES (@fullname, @age, @gender, @identifier, @section, @department, @year, 'St
         End Try
     End Sub
 
+    Private Sub studname_TextChanged(sender As Object, e As EventArgs) Handles studname.TextChanged
+
+    End Sub
+
+    Private Sub year_SelectedIndexChanged(sender As Object, e As EventArgs) Handles year.SelectedIndexChanged
+
+    End Sub
+
     Private Sub emailstud_TextChanged(sender As Object, e As EventArgs) Handles emailstud.TextChanged
-        ' Optional: remove silent update logic since we only update after full registration
+
+    End Sub
+
+    Private Sub studage_TextChanged(sender As Object, e As EventArgs) Handles studage.TextChanged
+
+    End Sub
+
+    Private Sub studgender_SelectedIndexChanged(sender As Object, e As EventArgs) Handles studgender.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub studsection_TextChanged(sender As Object, e As EventArgs) Handles studsection.TextChanged
+
     End Sub
 
     Private Sub passstud_TextChanged(sender As Object, e As EventArgs) Handles passstud.TextChanged
-        ' Optional: same as above
+
+    End Sub
+
+    Private Sub studentstatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles studentstatus.SelectedIndexChanged
+
     End Sub
 
     Private Sub studdepartment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles studdepartment.SelectedIndexChanged
-        ' Do nothing or handle dynamically if needed
-    End Sub
-
-    Private Sub year_TextChanged(sender As Object, e As EventArgs) Handles year.TextChanged
-
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
 End Class

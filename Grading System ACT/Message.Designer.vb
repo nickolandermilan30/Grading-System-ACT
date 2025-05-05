@@ -54,7 +54,7 @@ Partial Class Message
         ' 
         ' exammessage
         ' 
-        exammessage.Location = New Point(351, 260)
+        exammessage.Location = New Point(351, 297)
         exammessage.Name = "exammessage"
         exammessage.Size = New Size(122, 23)
         exammessage.TabIndex = 46
@@ -62,7 +62,7 @@ Partial Class Message
         ' Label9
         ' 
         Label9.AutoSize = True
-        Label9.Location = New Point(309, 263)
+        Label9.Location = New Point(309, 300)
         Label9.Name = "Label9"
         Label9.Size = New Size(38, 15)
         Label9.TabIndex = 45
@@ -70,7 +70,7 @@ Partial Class Message
         ' 
         ' projectevalutionmessage
         ' 
-        projectevalutionmessage.Location = New Point(180, 257)
+        projectevalutionmessage.Location = New Point(180, 294)
         projectevalutionmessage.Name = "projectevalutionmessage"
         projectevalutionmessage.Size = New Size(59, 23)
         projectevalutionmessage.TabIndex = 44
@@ -78,7 +78,7 @@ Partial Class Message
         ' Label10
         ' 
         Label10.AutoSize = True
-        Label10.Location = New Point(75, 260)
+        Label10.Location = New Point(75, 297)
         Label10.Name = "Label10"
         Label10.Size = New Size(105, 15)
         Label10.TabIndex = 43
@@ -86,7 +86,7 @@ Partial Class Message
         ' 
         ' assigmentmessage
         ' 
-        assigmentmessage.Location = New Point(159, 211)
+        assigmentmessage.Location = New Point(159, 248)
         assigmentmessage.Name = "assigmentmessage"
         assigmentmessage.Size = New Size(80, 23)
         assigmentmessage.TabIndex = 42
@@ -94,7 +94,7 @@ Partial Class Message
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(75, 214)
+        Label8.Location = New Point(75, 251)
         Label8.Name = "Label8"
         Label8.Size = New Size(78, 15)
         Label8.TabIndex = 41
@@ -102,7 +102,7 @@ Partial Class Message
         ' 
         ' projectmessage
         ' 
-        projectmessage.Location = New Point(367, 214)
+        projectmessage.Location = New Point(367, 251)
         projectmessage.Name = "projectmessage"
         projectmessage.Size = New Size(106, 23)
         projectmessage.TabIndex = 40
@@ -110,7 +110,7 @@ Partial Class Message
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(309, 217)
+        Label5.Location = New Point(309, 254)
         Label5.Name = "Label5"
         Label5.Size = New Size(52, 15)
         Label5.TabIndex = 39
@@ -118,7 +118,7 @@ Partial Class Message
         ' 
         ' exercisesmessage
         ' 
-        exercisesmessage.Location = New Point(137, 168)
+        exercisesmessage.Location = New Point(137, 205)
         exercisesmessage.Name = "exercisesmessage"
         exercisesmessage.Size = New Size(102, 23)
         exercisesmessage.TabIndex = 38
@@ -126,7 +126,7 @@ Partial Class Message
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(75, 171)
+        Label6.Location = New Point(75, 208)
         Label6.Name = "Label6"
         Label6.Size = New Size(56, 15)
         Label6.TabIndex = 37
@@ -134,7 +134,7 @@ Partial Class Message
         ' 
         ' activitymessage
         ' 
-        activitymessage.Location = New Point(376, 171)
+        activitymessage.Location = New Point(376, 208)
         activitymessage.Name = "activitymessage"
         activitymessage.Size = New Size(97, 23)
         activitymessage.TabIndex = 36
@@ -142,7 +142,7 @@ Partial Class Message
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(309, 174)
+        Label3.Location = New Point(309, 211)
         Label3.Name = "Label3"
         Label3.Size = New Size(61, 15)
         Label3.TabIndex = 35
@@ -150,7 +150,7 @@ Partial Class Message
         ' 
         ' quizmessage
         ' 
-        quizmessage.Location = New Point(117, 126)
+        quizmessage.Location = New Point(117, 163)
         quizmessage.Name = "quizmessage"
         quizmessage.Size = New Size(122, 23)
         quizmessage.TabIndex = 34
@@ -158,7 +158,7 @@ Partial Class Message
         ' ba
         ' 
         ba.AutoSize = True
-        ba.Location = New Point(75, 129)
+        ba.Location = New Point(75, 166)
         ba.Name = "ba"
         ba.Size = New Size(34, 15)
         ba.TabIndex = 33
@@ -166,7 +166,7 @@ Partial Class Message
         ' 
         ' classparticipationmessage
         ' 
-        classparticipationmessage.Location = New Point(422, 129)
+        classparticipationmessage.Location = New Point(422, 166)
         classparticipationmessage.Name = "classparticipationmessage"
         classparticipationmessage.Size = New Size(51, 23)
         classparticipationmessage.TabIndex = 32
@@ -174,7 +174,7 @@ Partial Class Message
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(309, 132)
+        Label2.Location = New Point(309, 169)
         Label2.Name = "Label2"
         Label2.Size = New Size(107, 15)
         Label2.TabIndex = 31
@@ -258,16 +258,16 @@ Partial Class Message
         ' 
         semestermsg.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         semestermsg.FormattingEnabled = True
-        semestermsg.Location = New Point(141, 308)
+        semestermsg.Location = New Point(183, 121)
         semestermsg.Name = "semestermsg"
-        semestermsg.Size = New Size(332, 23)
+        semestermsg.Size = New Size(290, 23)
         semestermsg.TabIndex = 55
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label7.Location = New Point(50, 310)
+        Label7.Location = New Point(92, 123)
         Label7.Name = "Label7"
         Label7.Size = New Size(85, 21)
         Label7.TabIndex = 56

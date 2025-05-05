@@ -15,7 +15,26 @@ Public Class Message
         LoadTeacherNames()
         LoadStudentList()
         LoadSemesterOptions()
+        SetTabOrder() ' <-- tawagin dito
     End Sub
+
+    Private Sub SetTabOrder()
+        teachernamemessage.TabIndex = 0
+        semestermsg.TabIndex = 1
+        quizmessage.TabIndex = 2
+        exercisesmessage.TabIndex = 3
+        assigmentmessage.TabIndex = 4
+        projectevalutionmessage.TabIndex = 5
+        classparticipationmessage.TabIndex = 6
+        activitymessage.TabIndex = 7
+        projectmessage.TabIndex = 8
+        exammessage.TabIndex = 9
+        messagebox.TabIndex = 10
+        sendmessage.TabIndex = 11
+        backbtnmessage.TabIndex = 12
+    End Sub
+
+
 
     Private Sub LoadSemesterOptions()
         semestermsg.Items.Clear()
@@ -24,8 +43,6 @@ Public Class Message
         semestermsg.Items.Add("Semi-Finals")
         semestermsg.Items.Add("Finals")
     End Sub
-
-
 
     Private Sub LoadTeacherNames()
         Try
@@ -183,4 +200,7 @@ Public Class Message
         Me.Close()
     End Sub
 
+    Private Sub teachernamemessage_SelectedIndexChanged(sender As Object, e As EventArgs) Handles teachernamemessage.SelectedIndexChanged
+
+    End Sub
 End Class

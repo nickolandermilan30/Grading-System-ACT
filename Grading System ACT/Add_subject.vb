@@ -6,10 +6,13 @@ Public Class Add_subject
 
     Private Sub Add_subject_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         nameteacheraddsubject.Text = TeacherNameFromMain
-    End Sub
 
-
-    Private Sub inputsubject_TextChanged(sender As Object, e As EventArgs) Handles inputsubject.TextChanged
+        ' Populate the semester dropdown
+        addsubsem.Items.Clear()
+        addsubsem.Items.Add("Prelim")
+        addsubsem.Items.Add("Midterm")
+        addsubsem.Items.Add("Semi-Finals")
+        addsubsem.Items.Add("Finals")
     End Sub
 
     Private Sub addsubjecttolist_Click(sender As Object, e As EventArgs) Handles addsubjecttolist.Click
@@ -24,7 +27,9 @@ Public Class Add_subject
     End Sub
 
     Private Sub doneaddsubjecttogrid_Click(sender As Object, e As EventArgs) Handles doneaddsubjecttogrid.Click
-        If subjectlist.CheckedItems.Count > 0 Then
+        If subjectlist.CheckedItems.Count > 0 AndAlso addsubsem.SelectedItem IsNot Nothing Then
+            Dim selectedSemester As String = addsubsem.SelectedItem.ToString()
+
             Try
                 OpenConnection()
                 Dim addedCount As Integer = 0
@@ -34,9 +39,10 @@ Public Class Add_subject
                     Dim subjectName As String = subject.ToString().Trim()
 
                     ' Check if subject already exists in the database
-                    Dim checkQuery As String = "SELECT COUNT(*) FROM subjects WHERE subject_name = @subjectName"
+                    Dim checkQuery As String = "SELECT COUNT(*) FROM subjects WHERE subject_name = @subjectName AND semester = @semester"
                     Using checkCmd As New MySqlCommand(checkQuery, conn)
                         checkCmd.Parameters.AddWithValue("@subjectName", subjectName)
+                        checkCmd.Parameters.AddWithValue("@semester", selectedSemester)
                         Dim count As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
 
                         If count > 0 Then
@@ -46,10 +52,11 @@ Public Class Add_subject
                     End Using
 
                     ' Insert subject and teacher's name if not duplicate
-                    Dim insertQuery As String = "INSERT INTO subjects (subject_name, teacher_name) VALUES (@SubjectName, @TeacherName)"
+                    Dim insertQuery As String = "INSERT INTO subjects (subject_name, teacher_name, semester) VALUES (@SubjectName, @TeacherName, @Semester)"
                     Using insertCmd As New MySqlCommand(insertQuery, conn)
                         insertCmd.Parameters.AddWithValue("@SubjectName", subjectName)
-                        insertCmd.Parameters.AddWithValue("@TeacherName", TeacherNameFromMain) ' Save teacher's name
+                        insertCmd.Parameters.AddWithValue("@TeacherName", TeacherNameFromMain)
+                        insertCmd.Parameters.AddWithValue("@Semester", selectedSemester)
                         insertCmd.ExecuteNonQuery()
                         addedCount += 1
                     End Using
@@ -73,21 +80,15 @@ Public Class Add_subject
             Dim teacherPageForm As New TeacherPage(TeacherNameFromMain, TeacherDeptFromMain)
             Me.Close()
         Else
-            MessageBox.Show("Please check at least one subject to save.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Please check at least one subject and select a semester to save.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 
-
-
     Private Sub subjectlist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles subjectlist.SelectedIndexChanged
-        Dim selectedSubject As String = subjectlist.SelectedItem.ToString()
+        ' No changes needed here
     End Sub
 
     Private Sub backtomainsub_Click(sender As Object, e As EventArgs) Handles backtomainsub.Click
         Me.Close()
-    End Sub
-
-    Private Sub nameteacheraddsubject_Click(sender As Object, e As EventArgs) Handles nameteacheraddsubject.Click
-
     End Sub
 End Class

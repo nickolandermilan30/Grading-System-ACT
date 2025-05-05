@@ -26,8 +26,6 @@ Partial Class Admin_register
         backtoclass2 = New Button()
         regnowadmin = New Button()
         Label5 = New Label()
-        adid = New TextBox()
-        adgender = New TextBox()
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
@@ -40,8 +38,9 @@ Partial Class Admin_register
         ademail = New TextBox()
         Label9 = New Label()
         adpassword = New TextBox()
-        Label10 = New Label()
         PictureBox1 = New PictureBox()
+        adgender = New ComboBox()
+        adid = New ComboBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -88,22 +87,6 @@ Partial Class Admin_register
         Label5.Size = New Size(53, 15)
         Label5.TabIndex = 23
         Label5.Text = "Position:"
-        ' 
-        ' adid
-        ' 
-        adid.Anchor = AnchorStyles.Top
-        adid.Location = New Point(504, 397)
-        adid.Name = "adid"
-        adid.Size = New Size(331, 23)
-        adid.TabIndex = 22
-        ' 
-        ' adgender
-        ' 
-        adgender.Anchor = AnchorStyles.Top
-        adgender.Location = New Point(663, 342)
-        adgender.Name = "adgender"
-        adgender.Size = New Size(83, 23)
-        adgender.TabIndex = 21
         ' 
         ' Label4
         ' 
@@ -216,17 +199,6 @@ Partial Class Admin_register
         adpassword.Size = New Size(331, 23)
         adpassword.TabIndex = 34
         ' 
-        ' Label10
-        ' 
-        Label10.Anchor = AnchorStyles.Top
-        Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label10.Location = New Point(671, 368)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(67, 13)
-        Label10.TabIndex = 36
-        Label10.Text = "M or F Only"
-        ' 
         ' PictureBox1
         ' 
         PictureBox1.Anchor = AnchorStyles.Top
@@ -238,13 +210,32 @@ Partial Class Admin_register
         PictureBox1.TabIndex = 37
         PictureBox1.TabStop = False
         ' 
+        ' adgender
+        ' 
+        adgender.Anchor = AnchorStyles.Top
+        adgender.FormattingEnabled = True
+        adgender.Location = New Point(676, 342)
+        adgender.Name = "adgender"
+        adgender.Size = New Size(62, 23)
+        adgender.TabIndex = 38
+        ' 
+        ' adid
+        ' 
+        adid.Anchor = AnchorStyles.Top
+        adid.FormattingEnabled = True
+        adid.Location = New Point(506, 402)
+        adid.Name = "adid"
+        adid.Size = New Size(329, 23)
+        adid.TabIndex = 39
+        ' 
         ' Admin_register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1243, 806)
+        Controls.Add(adid)
+        Controls.Add(adgender)
         Controls.Add(PictureBox1)
-        Controls.Add(Label10)
         Controls.Add(Label9)
         Controls.Add(adpassword)
         Controls.Add(Label6)
@@ -254,8 +245,6 @@ Partial Class Admin_register
         Controls.Add(backtoclass2)
         Controls.Add(regnowadmin)
         Controls.Add(Label5)
-        Controls.Add(adid)
-        Controls.Add(adgender)
         Controls.Add(Label4)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -274,8 +263,6 @@ Partial Class Admin_register
     Friend WithEvents backtoclass2 As Button
     Friend WithEvents regnowadmin As Button
     Friend WithEvents Label5 As Label
-    Friend WithEvents adid As TextBox
-    Friend WithEvents adgender As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
@@ -288,6 +275,7 @@ Partial Class Admin_register
     Friend WithEvents ademail As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents adpassword As TextBox
-    Friend WithEvents Label10 As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents adgender As ComboBox
+    Friend WithEvents adid As ComboBox
 End Class

@@ -32,6 +32,8 @@ Partial Class Add_subject
         doneaddsubjecttogrid = New Button()
         nameteacheraddsubject = New Label()
         Label2 = New Label()
+        addsubsem = New ComboBox()
+        Label3 = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -40,9 +42,9 @@ Partial Class Add_subject
         subjectlist.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         subjectlist.BackColor = SystemColors.Window
         subjectlist.FormattingEnabled = True
-        subjectlist.Location = New Point(231, 62)
+        subjectlist.Location = New Point(231, 98)
         subjectlist.Name = "subjectlist"
-        subjectlist.Size = New Size(328, 364)
+        subjectlist.Size = New Size(328, 328)
         subjectlist.TabIndex = 0
         ' 
         ' backtomainsub
@@ -144,11 +146,32 @@ Partial Class Add_subject
         Label2.TabIndex = 23
         Label2.Text = "Name:"
         ' 
+        ' addsubsem
+        ' 
+        addsubsem.Anchor = AnchorStyles.Top
+        addsubsem.FormattingEnabled = True
+        addsubsem.Location = New Point(316, 61)
+        addsubsem.Name = "addsubsem"
+        addsubsem.Size = New Size(243, 23)
+        addsubsem.TabIndex = 41
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Location = New Point(231, 64)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(79, 20)
+        Label3.TabIndex = 42
+        Label3.Text = "Semester:"
+        ' 
         ' Add_subject
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(581, 450)
+        Controls.Add(Label3)
+        Controls.Add(addsubsem)
         Controls.Add(nameteacheraddsubject)
         Controls.Add(Label2)
         Controls.Add(doneaddsubjecttogrid)
@@ -174,4 +197,6 @@ Partial Class Add_subject
     Friend WithEvents doneaddsubjecttogrid As Button
     Friend WithEvents nameteacheraddsubject As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents addsubsem As ComboBox
+    Friend WithEvents Label3 As Label
 End Class

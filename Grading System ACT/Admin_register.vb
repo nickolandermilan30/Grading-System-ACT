@@ -2,13 +2,35 @@
 Public Class Admin_register
 
     Private Sub Admin_register_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' ❌ No need to load departments for admins
-        ' addepartment.Items.Clear()
-        ' addepartment.Items.Add("BSBA")
-        ' addepartment.Items.Add("BEED")
-        ' addepartment.Items.Add("ACT")
-        ' addepartment.Items.Add("BSED")
+        ' Setup gender dropdown
+        adgender.Items.Clear()
+        adgender.Items.Add("M")
+        adgender.Items.Add("F")
+
+        ' Setup position dropdown
+        adid.Items.Clear()
+        adid.Items.Add("Academic Coordinator")
+        adid.Items.Add("Department Head")
+        adid.Items.Add("Registrar")
+        adid.Items.Add("Grading System Administrator")
+        adid.Items.Add("Curriculum Coordinator")
+        adid.Items.Add("Academic Dean")
+        adid.Items.Add("Head Teacher")
+        adid.Items.Add("School Secretary")
+
+        ' Set tab order
+        ademail.TabIndex = 0
+        adname.TabIndex = 1
+        adage.TabIndex = 2
+        adgender.TabIndex = 3
+        adid.TabIndex = 4
+        adveri.TabIndex = 5
+        adpassword.TabIndex = 6
+        regnowadmin.TabIndex = 7
+
+
     End Sub
+
 
     Private Sub Backtoclass2_Click(sender As Object, e As EventArgs) Handles backtoclass2.Click
         Resgister_Type.Show()
@@ -25,8 +47,8 @@ Public Class Admin_register
             cmd.Parameters.AddWithValue("@fullname", adname.Text.Trim())
             cmd.Parameters.AddWithValue("@age", CInt(adage.Text))
             cmd.Parameters.AddWithValue("@gender", adgender.Text.Trim())
-            cmd.Parameters.AddWithValue("@identifier", adveri.Text.Trim())
             cmd.Parameters.AddWithValue("@position", adid.Text.Trim())
+            cmd.Parameters.AddWithValue("@identifier", adveri.Text.Trim())
             cmd.Parameters.AddWithValue("@department", "Admin") ' 
             cmd.Parameters.AddWithValue("@password", adpassword.Text.Trim())
             cmd.Parameters.AddWithValue("@email", ademail.Text.Trim())
@@ -77,4 +99,11 @@ Public Class Admin_register
         End Try
     End Sub
 
+    Private Sub adgender_SelectedIndexChanged(sender As Object, e As EventArgs) Handles adgender.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub adid_SelectedIndexChanged(sender As Object, e As EventArgs) Handles adid.SelectedIndexChanged
+
+    End Sub
 End Class
