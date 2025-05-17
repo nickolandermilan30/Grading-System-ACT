@@ -13,6 +13,9 @@ Public Class Add_subject
         addsubsem.Items.Add("Midterm")
         addsubsem.Items.Add("Semi-Finals")
         addsubsem.Items.Add("Finals")
+
+        addsubsem.DropDownStyle = ComboBoxStyle.DropDownList
+
     End Sub
 
     Private Sub addsubjecttolist_Click(sender As Object, e As EventArgs) Handles addsubjecttolist.Click
@@ -90,5 +93,9 @@ Public Class Add_subject
 
     Private Sub backtomainsub_Click(sender As Object, e As EventArgs) Handles backtomainsub.Click
         Me.Close()
+    End Sub
+
+    Private Sub addsubsem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles addsubsem.SelectedIndexChanged
+
     End Sub
 End Class

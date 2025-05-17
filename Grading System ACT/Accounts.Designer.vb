@@ -25,7 +25,6 @@ Partial Class Accounts
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Accounts))
         PictureBox1 = New PictureBox()
         backbtntoadmin = New Button()
-        deleteaccount = New Button()
         deactiveaccount = New Button()
         accountlist = New DataGridView()
         activeaccount = New Button()
@@ -63,23 +62,6 @@ Partial Class Accounts
         backbtntoadmin.TabIndex = 28
         backbtntoadmin.Text = "Close"
         backbtntoadmin.UseVisualStyleBackColor = False
-        ' 
-        ' deleteaccount
-        ' 
-        deleteaccount.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        deleteaccount.BackColor = Color.Green
-        deleteaccount.FlatAppearance.BorderColor = Color.White
-        deleteaccount.FlatAppearance.BorderSize = 0
-        deleteaccount.FlatStyle = FlatStyle.Flat
-        deleteaccount.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        deleteaccount.ForeColor = SystemColors.ControlLightLight
-        deleteaccount.Location = New Point(12, 499)
-        deleteaccount.Name = "deleteaccount"
-        deleteaccount.RightToLeft = RightToLeft.No
-        deleteaccount.Size = New Size(164, 40)
-        deleteaccount.TabIndex = 38
-        deleteaccount.Text = "Delete"
-        deleteaccount.UseVisualStyleBackColor = False
         ' 
         ' deactiveaccount
         ' 
@@ -153,7 +135,7 @@ Partial Class Accounts
         refreshadmin.FlatStyle = FlatStyle.Flat
         refreshadmin.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         refreshadmin.ForeColor = SystemColors.ControlLightLight
-        refreshadmin.Location = New Point(12, 437)
+        refreshadmin.Location = New Point(12, 512)
         refreshadmin.Name = "refreshadmin"
         refreshadmin.RightToLeft = RightToLeft.No
         refreshadmin.Size = New Size(164, 40)
@@ -172,7 +154,6 @@ Partial Class Accounts
         Controls.Add(activeaccount)
         Controls.Add(accountlist)
         Controls.Add(deactiveaccount)
-        Controls.Add(deleteaccount)
         Controls.Add(backbtntoadmin)
         Controls.Add(PictureBox1)
         Name = "Accounts"
@@ -186,7 +167,6 @@ Partial Class Accounts
 
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents backbtntoadmin As Button
-    Friend WithEvents deleteaccount As Button
     Friend WithEvents deactiveaccount As Button
     Friend WithEvents accountlist As DataGridView
     Friend WithEvents activeaccount As Button

@@ -65,9 +65,9 @@ Partial Class Form1
         Email.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Email.Location = New Point(330, 350)
         Email.Name = "Email"
-        Email.Size = New Size(46, 20)
+        Email.Size = New Size(75, 20)
         Email.TabIndex = 2
-        Email.Text = "Email"
+        Email.Text = "Username"
         ' 
         ' Label2
         ' 

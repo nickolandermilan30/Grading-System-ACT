@@ -185,11 +185,11 @@ Partial Class Teacher_register
         ' 
         teachemail.Anchor = AnchorStyles.Top
         teachemail.AutoSize = True
-        teachemail.Location = New Point(409, 282)
+        teachemail.Location = New Point(404, 282)
         teachemail.Name = "teachemail"
-        teachemail.Size = New Size(39, 15)
+        teachemail.Size = New Size(63, 15)
         teachemail.TabIndex = 31
-        teachemail.Text = "Email:"
+        teachemail.Text = "Username:"
         ' 
         ' emailteach
         ' 

@@ -259,5 +259,8 @@ Public Class TeacherPage
         messageForm.Show()
     End Sub
 
+    Private Sub TeacherPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        semesterteachpage.DropDownStyle = ComboBoxStyle.DropDownList
 
+    End Sub
 End Class

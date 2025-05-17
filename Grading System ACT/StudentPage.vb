@@ -18,6 +18,8 @@ Public Class StudentPage
         ' Display student name and department
         namestudent.Text = studentName
         studentdepartment.Text = studentDept
+        semestergrades.DropDownStyle = ComboBoxStyle.DropDownList
+
 
         ' Initialize the DataGridView columns
         InitializeDataGridViewColumns()

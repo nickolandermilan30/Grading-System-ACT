@@ -169,9 +169,9 @@ Partial Class Admin_register
         Label6.AutoSize = True
         Label6.Location = New Point(415, 247)
         Label6.Name = "Label6"
-        Label6.Size = New Size(39, 15)
+        Label6.Size = New Size(63, 15)
         Label6.TabIndex = 33
-        Label6.Text = "Email:"
+        Label6.Text = "Username:"
         ' 
         ' ademail
         ' 

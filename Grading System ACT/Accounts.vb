@@ -137,53 +137,7 @@ Public Class Accounts
         End If
     End Sub
 
-    Private Sub deleteaccount_Click(sender As Object, e As EventArgs) Handles deleteaccount.Click
-        Dim accountsToDelete As New List(Of String) ' Will hold identifiers (you can change this to a different unique field if needed)
 
-        ' Collect selected rows
-        For Each row As DataGridViewRow In accountlist.Rows
-            If Convert.ToBoolean(row.Cells("Select").Value) Then
-                ' Use a unique value to identify accounts (here, we use "identifier")
-                accountsToDelete.Add(row.Cells("identifier").Value.ToString())
-            End If
-        Next
-
-        If accountsToDelete.Count = 0 Then
-            MessageBox.Show("Please select at least one account to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
-        ' Confirmation prompt
-        Dim confirmResult = MessageBox.Show("Are you sure you want to delete the selected account(s)?",
-                                            "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If confirmResult = DialogResult.No Then
-            Return
-        End If
-
-        ' Delete from database
-        Try
-            conn = New MySqlConnection("server=localhost;userid=root;password=;database=gradingsystem")
-            conn.Open()
-
-            For Each identifier As String In accountsToDelete
-                Dim deleteQuery As String = "DELETE FROM users WHERE identifier = @identifier"
-                Using cmd As New MySqlCommand(deleteQuery, conn)
-                    cmd.Parameters.AddWithValue("@identifier", identifier)
-                    cmd.ExecuteNonQuery()
-                End Using
-            Next
-
-            MessageBox.Show("Selected account(s) deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            LoadAccounts() ' Refresh the table
-
-        Catch ex As Exception
-            MessageBox.Show("Error deleting accounts: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            If conn IsNot Nothing AndAlso conn.State = ConnectionState.Open Then
-                conn.Close()
-            End If
-        End Try
-    End Sub
 
     Private Sub deactiveaccount_Click(sender As Object, e As EventArgs) Handles deactiveaccount.Click
         Dim accountsToDeactivate As New List(Of String) ' Will hold identifiers of accounts to deactivate

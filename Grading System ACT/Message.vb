@@ -16,6 +16,10 @@ Public Class Message
         LoadStudentList()
         LoadSemesterOptions()
         SetTabOrder() ' <-- tawagin dito
+
+        teachernamemessage.DropDownStyle = ComboBoxStyle.DropDownList
+        semestermsg.DropDownStyle = ComboBoxStyle.DropDownList
+
     End Sub
 
     Private Sub SetTabOrder()

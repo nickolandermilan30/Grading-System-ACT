@@ -26,6 +26,10 @@ Public Class Teacher_register
         teachdepartment.TabIndex = 7
         regnowteacher.TabIndex = 8
 
+        teachgender.DropDownStyle = ComboBoxStyle.DropDownList
+        teachdepartment.DropDownStyle = ComboBoxStyle.DropDownList
+
+
     End Sub
 
 
@@ -49,10 +53,23 @@ Public Class Teacher_register
             Exit Sub
         End If
 
-        ' Proceed with registration
+        ' Check for duplicates before registration
         Try
             OpenConnection()
 
+            Dim checkCmd As New MySqlCommand("SELECT COUNT(*) FROM users WHERE fullname = @fullname OR email = @email OR identifier = @identifier", conn)
+            checkCmd.Parameters.AddWithValue("@fullname", teachname.Text.Trim())
+            checkCmd.Parameters.AddWithValue("@email", emailteach.Text.Trim())
+            checkCmd.Parameters.AddWithValue("@identifier", teachid.Text.Trim())
+
+            Dim existingCount As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+
+            If existingCount > 0 Then
+                MessageBox.Show("A teacher with the same name, username, or ID already exists. Please use unique values.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+
+            ' Proceed with registration
             Dim cmd As New MySqlCommand("INSERT INTO users (fullname, age, gender, identifier, major_subject, department, user_level, password, email)
                                      VALUES (@fullname, @age, @gender, @identifier, @major_subject, @department, 'Teacher', @password, @email)", conn)
 
@@ -66,6 +83,7 @@ Public Class Teacher_register
             cmd.Parameters.AddWithValue("@email", emailteach.Text.Trim())
 
             cmd.ExecuteNonQuery()
+
             MessageBox.Show("Teacher registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Dim loginForm As New Form1()
@@ -78,6 +96,7 @@ Public Class Teacher_register
             CloseConnection()
         End Try
     End Sub
+
 
 
     Private Sub emailteach_TextChanged(sender As Object, e As EventArgs) Handles emailteach.TextChanged

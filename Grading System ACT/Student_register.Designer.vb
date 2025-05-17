@@ -47,6 +47,8 @@ Partial Class Student_register
         studgender = New ComboBox()
         Label9 = New Label()
         studentstatus = New ComboBox()
+        Label11 = New Label()
+        contactno = New TextBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -55,7 +57,7 @@ Partial Class Student_register
         studname.Anchor = AnchorStyles.Top
         studname.Location = New Point(480, 208)
         studname.Name = "studname"
-        studname.Size = New Size(331, 23)
+        studname.Size = New Size(334, 23)
         studname.TabIndex = 0
         ' 
         ' studage
@@ -100,7 +102,7 @@ Partial Class Student_register
         ' 
         Label5.Anchor = AnchorStyles.Top
         Label5.AutoSize = True
-        Label5.Location = New Point(409, 396)
+        Label5.Location = New Point(412, 432)
         Label5.Name = "Label5"
         Label5.Size = New Size(65, 15)
         Label5.TabIndex = 8
@@ -109,7 +111,7 @@ Partial Class Student_register
         ' studid
         ' 
         studid.Anchor = AnchorStyles.Top
-        studid.Location = New Point(480, 393)
+        studid.Location = New Point(483, 429)
         studid.Name = "studid"
         studid.Size = New Size(331, 23)
         studid.TabIndex = 7
@@ -118,7 +120,7 @@ Partial Class Student_register
         ' 
         Label6.Anchor = AnchorStyles.Top
         Label6.AutoSize = True
-        Label6.Location = New Point(428, 450)
+        Label6.Location = New Point(428, 474)
         Label6.Name = "Label6"
         Label6.Size = New Size(49, 15)
         Label6.TabIndex = 10
@@ -127,7 +129,7 @@ Partial Class Student_register
         ' studsection
         ' 
         studsection.Anchor = AnchorStyles.Top
-        studsection.Location = New Point(483, 447)
+        studsection.Location = New Point(483, 471)
         studsection.Name = "studsection"
         studsection.Size = New Size(331, 23)
         studsection.TabIndex = 9
@@ -136,7 +138,7 @@ Partial Class Student_register
         ' 
         studdepartment.Anchor = AnchorStyles.Top
         studdepartment.FormattingEnabled = True
-        studdepartment.Location = New Point(480, 601)
+        studdepartment.Location = New Point(483, 616)
         studdepartment.Name = "studdepartment"
         studdepartment.Size = New Size(331, 23)
         studdepartment.TabIndex = 11
@@ -145,7 +147,7 @@ Partial Class Student_register
         ' 
         Label7.Anchor = AnchorStyles.Top
         Label7.AutoSize = True
-        Label7.Location = New Point(401, 604)
+        Label7.Location = New Point(404, 619)
         Label7.Name = "Label7"
         Label7.Size = New Size(73, 15)
         Label7.TabIndex = 12
@@ -160,7 +162,7 @@ Partial Class Student_register
         regnowstudent.FlatStyle = FlatStyle.Flat
         regnowstudent.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         regnowstudent.ForeColor = SystemColors.ControlLightLight
-        regnowstudent.Location = New Point(712, 673)
+        regnowstudent.Location = New Point(713, 712)
         regnowstudent.Name = "regnowstudent"
         regnowstudent.RightToLeft = RightToLeft.No
         regnowstudent.Size = New Size(326, 35)
@@ -177,7 +179,7 @@ Partial Class Student_register
         backtoclass.FlatStyle = FlatStyle.Flat
         backtoclass.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         backtoclass.ForeColor = SystemColors.ControlLightLight
-        backtoclass.Location = New Point(320, 673)
+        backtoclass.Location = New Point(321, 712)
         backtoclass.Name = "backtoclass"
         backtoclass.RightToLeft = RightToLeft.No
         backtoclass.Size = New Size(326, 35)
@@ -189,25 +191,25 @@ Partial Class Student_register
         ' 
         Email.Anchor = AnchorStyles.Top
         Email.AutoSize = True
-        Email.Location = New Point(435, 297)
+        Email.Location = New Point(411, 297)
         Email.Name = "Email"
-        Email.Size = New Size(39, 15)
+        Email.Size = New Size(63, 15)
         Email.TabIndex = 16
-        Email.Text = "Email:"
+        Email.Text = "Username:"
         ' 
         ' emailstud
         ' 
         emailstud.Anchor = AnchorStyles.Top
         emailstud.Location = New Point(482, 294)
         emailstud.Name = "emailstud"
-        emailstud.Size = New Size(331, 23)
+        emailstud.Size = New Size(329, 23)
         emailstud.TabIndex = 15
         ' 
         ' Label8
         ' 
         Label8.Anchor = AnchorStyles.Top
         Label8.AutoSize = True
-        Label8.Location = New Point(415, 501)
+        Label8.Location = New Point(418, 516)
         Label8.Name = "Label8"
         Label8.Size = New Size(60, 15)
         Label8.TabIndex = 18
@@ -216,7 +218,7 @@ Partial Class Student_register
         ' passstud
         ' 
         passstud.Anchor = AnchorStyles.Top
-        passstud.Location = New Point(480, 498)
+        passstud.Location = New Point(483, 513)
         passstud.Name = "passstud"
         passstud.Size = New Size(331, 23)
         passstud.TabIndex = 17
@@ -275,7 +277,7 @@ Partial Class Student_register
         ' 
         Label9.Anchor = AnchorStyles.Top
         Label9.AutoSize = True
-        Label9.Location = New Point(391, 553)
+        Label9.Location = New Point(394, 568)
         Label9.Name = "Label9"
         Label9.Size = New Size(86, 15)
         Label9.TabIndex = 29
@@ -285,16 +287,36 @@ Partial Class Student_register
         ' 
         studentstatus.Anchor = AnchorStyles.Top
         studentstatus.FormattingEnabled = True
-        studentstatus.Location = New Point(480, 550)
+        studentstatus.Location = New Point(483, 565)
         studentstatus.Name = "studentstatus"
         studentstatus.Size = New Size(331, 23)
         studentstatus.TabIndex = 28
+        ' 
+        ' Label11
+        ' 
+        Label11.Anchor = AnchorStyles.Top
+        Label11.AutoSize = True
+        Label11.Location = New Point(374, 391)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(103, 15)
+        Label11.TabIndex = 30
+        Label11.Text = "Contatct Number:"
+        ' 
+        ' contactno
+        ' 
+        contactno.Anchor = AnchorStyles.Top
+        contactno.Location = New Point(483, 388)
+        contactno.Name = "contactno"
+        contactno.Size = New Size(331, 23)
+        contactno.TabIndex = 31
         ' 
         ' Student_register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1243, 806)
+        Controls.Add(contactno)
+        Controls.Add(Label11)
         Controls.Add(Label9)
         Controls.Add(studentstatus)
         Controls.Add(studgender)
@@ -352,4 +374,6 @@ Partial Class Student_register
     Friend WithEvents studgender As ComboBox
     Friend WithEvents Label9 As Label
     Friend WithEvents studentstatus As ComboBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents contactno As TextBox
 End Class

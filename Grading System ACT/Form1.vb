@@ -27,7 +27,7 @@ Public Class Form1
 
     Private Sub Loginbtn_Click(sender As Object, e As EventArgs) Handles loginbtn.Click
         If String.IsNullOrWhiteSpace(emailinput.Text) OrElse String.IsNullOrWhiteSpace(passwordinput.Text) Then
-            MessageBox.Show("Please enter both email and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Please enter both Username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
